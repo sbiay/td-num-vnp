@@ -5,6 +5,9 @@ date: 1^er^ semestre 2024-2025
 author: Sébastien Biay
 ---
 
+Présentation des TD
+=====
+
 Plan :
 
 1. [Le sujet : les ponts dans la région Pays de la Loire <2>](#t1)
@@ -82,6 +85,13 @@ Plan :
 
 # Accès aux documents <6>
 [comment6]: <1> (TITRE1)
+
+Tous les diaporamas sont accessibles en deux formats :
+
+1. PDF
+2. Markdown sur mon compte Github [ici](https://github.com/sbiay/td-num-vnp)
+
+<!--Créer une automatisation de mise en forme pour les liens hypertextes-->
 
 
 <a id='t6'/>
