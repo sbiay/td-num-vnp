@@ -89,9 +89,12 @@ Plan :
 Tous les diaporamas sont accessibles en deux formats :
 
 1. PDF
-2. Markdown sur mon compte Github [ici](https://github.com/sbiay/td-num-vnp)
+2. Markdown sur mon compte Github \color{blue}[\underline{ici}](https://github.com/sbiay/td-num-vnp)\color{black}
 
-<!--Créer une automatisation de mise en forme pour les liens hypertextes-->
+<!--
+	- Créer une automatisation de mise en forme pour les liens hypertextes
+	- Eliminer les balises latex dans les exports github
+-->
 
 
 <a id='t6'/>
