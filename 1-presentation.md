@@ -26,9 +26,9 @@ Plan :
 [comment1]: <1> (TITRE1)
 
 
-![Châteaubriant, H. Lalaisse et F. Benoist, lithographie, 1844-1851<a date='sans'/>](img/img_intro-chateaubriantb.jpg)
+![Châteaubriant, H. Lalaisse et F. Benoist, lithographie, 1844-1851<a date='sans'/>](img/img_intro-chateaubriantb.jpg) height=80% 
 
-![La Loire au Pont Haudaudine, phototype, 1901-1903](img/img_intro-nantesb.jpg)
+![La Loire au Pont Haudaudine, phototype, 1901-1903](img/img_intro-nantesb.jpg) height=80% 
 
 
 <!--
@@ -89,7 +89,7 @@ Plan :
 Tous les diaporamas sont accessibles en deux formats :
 
 1. PDF
-2. Markdown sur mon compte Github \color{blue}[\underline{ici}](https://github.com/sbiay/td-num-vnp)\color{black}
+2. Markdown sur mon compte Github [ici](https://github.com/sbiay/td-num-vnp)
 
 <!--
 	- Créer une automatisation de mise en forme pour les liens hypertextes
