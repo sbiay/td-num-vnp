@@ -26,9 +26,9 @@ Plan :
 [comment1]: <1> (TITRE1)
 
 
-![Châteaubriant, H. Lalaisse et F. Benoist, lithographie, 1844-1851<a date='sans'/>](img/img_intro-chateaubriantb.jpg) height=80% 
+![Châteaubriant, H. Lalaisse et F. Benoist, lithographie, 1844-1851<a date='sans'/>](img/img_intro-chateaubriantb.jpg)
 
-![La Loire au Pont Haudaudine, phototype, 1901-1903](img/img_intro-nantesb.jpg) height=80% 
+![La Loire au Pont Haudaudine, phototype, 1901-1903](img/img_intro-nantesb.jpg)
 
 
 <!--
