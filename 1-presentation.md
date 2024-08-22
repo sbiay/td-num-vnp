@@ -10,27 +10,33 @@ Présentation des TD
 
 Plan :
 
-1. [Le sujet : les ponts dans la région Pays de la Loire <2>](#t1)
-2. [Objectifs <3>](#t2)
-3. [Evaluation <4>](#t3)
-4. [Rythme et degré de difficulté <5>](#t4)
-5. [Accès aux documents <6>](#t5)
-6. [Logiciels requis](#t6)
-7. [Sauvegarder son travail <7>](#t7)
-8. [Sauvegarder son travail <7>](#t8)
-9. [Sauvegarder son travail <7>](#t9)
-10. [Sauvegarder son travail <7>](#t10)
-11. [Sauvegarder son travail <7>](#t11)
-12. [Sauvegarder son travail <7>](#t12)
-13. [Sauvegarder son travail <7>](#t13)
+1. [Ce que l'on va faire](#t1)
+	1. [Le sujet : les ponts dans la région Pays de la Loire ](#t1-1)
+	2. [Objectifs ](#t1-2)
+	3. [Evaluation ](#t1-3)
+	4. [Rythme et degré de difficulté ](#t1-4)
+	5. [Accès aux documents ](#t1-5)
+	6. [Logiciels requis ](#t1-6)
+2. [Sauvegarder son travail](#t2)
+	1. [Au fait, comment sauvegardez-vous vos données ? ](#t2-1)
+	2. [Des méthodes très très durables ](#t2-2)
+	3. [Des méthodes plus modernes ](#t2-3)
+	4. [Conseils pratiques ](#t2-4)
 
 [comment]: <> (FINET)
 
 
 <a id='t1'/>
 
-# Le sujet : les ponts dans la région Pays de la Loire <2>
+# Ce que l'on va faire
 [comment1]: <1> (TITRE1)
+
+
+<a id='t1-1'/>
+
+## Le sujet : les ponts dans la région Pays de la Loire 
+
+### <2>
 
 
 **Image** : [Châteaubriant, H. Lalaisse et F. Benoist, lithographie, 1844-1851<a date='sans'/>](img/img_intro-chateaubriantb.jpg)
@@ -45,10 +51,11 @@ Plan :
 -->
 
 
-<a id='t2'/>
+<a id='t1-2'/>
 
-# Objectifs <3>
-[comment2]: <1> (TITRE1)
+## Objectifs 
+
+### <3>
 
 - Récolter des données en ligne sur les sites pertinentes
 - Construire une base de données relationnelles dans un tableur
@@ -59,10 +66,11 @@ Plan :
 [^1]: CMS pour *content management system*.
 
 
-<a id='t3'/>
+<a id='t1-3'/>
 
-# Evaluation <4>
-[comment3]: <1> (TITRE1)
+## Evaluation 
+
+### <4>
 
 - Contrôle continu intégral
 - Atteindre les objectifs !
@@ -70,16 +78,17 @@ Plan :
 - Au fil des séances, un peu de travail à la maison
 
 
-<a id='t4'/>
+<a id='t1-4'/>
 
-# Rythme et degré de difficulté <5>
-[comment4]: <1> (TITRE1)
+## Rythme et degré de difficulté 
+
+### <5>
 
 **Mes objectifs** :
 
 - Que les personnes du groupe les moins à l'aise en informatique puissent avoir 20/20
 
-[comment5]: <1> (Si j'ouvre un tableur, qui se sent déjà un peu mal ?)
+[comment6]: <5> (Si j'ouvre un tableur, qui se sent déjà un peu mal ?)
 
 - Que vous vous sentiez capables de réutiliser ces apprentissages pour vos propres recherches (SAV)
 
@@ -89,10 +98,11 @@ Plan :
 - Entraînement
 
 
-<a id='t5'/>
+<a id='t1-5'/>
 
-# Accès aux documents <6>
-[comment6]: <1> (TITRE1)
+## Accès aux documents 
+
+### <6>
 
 Tous les diaporamas sont accessibles en deux formats :
 
@@ -105,10 +115,11 @@ Tous les diaporamas sont accessibles en deux formats :
 -->
 
 
-<a id='t6'/>
+<a id='t1-6'/>
 
-# Logiciels requis
-[comment7]: <1> (TITRE1)
+## Logiciels requis 
+
+### <7>
 
 - Un éditeur de texte
 	- [Notepad++](https://notepad-plus-plus.org/downloads/) : licence GNU, uniquement pour Windows
@@ -124,71 +135,70 @@ Tous les diaporamas sont accessibles en deux formats :
 - [Omeka](https://www.omeka.net/) : libre et gratuit, licence GNU
 
 
-<a id='t7'/>
+<a id='t2'/>
 
-# Sauvegarder son travail <7>
-[comment8]: <1> (TITRE1)
+# Sauvegarder son travail
+[comment9]: <7> (TITRE1)
 
 
-	Au fait, comment sauvegardez-vous vos données ?
+<a id='t2-1'/>
 
+## Au fait, comment sauvegardez-vous vos données ? 
+
+### <8>
 
 **Image** : [G. Courbet, Le Désespéré, 1843, collection particulière<a date='sans'/>](img/Courbet_desespere.jpg)
 
 
-<a id='t8'/>
+[comment11]: <8> (**Quelle est la méthode de préservation des données la plus durable ?**)
 
-# Sauvegarder son travail <7>
+[comment12]: <8> (Il y a dans cette salle quelqu'un qui perdra tout son mémoire à un moment donné.)
 
-Quelle est la méthode de préservation des données la plus durable ?
+[comment13]: <8> (Ce sera peut-être vous… *Prendre un volontaire pour qu'il raconte sa méthode*.)
 
-[comment9]: <1> (Il y a dans cette salle quelqu'un qui perdra tout son mémoire à un moment donné.)
+[comment14]: <8> (Qui pense avoir une bonne méthode ?)
 
-[comment10]: <1> (Ce sera peut-être vous… *Prendre un volontaire pour qu'il raconte sa méthode*.)
-
-[comment11]: <1> (Qui pense avoir une bonne méthode ?)
-
-[comment12]: <1> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master: quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
+[comment15]: <8> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master: quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
 
 
-<a id='t9'/>
+<a id='t2-2'/>
 
-# Sauvegarder son travail <7>
+## Des méthodes très très durables 
+
+### <9>
 
 
 **Méthode n^o^ 1**
 
 **Image** : [Code d'Hammurabi, musée du Louvre, v. 1750 av. JC<a date='sans'/>](img/code-hammurabi_detail-01.jpg)
 
-[comment13]: <1> (Il a 3750 ans, et il tient toujours le coup.)
+[comment17]: <9> (Il a 3750 ans, et il tient toujours le coup.)
 
-[comment14]: <1> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
+[comment18]: <9> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
 
 
-<a id='t10'/>
-
-# Sauvegarder son travail <7>
+### <10>
 
 
 **Méthode n^o^ 2**
 
 **Image** : [Le manuscrit sur parchemin, ici 1^re^ moitié IX^e^ s.<a date='1re moitié IXe s.'/>](img/lat-5763_fol-001r-detail-a.jpg)
 
-[comment15]: <1> (Ça tient bien aussi, depuis 11 siècles.)
+[comment19]: <10> (Ça tient bien aussi, depuis 11 siècles.)
 
 
-<a id='t11'/>
+<a id='t2-3'/>
 
-# Sauvegarder son travail <7>
+## Des méthodes plus modernes 
+
+### <11>
 
 - Microfilm pour les photos : 100 ans et plus
 - Papier : 50-100 ans
 - Disque dur : 5-10 ans
 
 
-<a id='t12'/>
-
-# Sauvegarder son travail <7>
+### <12>
 
 - **Nuage (*cloud*)** :
 	- Options d'accès : Accès à partir de plusieurs appareils
@@ -207,9 +217,11 @@ Quelle est la méthode de préservation des données la plus durable ?
 	- Fiabilité : Peut se casser, des secteurs peuvent être défectueux
 
 
-<a id='t13'/>
+<a id='t2-4'/>
 
-# Sauvegarder son travail <7>
+## Conseils pratiques 
+
+### <13>
 
 
 **Au quotidien**
@@ -218,11 +230,11 @@ Quelle est la méthode de préservation des données la plus durable ?
 
 2. Un support physique ET un *cloud* : l'idéal !
 
-[comment16]: <1> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles: on ne mettra sur le cloud que les fichiers légers, ou les plus précieux)
+[comment22]: <13> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles: on ne mettra sur le cloud que les fichiers légers, ou les plus précieux)
 
 
 **Pour archiver**
 
 - J'utilise deux supports physiques localisés en deux endroits
 
-[comment17]: <1> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
+[comment23]: <13> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
