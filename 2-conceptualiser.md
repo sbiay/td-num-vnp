@@ -58,7 +58,7 @@ Plan :
 
 ### <3>
 
-- Modéliser un objet d'étude
+- Conceptualiser une base de données
 - Récolter des données en ligne sur les sites pertinents
 - Construire une base de données relationnelles dans un tableur
 - Convertir la base dans un gestionnaire de bases de données professionnel : **Heurist**
