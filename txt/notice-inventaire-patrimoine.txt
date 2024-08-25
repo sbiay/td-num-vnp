@@ -1,0 +1,29 @@
+	
+total_count	124
+results	
+0	
+identifiant	"IA85003243"
+type	"Architecture"
+appellation_du_batiment_eglise_ferme_ou_de_l_objet	"passerelle"
+nom_de_l_edifice_ou_de_l_objet	"Passerelle du Village de la Sèvre"
+commune	"Le Mazeau"
+code_insee_de_la_commune	"85139"
+nom_de_l_aire_d_etude_a_laquelle_est_liee_la_notice	"Vallée de la Sèvre Niortaise, Marais poitevin"
+edifice_contenant_l_objet_mobilier	"Le Mazeau : présentation de la commune"
+categorie_de_l_oeuvre	null
+auteur_de_l_oeuvre	"Jean-Marc Weill;Alfred Cayer;Isidore Vallée"
+datation_de_l_oeuvre	[…]
+historique_du_batiment_ou_de_l_oeuvre	"Cet ouvrage se situait à…itectural de l'ouvrage."
+materiau_du_gros_oeuvre	null
+materiau_de_la_couverture	null
+description_du_batiment	"La passerelle est constr…les également en métal."
+statut_du_batiment_ou_de_l_oeuvre	null
+type_de_protection	null
+x_location	417930.48448944
+ylocation	6586192.7447478995
+chercheur	[…]
+copyright	"(c) Région Pays de la Lo…artemental de la Vendée"
+localisation	{…}
+code_region	"75"
+departement	"Deux-Sèvres"
+code_departement	"79"

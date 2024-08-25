@@ -1,11 +1,11 @@
 ---
 mainfont: Alegreya
-title: Modéliser et récolter
+title: Modéliser et interroger
 date: 1^er^ semestre 2024-2025
 author: Sébastien Biay
 ---
 
-Modéliser et récolter
+Modéliser et interroger
 =====
 
 Plan :
@@ -15,9 +15,11 @@ Plan :
 	2. [Exploration ](#t1-2)
 	3. [Modèle conceptuel : vocabulaire ](#t1-3)
 	4. [Prospective ](#t1-4)
-2. [Récolter les données](#t2)
+2. [Interroger les ressources numériques](#t2)
 	1. [Consulter les sites web ](#t2-1)
-	2. [Mérimée : à vous de jouer ! ](#t2-2)
+	2. [POP : la plateforme ouverte du patrimoine ](#t2-2)
+	3. [Mérimée : à vous de jouer ! ](#t2-3)
+	4. [Gertrude : l'Inventaire général des Pays de la Loire ](#t2-4)
 
 [comment]: <> (FINET)
 
@@ -167,7 +169,7 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 
 <a id='t2'/>
 
-# Récolter les données
+# Interroger les ressources numériques
 [comment12]: <11> (TITRE1)
 
 [comment13]: <11> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
@@ -186,6 +188,8 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 	- Qualité des données
 - Comment récolter leurs données pour les exploiter ?
 
+Navigateur recommandé : **Firefox**
+
 
 ### <13>
 
@@ -197,6 +201,10 @@ Un article [Liste des ponts de France](https://fr.wikipedia.org/wiki/Liste_de_po
 
 Des données beaucoup trop lacunaires pour être utiles !
 
+
+<a id='t2-2'/>
+
+## POP : la plateforme ouverte du patrimoine 
 
 ### <14>
 
@@ -215,7 +223,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 - Etc.
 
 
-<a id='t2-2'/>
+<a id='t2-3'/>
 
 ## Mérimée : à vous de jouer ! 
 
@@ -228,21 +236,91 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 2. Chercher tous les ponts de la région Pays de la Loire sur [Mérimée](https://pop.culture.gouv.fr/search/mosaic?base=%5B%22Patrimoine%20architectural%20%28M%C3%A9rim%C3%A9e%29%22%5D)
 
-	- Il faut aboutir à une liste de [112 résultats](https://pop.culture.gouv.fr/advanced-search/list/merimee?qb=%5B%7B%22field%22%3A%5B%22DENO.keyword%22%5D%2C%22operator%22%3A%22%2A%22%2C%22value%22%3A%22pont%22%2C%22combinator%22%3A%22AND%22%2C%22index%22%3A0%7D%2C%7B%22field%22%3A%5B%22REG.keyword%22%5D%2C%22operator%22%3A%22%3D%3D%22%2C%22value%22%3A%22Pays%20de%20la%20Loire%22%2C%22combinator%22%3A%22AND%22%2C%22index%22%3A1%7D%5D)
+	- Il faut aboutir à une liste de 112 résultats
+	- Et pour l'instant on ne va pas voir la solution dans la suite du diaporama !
+	- Si vous trouvez très vite : cherchez les ponts du seul département de la Vendée (14 résultats)
 
 
 ### <16>
 
-**Méthode à suivre** :
+**Il faut comprendre comment fonctionne la recherche avancée** :
 
 - Par une recherche simple, trouver n'importe quelle notice de pont
 
 - Identifier les champs pertinents pour croiser le type de monument cherché et la localisation
 
-- Examiner le menu déroulant des champs interrogeables en recheche avancée : les premiers sont multiples, puis ce sont des champs simples classés par ordre alpahbétique de leurs abréviations
+- Examiner le menu déroulant des champs interrogeables en recheche avancée : les premiers sont multiples, puis ce sont des champs simples classés par ordre alphabétique de leurs abréviations
 
-- La recherche la plus pertinente pour le type : **dénomination --DENO--** *contient* « pont »
 
-- La recherche la plus pertinente pour la localisation : **région --REG--** *égal à* « Pays de la Loire »
+### <17>
 
+- La recherche la plus pertinente pour le type :\
+**DENO** (dénomination) *contient* « pont »
+
+- La recherche la plus pertinente pour la localisation :\
+**REG** (région) *égal à* « Pays de la Loire »
+
+- Utiliser l'opérateur booléen **ET**
+
+
+Voici les [résultats](https://pop.culture.gouv.fr/advanced-search/list/merimee?qb=%5B%7B%22field%22%3A%5B%22DENO.keyword%22%5D%2C%22operator%22%3A%22%2A%22%2C%22value%22%3A%22pont%22%2C%22combinator%22%3A%22AND%22%2C%22index%22%3A0%7D%2C%7B%22field%22%3A%5B%22REG.keyword%22%5D%2C%22operator%22%3A%22%3D%3D%22%2C%22value%22%3A%22Pays%20de%20la%20Loire%22%2C%22combinator%22%3A%22AND%22%2C%22index%22%3A1%7D%5D) !
+
+Pour la recherche sur un département précis, il faut chercher :
+
+- **DPT** (département) *égal à* 85
+- ou bien **DPT_LETTRE** (département) *égal à* Vendée.
+
+
+### <18>
+
+**On sauvegarde la recherche** dans son navigateur avec un marque-page :
+
+- Ouvrir le volet des marque-pages : Ctrl + B
+- Dans le Menu des marque-pages créer des dossiers :
+	
+	- `Prénom/Nom`\
+	- => `Ponts`\
+	- =>	=> `Sites`
+
+- Ajouter la page des résultats comme marque-page : Ctrl + D
+- Trouver le dossier via **Choisir**
+- Renommer le marque-page, par exemple :\
+`rech Mérimée PDL`
+
+
+### <19>
+
+[comment17]: <19> (Comment récupérer ces informations pour en faire un tableau de données ?)
+
+- Ajouter quelques résultats de la liste au **Panier**
+- Tenter l'export du Panier…
+
+Un export PDF est particulièrement difficile à convertir en tableau…
+
+
+<a id='t2-4'/>
+
+## Gertrude : l'Inventaire général des Pays de la Loire 
+
+### <20>
+
+[https://gertrude.paysdelaloire.fr/](https://gertrude.paysdelaloire.fr/)
+
+Une compétence régionale depuis 2004
+
+**Même exercice** :
+
+- Chercher tous les ponts de la région Pays de la Loire
+	- Il faut aboutir à une liste de 121 résultats
+- Tenter d'exporter ces résultats
+
+
+### <21>
+
+Les critères de la recherche avancée doivent être :\
+**(Type de dossier : Oeuvre architecture)\
+ET\
+(Dénomination : pont)**
+
+Voici la [liste des résultats](https://gertrude.paysdelaloire.fr/recherche/experte/results?q=(typeDossiers:(OeuvreArchitecture),blocs:((id:e86ca9bb-906e-4f97-ba74-f1de08f543b3,thematiqueType:TYPE_OEUVRE,operateur:AND,criteres:((id:df7152f4-f47a-4a52-85fb-d9c4ad6d3b4c,champRecherche:TYPE_OEUVRE_DENOMINATION,valeur:http!:%2F%2Fwww.culture.fr%2Fthesaurus%2FL96-2280,operateur:EQUAL,label:pont,ancestorLabels:(g%C3%A9nie+civil,ouvrage+d%27art))),position:0))))
 

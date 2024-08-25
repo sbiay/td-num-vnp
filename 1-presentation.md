@@ -17,12 +17,14 @@ Plan :
 	4. [Rythme et degré de difficulté ](#t1-4)
 	5. [Accès aux documents ](#t1-5)
 	6. [Logiciels requis ](#t1-6)
-2. [Sauvegarder son travail](#t2)
-	1. [Au fait, comment sauvegardez-vous vos données ? ](#t2-1)
-	2. [Des méthodes très très durables ](#t2-2)
-	3. [Des méthodes plus modernes ](#t2-3)
-	4. [Conseils pratiques ](#t2-4)
-	5. [Des solutions cloud ](#t2-5)
+2. [Qu'est-ce qu'une base de donnée ?](#t2)
+	1. [Définition ](#t2-1)
+3. [Sauvegarder son travail](#t3)
+	1. [Au fait, comment sauvegardez-vous vos données ? ](#t3-1)
+	2. [Des méthodes très très durables ](#t3-2)
+	3. [Des méthodes plus modernes ](#t3-3)
+	4. [Conseils pratiques ](#t3-4)
+	5. [Des solutions cloud ](#t3-5)
 
 [comment]: <> (FINET)
 
@@ -58,7 +60,7 @@ Plan :
 
 ### <3>
 
-- Modéliser un objet d'étude
+- Conceptualiser une base de données
 - Récolter des données en ligne sur les sites pertinents
 - Construire une base de données relationnelles dans un tableur
 - Convertir la base dans un gestionnaire de bases de données professionnel : **Heurist**
@@ -139,61 +141,124 @@ Tous les diaporamas sont accessibles en deux formats :
 
 <a id='t2'/>
 
-# Sauvegarder son travail
+# Qu'est-ce qu'une base de donnée ?
 [comment9]: <7> (TITRE1)
 
 
 <a id='t2-1'/>
 
-## Au fait, comment sauvegardez-vous vos données ? 
+## Définition 
 
 ### <8>
+
+Fichier ou ensemble de fichiers contenant des informations structurées.
+
+**3 modèles logiques** de structuration des données :
+
+1. Modèles en table
+2. Modèle en arbre
+3. Modèle en graphe
+
+
+### <9>
+
+- *Mode de structuration* : ligne et colonne
+- *Format de fichier fréquemment associé* : **CSV**
+- *Langage de requête (recherche, modification)* : SQL (*Structured query language*)
+
+**Image** : [Exemple de table<a date='sans'/>](img/bdd_table.jpg)
+
+
+### <10>
+
+- *Mode de structuration* : parent-enfant(s)
+- *Format de fichier fréquemment associé* :
+	- **XML**
+	- **Json**
+- *Langage de requête (recherche, modification)* :
+	- XML	=> XSLT, Xquery
+	- Json	=> Javascript
+
+Exemple de [fichier XML](https://uncloud.univ-nantes.fr/index.php/s/8aP2QmkLsrYM86b)
+
+
+### <11>
+
+- *Mode de structuration* : noeuds et arêtes (ou relations)
+- *Format de fichier fréquemment associé* : **XML-RDF**
+- *Langage de requête* : Sparql
+
+
+```=latex
+\beginflushright
+```
+![](/home/sbiay/bibliotheque-numerique/images/documents-divers/bdd/exemple_graphe_1.jpg)
+```=latex
+\endflushright
+```
+\vskip 12em
+\beginfigure[!h]
+\captionDonnées en graphe de la BnF
+\endfigure
+
+
+<a id='t3'/>
+
+# Sauvegarder son travail
+[comment11]: <11> (TITRE1)
+
+
+<a id='t3-1'/>
+
+## Au fait, comment sauvegardez-vous vos données ? 
+
+### <12>
 
 **Image** : [G. Courbet, Le Désespéré, 1843, collection particulière<a date='sans'/>](img/Courbet_desespere.jpg)
 
 
-[comment11]: <8> (**Quelle est la méthode de préservation des données la plus durable ?**)
+[comment13]: <12> (**Quelle est la méthode de préservation des données la plus durable ?**)
 
-[comment12]: <8> (Il y a dans cette salle quelqu'un qui perdra tout son mémoire à un moment donné.)
+[comment14]: <12> (Il y a dans cette salle quelqu'un qui perdra tout son mémoire à un moment donné.)
 
-[comment13]: <8> (Ce sera peut-être vous… *Prendre un volontaire pour qu'il raconte sa méthode*.)
+[comment15]: <12> (Ce sera peut-être vous… *Prendre un volontaire pour qu'il raconte sa méthode*.)
 
-[comment14]: <8> (Qui pense avoir une bonne méthode ?)
+[comment16]: <12> (Qui pense avoir une bonne méthode ?)
 
-[comment15]: <8> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master: quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
+[comment17]: <12> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master: quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
 
 
-<a id='t2-2'/>
+<a id='t3-2'/>
 
 ## Des méthodes très très durables 
 
-### <9>
+### <13>
 
 
 **Méthode n^o^ 1**
 
 **Image** : [Code d'Hammurabi, musée du Louvre, v. 1750 av. JC<a date='sans'/>](img/code-hammurabi_detail-01.jpg)
 
-[comment17]: <9> (Il a 3750 ans, et il tient toujours le coup.)
+[comment19]: <13> (Il a 3750 ans, et il tient toujours le coup.)
 
-[comment18]: <9> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
+[comment20]: <13> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
 
 
-### <10>
+### <14>
 
 
 **Méthode n^o^ 2**
 
 **Image** : [Le manuscrit sur parchemin, ici 1^re^ moitié IX^e^ s.<a date='1re moitié IXe s.'/>](img/lat-5763_fol-001r-detail-a.jpg)
 
-[comment19]: <10> (Ça tient bien aussi, depuis 11 siècles.)
+[comment21]: <14> (Ça tient bien aussi, depuis 11 siècles.)
 
 
-<a id='t2-3'/>
+<a id='t3-3'/>
 
 ## Des méthodes plus modernes 
 
-### <11>
+### <15>
 
 
 - Microfilm pour les photos : 100 ans et plus
@@ -201,12 +266,12 @@ Tous les diaporamas sont accessibles en deux formats :
 - Disque dur : 5-10 ans
 
 
-### <12>
+### <16>
 
 **Image** : [Le *cloud*, servi par un centre de données<a date='sans'/>](img/calcul-informatique_data-center.jpg)
 
 
-### <13>
+### <17>
 
 - ***Cloud*** :
 	- Options d'accès : Accès à partir de plusieurs appareils
@@ -225,11 +290,11 @@ Tous les diaporamas sont accessibles en deux formats :
 	- Fiabilité : Peut se casser, des secteurs peuvent être défectueux
 
 
-<a id='t2-4'/>
+<a id='t3-4'/>
 
 ## Conseils pratiques 
 
-### <14>
+### <18>
 
 
 **Au quotidien**
@@ -238,21 +303,21 @@ Tous les diaporamas sont accessibles en deux formats :
 
 2. Un support physique ET un *cloud* : l'idéal !
 
-[comment22]: <14> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
+[comment24]: <18> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
 
 
 **Pour archiver**
 
 - J'utilise deux supports physiques localisés en deux endroits
 
-[comment23]: <14> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
+[comment25]: <18> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
 
 
-<a id='t2-5'/>
+<a id='t3-5'/>
 
 ## Des solutions cloud 
 
-### <15>
+### <19>
 
 - [One-Drive](https://onedrive.live.com) : avec Windows et un compte de messagerie Outlook
 - [Dropbox](https://www.dropbox.com/home) : gratuit pour quelques Go et quelques appareils connectés
