@@ -1,0 +1,17 @@
+identifiant
+nom_de_l_edifice_ou_de_l_objet
+appellation_du_batiment_eglise_ferme_ou_de_l_objet
+datation_de_l_oeuvre
+commune
+departement
+code_insee_de_la_commune
+code_departement
+localisation
+edifice_contenant_l_objet_mobilier
+materiau_du_gros_oeuvre
+auteur_de_l_oeuvre
+historique_du_batiment_ou_de_l_oeuvre
+description_du_batiment
+type_de_protection
+chercheur
+copyright

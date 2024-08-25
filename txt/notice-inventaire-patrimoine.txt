@@ -1,7 +1,3 @@
-	
-total_count	124
-results	
-0	
 identifiant	"IA85003243"
 type	"Architecture"
 appellation_du_batiment_eglise_ferme_ou_de_l_objet	"passerelle"

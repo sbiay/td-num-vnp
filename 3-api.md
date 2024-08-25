@@ -221,9 +221,52 @@ L'objectif est de convertir une sélection de ces informations dans un ordre log
 
 ### <17>
 
-En recopiant la ligne des en-têtes du [jeu de données entier au format CSV](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B) j'obtiens ceci :
+À partir du résultat de la diapo précédente, je copie-colle dans un éditeur de texte l'ensemble du contenu de la notice
 
-\scriptsize
-`Identifiant; type; Appellation du bâtiment (église, ferme …) ou de l'objet; Nom de l'édifice ou de l'objet; Commune; Code Insee de la commune; Nom de l'aire d'étude à laquelle est liée la notice; Edifice contenant l'objet mobilier; Catégorie de l'œuvre; Auteur de l'œuvre; Datation de l'œuvre; Historique du bâtiment ou de l'œuvre; Matériau du gros-œuvre; Matériau de la couverture; Description du bâtiment; Statut du bâtiment ou de l'œuvre; Type de protection; X location; Ylocation; Chercheur; Copyright; localisation; code_region; departement; code_departement`
+- Récupérer ce contenu en téléchargeant [ce fichier .txt](https://raw.githubusercontent.com/sbiay/td-num-vnp/main/txt/notice-inventaire-patrimoine.txt) (une fois le contenu afficher, un simple clic sur enregistrer sous)
+
+- Ouvrir le fichier dans un éditeur de texte
 
 
+### <18>
+
+On commence par éliminer à la main les **lignes** qui ne comportent pas d'intitulé de champ :
+
+- Les 4 premières lignes
+
+**NB** : quand le curseur est sur une ligne ou lorsque l'on en sélectionne plusieurs, **Maj + Suppr** supprime toute la ou les lignes
+
+
+### <19>
+
+Puis on élimine les **valeurs** pour ne conserver que les intitulés des champs :
+
+- Exemple : sur la première ligne, `identifiant	"IA85003243"`, on ne veut garder que `identifiant`
+
+Pour cela on va effectuer des *cherche-remplace* à l'aide des **Expressions régulières** :
+
+- Activer la boîte de dialogue *cherche-remplace* : **Ctrl + H**
+- Cliquer sur l'option qui ressemble à `.*` pour activer la recherche par expression régulière
+- Dans le champ **Find**, taper `\t` : cela exprime **Tabulation**, qui sert ici de séparateur entre l'intitulé du champ et la valeur placée entre guillemets
+
+
+### <20>
+
+- Dans le champ **Find** (vidé), taper maintenant `\n` : cela exprime **Retour à la ligne**
+
+Pour conserver l'intitulé du champ, on va supprimer le séparateur (`\t`) et tous les caractères ce qui suivent, jusqu'au retour à la ligne (`\n`) qu'il faudra conserver… Voici comment :
+
+- **Find** : `\t[^\n]+`
+- **Replace** : *laisser vide*
+
+
+### <21>
+
+**Traduction de cette chose** : `\t[^\n]+`
+
+On recherche :
+
+- `\t` une tabulation
+- Suivie de `[]` un caractère (l'espace entre les crochets permet de définir un ensemble de caractères)
+- `^` signifie "tout sauf" ; par exemple `[^a]` signifie "tout caractère sauf `a`" ; `[^\t]` signifie "tout caractère sauf une tabulation" ; or, après la tabulation, on veut éliminer tout caractère sauf un retour à la ligne, pour éliminer tout jusqu'à la fin de la ligne `[^\n]`
+- `+` est un **quantificateur** signifie "entre 1 et l'infini" : or la suite de la ligne est constituée de "tout sauf un retour à la ligne" (`[^\n]`) un certain nombre (une infinité) de fois (`+`)
