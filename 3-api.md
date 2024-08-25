@@ -10,18 +10,16 @@ Les API Requêtes et exports de données en masse
 
 Plan :
 
-1. [Les donnée ouvertes](#t1)
-	1. [Mérimée, mais pas tout… ](#t1-1)
-	2. [L'Inventaire du patrimoine ](#t1-2)
-	3. [Exporter les données d'une API ](#t1-3)
+1. [Mérimée, mais pas tout…](#t1)
+	1. [Télécharger en différents formats ](#t1-1)
+	2. [Obtenir les données de l'API ](#t1-2)
+2. [L'Inventaire du patrimoine](#t2)
+	1. [Faire parler l'API : clauses WHERE complexes ](#t2-1)
+	2. [Préparer une liste ordonnée des champs ](#t2-2)
+	3. [Exporter le fichier de résultats ](#t2-3)
+	4. [Transformer Json en CSV ](#t2-4)
 
 [comment]: <> (FINET)
-
-
-<a id='t1'/>
-
-# Les donnée ouvertes
-[comment1]: <1> (TITRE1)
 
 
 ### <2>
@@ -36,9 +34,15 @@ Les institutions publiques pratiquent **l'ouverture des données** (*opendata*)�
 (qui correspondent au site gertrude.paysdelaloire.fr)
 
 
+<a id='t1'/>
+
+# Mérimée, mais pas tout…
+[comment1]: <2> (TITRE1)
+
+
 <a id='t1-1'/>
 
-## Mérimée, mais pas tout… 
+## Télécharger en différents formats 
 
 ### <3>
 
@@ -65,6 +69,10 @@ Il s'agit d'une partie seulement des notices de Mérimée, *sans les notices iss
 
 - Et bien d'autres…
 
+
+<a id='t1-2'/>
+
+## Obtenir les données de l'API 
 
 ### <5>
 
@@ -112,16 +120,22 @@ Il faut trouver [22 résultats](https://data.culture.gouv.fr/api/explore/v2.1/ca
 N'est-il pas étrange de ne trouver que 22 résultats ?\
 Comment l'expliquer ?
 
-[comment3]: <8> (On ne récolte que les sites protégés MH, dont les notices ont un identifiant en PA ; sur le site web de Mérimée, on avait aussi des notices de l'Inventaire du patrimoine, à l'identifiant en IA.)
+[comment4]: <8> (On ne récolte que les sites protégés MH, dont les notices ont un identifiant en PA ; sur le site web de Mérimée, on avait aussi des notices de l'Inventaire du patrimoine, à l'identifiant en IA.)
 
-[comment4]: <8> (On a donc accès à des données exportables, mais des données plus pauvres que celles du site Mérimée.)
+[comment5]: <8> (On a donc accès à des données exportables, mais des données plus pauvres que celles du site Mérimée.)
 
-[comment5]: <8> (On peut toujours espérer que toutes les notices IA de Mérimée soit aussi dans Gertrude… Il faudra évaluer la question.)
+[comment6]: <8> (On peut toujours espérer que toutes les notices IA de Mérimée soit aussi dans Gertrude… Il faudra évaluer la question.)
 
 
-<a id='t1-2'/>
+<a id='t2'/>
 
-## L'Inventaire du patrimoine 
+# L'Inventaire du patrimoine
+[comment7]: <8> (TITRE1)
+
+
+<a id='t2-1'/>
+
+## Faire parler l'API : clauses WHERE complexes 
 
 ### <9>
 
@@ -207,9 +221,9 @@ where :\
 Résultats : [124](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%2C%20commune%2C%20code_departement&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=commune%20ASC&limit=100) !
 
 
-<a id='t1-3'/>
+<a id='t2-2'/>
 
-## Exporter les données d'une API 
+## Préparer une liste ordonnée des champs 
 
 ### <16>
 
@@ -302,19 +316,90 @@ On remplace donc les retours à la ligne par **virgule suivie d'une espace** :
 
 Et on copie-colle le résultat dans le champ **select**
 
+Pour la clause **where**, on peut copier-coller à partir de [ce fichier](https://raw.githubusercontent.com/sbiay/td-num-vnp/main/txt/requete-complete-inventaire.txt)
+
+
+<a id='t2-3'/>
+
+## Exporter le fichier de résultats 
 
 ### <24>
 
-Requête complète à passer :
+Il reste un problème !
 
-select :\
-\scriptsize
-`identifiant, nom_de_l_edifice_ou_de_l_objet AS nom, appellation_du_batiment_eglise_ferme_ou_de_l_objet AS appellation, datation_de_l_oeuvre AS datation, commune, departement, code_insee_de_la_commune AS insee, code_departement, localisation, edifice_contenant_l_objet_mobilier AS appartient_a, materiau_du_gros_oeuvre, auteur_de_l_oeuvre AS auteur, historique_du_batiment_ou_de_l_oeuvre, description_du_batiment, type_de_protection, chercheur, copyright`
+Nous avons 124 résultats,\
+mais le droit d'en exporter jusqu'à 100…
+
+Comment faire ?
 
 
-where :\
-\scriptsize
-`appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont"`\
-`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = "passerelle"`\
-`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = "viaduc"`
+### <25>
 
+Solutions possibles :
+
+- Isoler un département des autres en complétant la clause **where**
+- Utiliser la clause **order_by** pour partager les résultats en deux moitiés
+	
+	1. D'abord :
+		- order_by : `identifiant ASC`
+		- limit : `62`
+		- Résultats [ici](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%20AS%20nom%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%20AS%20appellation%2C%20datation_de_l_oeuvre%20AS%20datation%2C%20commune%2C%20departement%2C%20code_insee_de_la_commune%20AS%20insee%2C%20code_departement%2C%20localisation%2C%20edifice_contenant_l_objet_mobilier%20AS%20appartient_a%2C%20materiau_du_gros_oeuvre%2C%20auteur_de_l_oeuvre%20AS%20auteur%2C%20historique_du_batiment_ou_de_l_oeuvre%2C%20description_du_batiment%2C%20type_de_protection%2C%20chercheur%2C%20copyright&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=identifiant%20ASC&limit=62)
+	
+	2. Puis :
+		- order_by : `identifiant DESC`
+		- limit : `62`
+		- Résultats [ici](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%20AS%20nom%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%20AS%20appellation%2C%20datation_de_l_oeuvre%20AS%20datation%2C%20commune%2C%20departement%2C%20code_insee_de_la_commune%20AS%20insee%2C%20code_departement%2C%20localisation%2C%20edifice_contenant_l_objet_mobilier%20AS%20appartient_a%2C%20materiau_du_gros_oeuvre%2C%20auteur_de_l_oeuvre%20AS%20auteur%2C%20historique_du_batiment_ou_de_l_oeuvre%2C%20description_du_batiment%2C%20type_de_protection%2C%20chercheur%2C%20copyright&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=identifiant%20DESC&limit=62)
+
+
+### <26>
+
+Sauvegarder les deux fichiers Json dans un dossier dédié :
+
+`Prénom/Nom/`
+
+=> `json/`
+
+=> => `inventaire-PDL-debut.json`\
+=> => `inventaire-PDL-fin.json`
+
+
+<a id='t2-4'/>
+
+## Transformer Json en CSV 
+
+### <27>
+
+Pour obtenir un tableau à partir de ces résultats, on utilisera une application en ligne de transformation : [convertcsv.com](https://www.convertcsv.com/json-to-csv.htm)
+
+1. Charger le fichier Json
+2. *Choose output options* : cliquer sur **optional**
+	- Output Field Separator : **Tab**
+
+3. Cliquer sur **Download results**
+
+Effectuer l'opération pour les deux fichiers Json
+
+
+### <28>
+
+Sauvegarder les deux fichiers Json dans un dossier dédié :
+
+`Prénom/Nom/`
+
+=> `csv/`
+
+=> => `inventaire-PDL-debut.csv`\
+=> => `inventaire-PDL-fin.csv`
+
+Puis, dans **LibreOffice Calc**, créer un nouveau **classeur** et le sauvegarder ainsi :
+
+`Prénom/Nom/`
+
+=> `tableur/`
+
+=> => `inventaire-PDL.ods`
+
+
+### <29>
+
+Ouvrir le fichier **inventaire-PDL-debut.csv** dans LOC
