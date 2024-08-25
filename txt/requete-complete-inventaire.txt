@@ -1,0 +1,7 @@
+select :
+
+identifiant, nom_de_l_edifice_ou_de_l_objet AS nom, appellation_du_batiment_eglise_ferme_ou_de_l_objet AS appellation, datation_de_l_oeuvre AS datation, commune, departement, code_insee_de_la_commune AS insee, code_departement, localisation, edifice_contenant_l_objet_mobilier AS appartient_a, materiau_du_gros_oeuvre, auteur_de_l_oeuvre AS auteur, historique_du_batiment_ou_de_l_oeuvre, description_du_batiment, type_de_protection, chercheur, copyright
+
+where :
+
+appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont" OR appellation_du_batiment_eglise_ferme_ou_de_l_objet="passerelle" OR appellation_du_batiment_eglise_ferme_ou_de_l_objet="viaduc"

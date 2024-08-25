@@ -270,3 +270,51 @@ On recherche :
 - Suivie de `[]` un caractère (l'espace entre les crochets permet de définir un ensemble de caractères)
 - `^` signifie "tout sauf" ; par exemple `[^a]` signifie "tout caractère sauf `a`" ; `[^\t]` signifie "tout caractère sauf une tabulation" ; or, après la tabulation, on veut éliminer tout caractère sauf un retour à la ligne, pour éliminer tout jusqu'à la fin de la ligne `[^\n]`
 - `+` est un **quantificateur** signifie "entre 1 et l'infini" : or la suite de la ligne est constituée de "tout sauf un retour à la ligne" (`[^\n]`) un certain nombre (une infinité) de fois (`+`)
+
+
+### <22>
+
+Tous les champs sont-ils utiles ?
+
+L'ordre est-il le plus logique ?
+
+Pour tous travailler au même diapason, voici la réorganisation que vous pouver télécharger avec 
+[ce fichier .txt](https://raw.githubusercontent.com/sbiay/td-num-vnp/main/txt/champs-inventaire-patrimoine.txt)
+
+On peut également personnaliser leur intitulé de cette façon :
+
+\small
+- `nom_de_l_edifice_ou_de_l_objet AS nom`
+- `appellation_du_batiment_eglise_ferme_ou_de_l_objet`\
+`AS appellation`
+- `edifice_contenant_l_objet_mobilier AS appartient_a`
+- `code_insee_de_la_commune AS insee`
+
+
+### <23>
+
+Enfin, il faut convertir cette succession de lignes en une clause **select** écrite sur une seule ligne
+
+On remplace donc les retours à la ligne par **virgule suivie d'une espace** :
+
+- **Find** : `\n`
+- **Replace** : `, `
+
+Et on copie-colle le résultat dans le champ **select**
+
+
+### <24>
+
+Requête complète à passer :
+
+select :\
+\scriptsize
+`identifiant, nom_de_l_edifice_ou_de_l_objet AS nom, appellation_du_batiment_eglise_ferme_ou_de_l_objet AS appellation, datation_de_l_oeuvre AS datation, commune, departement, code_insee_de_la_commune AS insee, code_departement, localisation, edifice_contenant_l_objet_mobilier AS appartient_a, materiau_du_gros_oeuvre, auteur_de_l_oeuvre AS auteur, historique_du_batiment_ou_de_l_oeuvre, description_du_batiment, type_de_protection, chercheur, copyright`
+
+
+where :\
+\scriptsize
+`appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont"`\
+`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = "passerelle"`\
+`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = "viaduc"`
+
