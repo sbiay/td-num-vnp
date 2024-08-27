@@ -12,9 +12,8 @@ Plan :
 
 1. [Modéliser un objet d'étude](#t1)
 	1. [Qu'est-ce que modéliser ? ](#t1-1)
-	2. [Exploration ](#t1-2)
-	3. [Modèle conceptuel : vocabulaire ](#t1-3)
-	4. [Prospective ](#t1-4)
+	2. [Modèle conceptuel : vocabulaire ](#t1-2)
+	3. [Prospective ](#t1-3)
 2. [Interroger les ressources numériques](#t2)
 	1. [Consulter les sites web ](#t2-1)
 	2. [POP : la plateforme ouverte du patrimoine ](#t2-2)
@@ -64,31 +63,29 @@ Plan :
 	- Valorisation
 
 
-<a id='t1-2'/>
-
-## Exploration 
-
 ### <4>
+
+Les ponts dits romains… sont souvent médiévaux :
+
+[comment3]: <4> (Il n'est pas du tout certain que la voie romaine Chartres-Le Mans traversait l'Huisne à cet emplacement ; c'est au Moyen Âge que cet axe devient important pour relier Le Mans et Paris.)
+
+**Image** : [Le pont dit Romain de Montfort-le-Gesnois, 1^re^ moitié XV^e^ s.<a date='sans'/>](img/img_10e0aa33-b8e9-4731-995e-83897f815155.jpg)
+
+
+### <5>
 
 Le pont le plus anciennement attesté en Pays de la Loire :\
 le Grand Pont d'Angers (Grégoire de Tours, 590).
 
 
-**Image** : [Angiers fait della main du capite Ercules conte de Senfront, v. 1590, Archives de l'État de Turin<a date='sans'/>](img/img_0e1c4490-d6ab-4c9b-bd2a-a5929150ce1c.jpg)
-
-
-### <5>
-
-Un des ponts les plus anciens conservés en Pays de la Loire :
-
-[comment4]: <5> (Il n'est pas du tout certain que la voie romaine Chartres-Le Mans traversait l'Huisne à cet emplacement ; c'est au Moyen Âge que cet axe devient important pour relier Le Mans et Paris.)
-
-**Image** : [Le pont dit Romain de Montfort-le-Gesnois, 1^re^ moitié XV^e^ s.](img/img_10e0aa33-b8e9-4731-995e-83897f815155.jpg)
+**Image** : [Angiers fait della main du capite Ercules conte de Senfront, v. 1590, Archives de l'État de Turin](img/img_0e1c4490-d6ab-4c9b-bd2a-a5929150ce1c.jpg)
 
 
 ### <6>
 
-**Image** : [Vieux Pont de Laval, XV^e^ s.](img/img_laval.jpg)
+[comment4]: <6> (Le plus vieu pont conservé en PDL :)
+
+**Image** : [Vieux Pont de Laval, XIII^e^ s.](img/img_laval.jpg)
 
 
 ### <7>
@@ -134,7 +131,7 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 [comment9]: <9> (Revenons à l'idée du phasage : le cas du Grand Pont d'Angers est intéressant. On peut rattacher à chaque entité *pont* des entités *phases*, qui se distinguent par la date, les matériaux, les sources qui s'y rattachent --icono par exemple--. On voit que le site de l'inventaire comme la base POP --uniquement l'API-- font plus simple : rassembler toutes les données de phase et d'histoire dans une seule notice : l'utilisateur interprétera lui-même l'information « Haut Moyen Âge » en lisant l'ensemble de la notice.)
 
 
-<a id='t1-3'/>
+<a id='t1-2'/>
 
 ## Modèle conceptuel : vocabulaire 
 
@@ -155,7 +152,7 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 	- Egalement dénommé : *record*
 
 
-<a id='t1-4'/>
+<a id='t1-3'/>
 
 ## Prospective 
 

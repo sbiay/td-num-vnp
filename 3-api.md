@@ -355,12 +355,12 @@ Solutions possibles :
 
 Sauvegarder les deux fichiers Json dans un dossier dédié :
 
-`Prénom/Nom/`
+`prenom-nom/`
 
 => `json/`
 
-=> => `inventaire-PDL-debut.json`\
-=> => `inventaire-PDL-fin.json`
+=> => `inventaire-pays-loire-debut.json`\
+=> => `inventaire-pays-loire-fin.json`
 
 
 <a id='t2-4'/>
@@ -384,22 +384,10 @@ Effectuer l'opération pour les deux fichiers Json
 
 Sauvegarder les deux fichiers Json dans un dossier dédié :
 
-`Prénom/Nom/`
+`prenom-nom/`
 
 => `csv/`
 
-=> => `inventaire-PDL-debut.csv`\
-=> => `inventaire-PDL-fin.csv`
+=> => `inventaire-pays-loire-debut.csv`\
+=> => `inventaire-pays-loire-fin.csv`
 
-Puis, dans **LibreOffice Calc**, créer un nouveau **classeur** et le sauvegarder ainsi :
-
-`Prénom/Nom/`
-
-=> `tableur/`
-
-=> => `inventaire-PDL.ods`
-
-
-### <29>
-
-Ouvrir le fichier **inventaire-PDL-debut.csv** dans LOC
