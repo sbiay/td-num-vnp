@@ -128,11 +128,11 @@ Pour cela on va simplement écrire `a|b` qui signifie *\"Je veux seulement les a
 Dans certains cas, on peut vouloir capturer seulement une partie de l'expression régulière que l'on a écrite.
 Par exemple, quand on sait comment une phrase est formée, on peut vouloir récupérer une information précise.
 
-> - Bonjour, je m'appelle Aubin et je vis à Angers.
-
-> - Bonjour, je m'appelle Radegonde et je vis à Poitiers.
-
-> - Et que fais-tu dans la vie ?
+> — Bonjour, je m'appelle Aubin et je vis à Angers.
+>
+> — Bonjour, je m'appelle Radegonde et je vis à Poitiers.
+>
+> — Et que fais-tu dans la vie ?
 
 On veut récupérer les prénoms.
 On sait que dans ce texte le prénom se trouve après *je m'appelle*
