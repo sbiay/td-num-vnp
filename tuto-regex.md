@@ -20,12 +20,11 @@ conformité d'une donnée ou encore extraire des informations.
 
 Nous commencerons avec les bases des expressions régulières en
 s'exerçant sur des exemples simples, puis nous verrons ensuite quelques
-cas d'utilisations dans un milieu professionnel (en programmation et
-avec des outils en ligne de commande).
+cas d'utilisations dans un milieu professionnel .
 
 Le cours sera séparé en cinq parties:
 
--  [Les différents ensembles](#1-les-differents-ensembles)
+-  [Les différents ensembles]
 -  [Les opérateurs](#2-les-operateurs)
 -  [Les groupes](#3-les-groupes)
 -  [Utilisation en milieu
@@ -33,9 +32,8 @@ Le cours sera séparé en cinq parties:
 -  [Entrainement](#5-entrainement)
 
 
-## [Les différents ensembles](#1-les-differents-ensembles) {#1-les-differents-ensembles}
+## Les différents ensembles
 
-::: {.extract-wrapper}
 Quand on écrit sur un clavier, on peut utiliser un ensemble défini de
 caractères.
 On y trouve les **lettres** minuscules/majuscules, les
@@ -51,7 +49,7 @@ string***, collez ceci:
 
 ::: {.hljs-code-div .hljs-code-text}
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}[]{count="6"}[]{count="7"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}{count="6"}{count="7"}
 :::
 
   Bonjour et bienvenue dans le tutoriel sur les expressions régulières du site zestedesavoir.com
@@ -81,10 +79,10 @@ qu'interviennent les ensembles !
 ![;)](/static/smileys/svg/clin.svg){.smiley}
 
 
-### Les ensembles[](#les-ensembles)
+### Les ensembles
 
 Dans les expressions régulières, un ensemble se représente entre
-crochets `[]`:
+crochets ``:
 
 -  les lettres `[a-z]` ;
 -  les chiffres `[0-9]` ;
@@ -92,7 +90,7 @@ crochets `[]`:
   -  `\t` est la manière textuelle de représenter une tabulation ;
   -  `\n` est la manière textuelle de représenter un retour à la
   ligne.
--  les caractères spéciaux `[&é"'(è_çà)=]` (à compléter en fonction des
+-  les caractères spéciaux `[&é"'=]` (à compléter en fonction des
   besoins) ;
 -  la négation (trouver ce qui n'est pas compris dans mon ensemble)
   `[^a]` (tout ce qui n'est pas un a).
@@ -119,7 +117,7 @@ faire avec les voyelles puisqu'elles ne se suivent pas, il faudra écrire
 
 ::: {.custom-block .custom-block-information}
 ::: {.custom-block-body}
-Si vous utilisez - en dehors d'un ensemble (`[]`) il sera
+Si vous utilisez - en dehors d'un ensemble (``) il sera
 interprété comme le caractère -, ce qui sera également le cas
 dans un ensemble **si** et seulement **si** il n'est pas entouré.\
 Ex. `[-aeiou]` trouve les voyelles et le tiret.\
@@ -129,7 +127,7 @@ i et o dans la table ascii, et le u.
 :::
 
 
-### Les raccourcis d'ensembles[](#les-raccourcis-densembles)
+### Les raccourcis d'ensembles
 
 Il peut vite être fastidieux d'écrire un grand ensemble et de réécrire
 toujours la même chose.
@@ -143,7 +141,7 @@ présentés plus haut :
   ci ;
 -  n'importe quel caractère `.`.
 
-::: {.custom-block .custom-block-information}
+::: 
 ::: {.custom-block-body}
 Si on veut détecter le caractère \"point\" ., il va falloir
 écrire `.`, sinon, l'expression régulière pensera que l'on cherche
@@ -159,11 +157,11 @@ Très pratique, chaque raccourci a également son contraire :
 
 L'ensemble en majuscule indique l'inverse de l'ensemble minuscule.
 Dans
-ce cas il n'est pas utile d'utiliser les `[]` sauf si on veut combiner
+ce cas il n'est pas utile d'utiliser les `` sauf si on veut combiner
 différents ensembles.
 
 
-### Caractères de regex[](#caractères-de-regex)
+### Caractères de regex
 
 Dans certains cas, on peut vouloir détecter des éléments qu'on ne peut
 pas écrire au clavier, c'est le cas d'un début de ligne, une fin de
@@ -180,16 +178,15 @@ Pour comprendre l'utilisation de ces caractères, voici des exemples :
 -  si on veut récupérer le premier mot de chaque ligne: `^\w+` ;
 -  si on veut récupérer le dernier mot de chaque ligne: `\w+$` ;
 -  si on veut récupérer le mot anti :
-  -  en utilisant juste `anti`, on en obtiendrait 2 (celui de
-  **anti** et de **antidote**) ;
+  -  en utilisant juste `anti`, on en obtiendrait 2  ;
   -  en utilisant `\banti\b` on obtient bien le mot seul **anti**
   mais pas celui de **antidote**.
 
 
-### Caractères unicode[](#caractères-unicode)
+### Caractères unicode
 
 Il est aussi possible d'utiliser des regex pour trouver des caractères
-[Unicode](https://fr.wikipedia.org/wiki/Unicode) :
+[Unicode] :
 
 -  le caractère ! en unicode: `\x21` ou `\u0021` ;
 -  un marqueur unicode: `\p{M}` ;
@@ -208,9 +205,8 @@ Par exemple a (`\u0061`) et à (qui peut
 :::
 
 
-## [Les opérateurs](#2-les-operateurs) {#2-les-operateurs}
+## Les opérateurs]
 
-::: {.extract-wrapper}
 Dans la partie précédente, on a vu comment chercher des éléments d'un
 ensemble mais cela fonctionnait caractère par caractère.
 Nous allons
@@ -218,21 +214,20 @@ maintenant voir comment faire pour trouver un mot au lieu d'une
 succession de caractères.
 
 
-### L'opérateur d'alternative[](#lopérateur-dalternative)
+### L'opérateur d'alternative
 
 Il est possible de dire que l'on veut un caractère **OU** un autre.
 Pour
 cela on va simplement écrire `a|b` qui signifie *\"Je veux seulement les
-a **ou** les b\"* (aussi équivalent à l'ensemble
-`[ab]`).
+a **ou** les b\"* .
 
 
-### Les opérateurs de quantité[](#les-opérateurs-de-quantité)
+### Les opérateurs de quantité
 
 -  0 ou 1 élément `?`
 -  0 ou plusieurs éléments `*`
 -  Au moins 1 élément `+`
--  Un nombre défini d'élément `{n,m}`
+-  Un nombre défini d'élément ``
   -  `{0,}` = `*`
   -  `{1,}` = `+`
   -  `{,1}` = `?`
@@ -253,7 +248,7 @@ Le chiffre est au nombre ce que la lettre est au mot.
 :::
 
 
-### Quelques exemples[](#quelques-exemples)
+### Quelques exemples
 
 Pour les exemples suivants, nous prendrons comme référence le texte
 ***\"Bonjour 2020\"***.
@@ -265,16 +260,15 @@ Pour les exemples suivants, nous prendrons comme référence le texte
   `['2', '0', '2', '0']` alors que l'expression `\d+` doit trouver
   `['2020']`.
 -  L'expression `on|ou` doit trouver la liste suivante `['on', 'ou']`.
--  L'expression `\d{2}` doit trouver la liste suivante `['20', '20']`.
+-  L'expression `\d` doit trouver la liste suivante `['20', '20']`.
 :::
 
 
-## [Les groupes](#3-les-groupes) {#3-les-groupes}
-
-::: {.extract-wrapper}
+## Les groupes
 
 
-### Les groupes capturant[](#les-groupes-capturant)
+
+### Les groupes capturant
 
 Dans certains cas, on peut vouloir capturer seulement une partie de
 l'expression régulière que l'on a écrite.
@@ -290,7 +284,7 @@ On
 sait que le prénom se trouve généralement après avoir dit \"***je
 m'appelle***\".
 
-On peut alors écrire `je m'appelle ([a-zA-Z]+)` et on obtient ceci:
+On peut alors écrire `je m'appelle ` et on obtient ceci:
 
 ![Groupe
 capturant](/media/galleries/12002/b7789dcd-0817-4888-b581-8c3f40e063b6.png)
@@ -299,24 +293,24 @@ Le match complet est `je m'appelle Toto` mais on a précisé que la
 capture intéressante était la partie après \"**je m'appelle**\".
 
 
-### Les groupes non capturant[](#les-groupes-non-capturant)
+### Les groupes non capturant
 
 Dans certains cas, il est possible que nous devions repérer une
 information importante mais dont la capture finale nous importe peu.
 Dans ce cas on peut utiliser un groupe qui ne va pas capturer ce qui est
-entre parenthèses : `(?:noncapturant)`.
+entre parenthèses : ``.
 
 Pas d'exemple pour celui là, vous en trouverez sûrement une utilité en
 pratiquant par vous même ![;)](/static/smileys/svg/clin.svg){.smiley} .
 
 
-### Les groupes nommés[](#les-groupes-nommés)
+### Les groupes nommés
 
 Quand on veut récupérer des données ordonnées d'une certaine manière
 comme le format ***jj/dd/yyyy*** d'une date par exemple, ce type de
 groupe devient très intéressant.
 Un groupe nommé s'écrit de cette
-manière: `(?<name>selection)`.
+manière: ``.
 
 Donc si on veut récupérer le jour, le mois et l'année, on peut écrire:\
 `(?<day>\d+)\/(?<month>\d+)\/(?<year>\d+)`
@@ -333,14 +327,14 @@ exactement comme pour les tabulations et les retours à la ligne: `\/`.
 :::
 
 
-### Les groupes spéciaux[](#les-groupes-spéciaux)
+### Les groupes spéciaux
 
 Ces types de groupes vont être utilisés pour faire des recherches plus
 avancées dans le texte.
 
 -  Positive lookahead : trouver l'élément qui précède
 
-  > Ex. `a(?=b)` -\> *\"Les a qui précèdent un b\"*.
+  > Ex. `a` -\> *\"Les a qui précèdent un b\"*.
 
 -  Negative lookahead : trouver l'élément qui ne précède pas
 
@@ -363,9 +357,8 @@ ici](https://www.regular-expressions.info/refadv.html) (en anglais).
 :::
 
 
-## [Utilisation en milieu professionnel](#4-utilisation-en-milieu-professionnel) {#4-utilisation-en-milieu-professionnel}
+## Utilisation en milieu professionnel
 
-::: {.extract-wrapper}
 Depuis le début du tutoriel, vous faites vos tests sur le site
 **Rubular** qui interprète des expressions régulières basées sur le
 langage Ruby.
@@ -397,11 +390,10 @@ des problèmes de performances et de maintenabilité.
 :::
 
 
-### Où utiliser les regex ?[](#où-utiliser-les-regex)
+### Où utiliser les regex ?
 
 On peut les utiliser dans les différents langages de programmation,
-notamment en C++, Java, Python, Ruby, Perl, Php, SQL (en fonction du
-SGBD), Javascript, etc.
+notamment en C++, Java, Python, Ruby, Perl, Php, SQL , Javascript, etc.
 Ce qui changera en fonction du langage, c'est le
 moteur qui interprète la regex.
 
@@ -437,19 +429,19 @@ carte sur un site en ligne, il est capable de vous afficher le type de
 carte que vous utilisez.
 
 
-### Exemples en programmation[](#exemples-en-programmation)
+### Exemples en programmation
 
 Prenons un exemple simple, on veut savoir si une chaîne de caractères
 est une [couleur
-hexadecimal](https://fr.wikipedia.org/wiki/Couleur_du_Web#Codage_informatique_des_couleurs)
+hexadecimal]
 ou non.
 
 
-#### JavaScript[](#javascript)
+#### JavaScript
 
-::: {.hljs-code-div .hljs-code-js}
+::: 
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}
 :::
 
   let re = /^#0-9a-fA-F$/
@@ -460,11 +452,11 @@ ou non.
 :::
 
 
-#### Python[](#python)
+#### Python
 
-::: {.hljs-code-div .hljs-code-py}
+::: 
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}[]{count="6"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}{count="6"}
 :::
 
   import re
@@ -476,11 +468,11 @@ ou non.
 :::
 
 
-#### C++[](#c)
+#### C++
 
-::: {.hljs-code-div .hljs-code-cpp}
+::: 
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}[]{count="6"}[]{count="7"}[]{count="8"}[]{count="9"}[]{count="10"}[]{count="11"}[]{count="12"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}{count="6"}{count="7"}{count="8"}{count="9"}{count="10"}{count="11"}{count="12"}
 :::
 
   #include <iostream>
@@ -498,9 +490,9 @@ ou non.
 :::
 
 
-### Exemples en ligne de commande[](#exemples-en-ligne-de-commande)
+### Exemples en ligne de commande
 
-::: {.custom-block .custom-block-information}
+::: 
 ::: {.custom-block-body}
 grep, sed et awk ont été portés sur Windows, vous pouvez les trouver
 [ici](http://gnuwin32.sourceforge.net/). Ces outils en ligne de commande
@@ -515,7 +507,7 @@ texte suivant et l'enregistrer dans un fichier :
 
 ::: {.hljs-code-div .hljs-code-text}
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}[]{count="6"}[]{count="7"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}{count="6"}{count="7"}
 :::
 
   192.168.0.11 [01 Feb 2019] - GET data
@@ -534,15 +526,15 @@ n'allez évidemment pas lire ligne par ligne et extraire à la main les
 lignes souhaitées.
 
 
-#### Avec grep[](#avec-grep)
+#### Avec grep
 
 Ex 1.
 *\"**Je veux savoir tout ce qui s'est passé en avril 2019 et
 juillet 2020**\"*.
 
-::: {.hljs-code-div .hljs-code-bash}
+::: 
 ::: {.hljs-line-numbers}
-[]{count="1"}
+{count="1"}
 :::
 
   grep -P "\[\d{2} (Apr 2019|Jul 2020)\]" log_file.txt
@@ -553,15 +545,15 @@ La commande précédente devrait vous retourner ceci :
 > 192.168.0.12 **\[02 Apr 2019\]** - DELETE data\ 192.168.0.14 **\[12 Jul 2020\]** - GET data\ 192.168.0.14 **\[14 Jul 2020\]** - POST data
 
 
-#### Avec sed[](#avec-sed)
+#### Avec sed
 
 Ex 2.
 *\"**Je veux connaitre seulement les IP de ceux qui ont fait
 quelque chose en avril 2019 et juillet 2020**\"*.
 
-::: {.hljs-code-div .hljs-code-bash}
+::: 
 ::: {.hljs-line-numbers}
-[]{count="1"}
+{count="1"}
 :::
 
   sed -nE 's/^(.*) \[0-9 (Apr 2019|Jul 2020)\].*/\1/p' log_file.txt | uniq
@@ -572,20 +564,20 @@ La commande précédente devrait vous retourner ceci :
 > 192.168.0.12\ 192.168.0.14
 
 
-#### Avec awk[](#avec-awk)
+#### Avec awk
 
 Même exemple qu'avec `sed` :
 
-::: {.hljs-code-div .hljs-code-bash}
+::: 
 ::: {.hljs-line-numbers}
-[]{count="1"}
+{count="1"}
 :::
 
   awk -e '/(.*) \[0-9 (Apr 2019|Jul 2020)\]/ {print $1}' log_file.txt | uniq
 :::
 
 
-### Exemple de différences[](#exemple-de-différences)
+### Exemple de différences
 
 En fonction du langage ou de l'outil utilisé, il peut y avoir des
 différences, le but ici n'est pas de toutes les détailler mais de savoir
@@ -594,7 +586,7 @@ faire une recherche dans les documentations pour voir comment contourner
 le problème.
 
 
-#### Les groupes nommés[](#les-groupes-nommés) {#les-groupes-nommés}
+#### Les groupes nommés 
 
 L'utilisation des groupes nommés fait partie des choses qui peuvent
 changer.
@@ -610,7 +602,7 @@ On peut également trouver cette syntaxe: `(?'group'blabla)`, bref vous
 avez compris, ce sont des choses qui peuvent arriver.
 
 
-#### L'utilisation des ensembles[](#lutilisation-des-ensembles)
+#### L'utilisation des ensembles
 
 Il se peut que dans certains cas, l'utilisation des ensembles se fasse
 autrement que présenté précédemment.
@@ -623,7 +615,7 @@ informer qu'il peut y avoir des différences en fonction de ce que l'on
 utilise.
 
 
-### La substitution[](#la-substitution)
+### La substitution
 
 Une des fonctionnalités très intéressante et puissante des regex, c'est
 la substitution.
@@ -633,7 +625,7 @@ format ***jj/mm/aaaa*** et que vous devez toutes les passer au format
 main sera assez rapide, mais dans un fichier de plusieurs centaines de
 lignes, les regex peuvent nous faire gagner un temps fou.
 
-::: {.custom-block .custom-block-information}
+::: 
 ::: {.custom-block-body}
 Dans mon cas j'utilise Visual Studio Code pour l'exemple qui suit, mais
 vous pouvez utiliser l'éditeur que vous préférez.
@@ -642,7 +634,7 @@ vous pouvez utiliser l'éditeur que vous préférez.
 
 ::: {.hljs-code-div .hljs-code-text}
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}
 :::
 
   01/01/2000
@@ -685,7 +677,7 @@ Cet exemple est un travail taillé pour sed.
 
 ::: {.hljs-code-div .hljs-code-bash}
 ::: {.hljs-line-numbers}
-[]{count="1"}
+{count="1"}
 :::
 
   sed -E 's/(0-9)\/(0-9)\/(0-9)/\3-\2-\1/' date_file.txt
@@ -696,7 +688,7 @@ Vous pouvez également directement modifier le fichier et ne pas
 
 ::: {.hljs-code-div .hljs-code-bash}
 ::: {.hljs-line-numbers}
-[]{count="1"}
+{count="1"}
 :::
 
   sed -Ei 's!(0-9)/(0-9)/(0-9)!\3-\2-\1!' date_file.txt
@@ -706,9 +698,8 @@ Vous pouvez également directement modifier le fichier et ne pas
 :::
 
 
-## [Entrainement](#5-entrainement) {#5-entrainement}
+## Entrainement
 
-::: {.extract-wrapper}
 Pour nous entrainer, nous allons utiliser une fable de **La Fontaine** :
 *Le Corbeau et le Renard*.
 
@@ -717,7 +708,7 @@ avec.
 
 ::: {.hljs-code-div .hljs-code-text}
 ::: {.hljs-line-numbers}
-[]{count="1"}[]{count="2"}[]{count="3"}[]{count="4"}[]{count="5"}[]{count="6"}[]{count="7"}[]{count="8"}[]{count="9"}[]{count="10"}[]{count="11"}[]{count="12"}[]{count="13"}[]{count="14"}[]{count="15"}[]{count="16"}[]{count="17"}[]{count="18"}
+{count="1"}{count="2"}{count="3"}{count="4"}{count="5"}{count="6"}{count="7"}{count="8"}{count="9"}{count="10"}{count="11"}{count="12"}{count="13"}{count="14"}{count="15"}{count="16"}{count="17"}{count="18"}
 :::
 
   Maître Corbeau, sur un arbre perché,
@@ -778,9 +769,9 @@ Maintenant que vous avez les bases, l'important est d'être curieux et
 d'essayer vous même de modifier certains exemples, voir ce qu'il s. passe et vraiment bien comprendre le fonctionnement.
 
 
-##### Remerciements[](#remerciements)
+##### Remerciements
 
-Merci à @[kayou](/membres/voir/kayou/){.ping
+Merci à @[kayou]{.ping
 .ping-link}, @[Yarflam](/membres/voir/Yarflam/){.ping
 .ping-link},
 @[SpaceFox](/membres/voir/SpaceFox/){.ping
@@ -791,10 +782,10 @@ pour leurs remarques ![:)](/static/smileys/svg/smile.svg){.smiley}
 :::
 
 
-### 102 commentaires {#comments .comments-title}
+### 102 commentaires 
 
 -  1
--  [2](/tutoriels/3651/les-expressions-regulieres-1/?page=2#comments)
+-  [2]
 -  [3](/tutoriels/3651/les-expressions-regulieres-1/?page=3#comments)
 -  [4](/tutoriels/3651/les-expressions-regulieres-1/?page=4#comments)
 -  [5](/tutoriels/3651/les-expressions-regulieres-1/?page=5#comments)
@@ -803,7 +794,7 @@ pour leurs remarques ![:)](/static/smileys/svg/smile.svg){.smiley}
   .arrow-right .blue}
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/8b999b01bae94d35ff4552ec39ee4eec?d=identicon&s=80){.avatar}](/@cyr1l){.avatar-link}
+[!(https://secure.gravatar.com/avatar/8b999b01bae94d35ff4552ec39ee4eec?d=identicon&s=80){.avatar}](/@cyr1l){.avatar-link}
 :::
 
 ::: {.message}
@@ -837,7 +828,7 @@ testeur d'expressions régulières avec un mode graphique:
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/21faf9b2a377acb3d08abedc778f6275?d=identicon&s=80){.avatar}](/@bonbon242019){.avatar-link}
+[!(https://secure.gravatar.com/avatar/21faf9b2a377acb3d08abedc778f6275?d=identicon&s=80){.avatar}](/@bonbon242019){.avatar-link}
  Banni 
 :::
 
@@ -860,7 +851,7 @@ Masqué par Arius  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/2ced794e6de39910cd05e87fe12e6f79?d=identicon&s=80){.avatar}](/@romdhan){.avatar-link}
+[!(https://secure.gravatar.com/avatar/2ced794e6de39910cd05e87fe12e6f79?d=identicon&s=80){.avatar}](/@romdhan){.avatar-link}
 :::
 
 ::: {.message}
@@ -892,7 +883,7 @@ Merci ça va énormement m'aider.
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/18be4d1113e2a8df5b973725cf6df076?d=identicon&s=80){.avatar}](/@amyjeffords12){.avatar-link}
+[!(https://secure.gravatar.com/avatar/18be4d1113e2a8df5b973725cf6df076?d=identicon&s=80){.avatar}](/@amyjeffords12){.avatar-link}
  Banni 
 :::
 
@@ -915,7 +906,7 @@ Masqué par Moté  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/f27e355cbd06a929a001a0364467189c?d=identicon&s=80){.avatar}](/@AnthonyAnsonn){.avatar-link}
+[!(https://secure.gravatar.com/avatar/f27e355cbd06a929a001a0364467189c?d=identicon&s=80){.avatar}](/@AnthonyAnsonn){.avatar-link}
  Banni 
 :::
 
@@ -938,7 +929,7 @@ Masqué par Moté  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/ec1f254e79145b99e91d04f2ec751983?d=identicon&s=80){.avatar}](/@oli45641){.avatar-link}
+[!(https://secure.gravatar.com/avatar/ec1f254e79145b99e91d04f2ec751983?d=identicon&s=80){.avatar}](/@oli45641){.avatar-link}
  Banni 
 :::
 
@@ -961,7 +952,7 @@ Masqué par Moté  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/9e34d71286eb7f1e92237d2e929d4ca6?d=identicon&s=80){.avatar}](/@alexaandr884){.avatar-link}
+[!(https://secure.gravatar.com/avatar/9e34d71286eb7f1e92237d2e929d4ca6?d=identicon&s=80){.avatar}](/@alexaandr884){.avatar-link}
  Banni 
 :::
 
@@ -986,7 +977,7 @@ Masqué par Moté  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/9e34d71286eb7f1e92237d2e929d4ca6?d=identicon&s=80){.avatar}](/@alexaandr884){.avatar-link}
+[!(https://secure.gravatar.com/avatar/9e34d71286eb7f1e92237d2e929d4ca6?d=identicon&s=80){.avatar}](/@alexaandr884){.avatar-link}
  Banni 
 :::
 
@@ -1011,7 +1002,7 @@ Masqué par Moté  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/d4c844a2963b0d1c9201893a14395170?d=identicon&s=80){.avatar}](/@blackdesgin){.avatar-link}
+[!(https://secure.gravatar.com/avatar/d4c844a2963b0d1c9201893a14395170?d=identicon&s=80){.avatar}](/@blackdesgin){.avatar-link}
  Banni 
 :::
 
@@ -1034,7 +1025,7 @@ Masqué par Moté
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/19929ffbaf7acaef95729d5d11dafd04?d=identicon&s=80){.avatar}](/@emilyjevica){.avatar-link}
+[!(https://secure.gravatar.com/avatar/19929ffbaf7acaef95729d5d11dafd04?d=identicon&s=80){.avatar}](/@emilyjevica){.avatar-link}
  Banni 
 :::
 
@@ -1057,7 +1048,7 @@ Masqué par Moté  --- spam
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/cb2808f4b513731326a177a8b8260cbf?d=identicon&s=80){.avatar}](/@VincentPuiss){.avatar-link}
+[!(https://secure.gravatar.com/avatar/cb2808f4b513731326a177a8b8260cbf?d=identicon&s=80){.avatar}](/@VincentPuiss){.avatar-link}
  Banni 
 :::
 
@@ -1087,7 +1078,7 @@ utilise toujours la même syntaxe pour d'autres langages ?
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/13ece61480048a0592abf9a59530c079?d=identicon&s=80){.avatar}](/@annettestout){.avatar-link}
+[!(https://secure.gravatar.com/avatar/13ece61480048a0592abf9a59530c079?d=identicon&s=80){.avatar}](/@annettestout){.avatar-link}
  Banni 
 :::
 
@@ -1120,7 +1111,7 @@ Merci ![:ange:](/static/smileys/svg/ange.svg){.smiley}
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/829518c430e1f7b03d9fcf60bf78bc81?d=identicon&s=80){.avatar}](/@thibsc){.avatar-link}
+[!(https://secure.gravatar.com/avatar/829518c430e1f7b03d9fcf60bf78bc81?d=identicon&s=80){.avatar}](/@thibsc){.avatar-link}
 :::
 
 ::: {.message}
@@ -1153,7 +1144,7 @@ programmation, tu peux avoir de légères différences
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/ec81174b3619c10b365b7fb2acf7f6d6?d=identicon&s=80){.avatar}](/@stef.heisel){.avatar-link}
+[!(https://secure.gravatar.com/avatar/ec81174b3619c10b365b7fb2acf7f6d6?d=identicon&s=80){.avatar}](/@stef.heisel){.avatar-link}
  Banni 
 :::
 
@@ -1184,7 +1175,7 @@ thanks
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/f95e6aa9fc624fbb0eb721996a671fff?d=identicon&s=80){.avatar}](/@nacyliz){.avatar-link}
+[!(https://secure.gravatar.com/avatar/f95e6aa9fc624fbb0eb721996a671fff?d=identicon&s=80){.avatar}](/@nacyliz){.avatar-link}
 :::
 
 ::: {.message}
@@ -1215,7 +1206,7 @@ transformations dans la cellule de la feuille de calcul.
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/0cf252679bdc9522f8cf789c6b0e387d?d=identicon&s=80){.avatar}](/@folah7){.avatar-link}
+[!(https://secure.gravatar.com/avatar/0cf252679bdc9522f8cf789c6b0e387d?d=identicon&s=80){.avatar}](/@folah7){.avatar-link}
  Banni 
 :::
 
@@ -1246,7 +1237,7 @@ good
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/17f1f81afec2c2fa75468ca7abf6c44c?d=identicon&s=80){.avatar}](/@thelaptopsguide){.avatar-link}
+[!(https://secure.gravatar.com/avatar/17f1f81afec2c2fa75468ca7abf6c44c?d=identicon&s=80){.avatar}](/@thelaptopsguide){.avatar-link}
  Banni 
 :::
 
@@ -1281,7 +1272,7 @@ blogs.
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/17f1f81afec2c2fa75468ca7abf6c44c?d=identicon&s=80){.avatar}](/@thelaptopsguide){.avatar-link}
+[!(https://secure.gravatar.com/avatar/17f1f81afec2c2fa75468ca7abf6c44c?d=identicon&s=80){.avatar}](/@thelaptopsguide){.avatar-link}
  Banni 
 :::
 
@@ -1316,7 +1307,7 @@ to learn from you.\" [поздравление с днем
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/d1ee2c01ffbeddf1912ab277727e7277?d=identicon&s=80){.avatar}](/@emmatrump){.avatar-link}
+[!(https://secure.gravatar.com/avatar/d1ee2c01ffbeddf1912ab277727e7277?d=identicon&s=80){.avatar}](/@emmatrump){.avatar-link}
 :::
 
 ::: {.message}
@@ -1349,7 +1340,7 @@ error repeatedly.
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/f05379088aee2c03a89218c8358255bb?d=identicon&s=80){.avatar}](/@geburtstagsiete){.avatar-link}
+[!(https://secure.gravatar.com/avatar/f05379088aee2c03a89218c8358255bb?d=identicon&s=80){.avatar}](/@geburtstagsiete){.avatar-link}
  Banni 
 :::
 
@@ -1380,7 +1371,7 @@ explore best captions for your posts
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/f05379088aee2c03a89218c8358255bb?d=identicon&s=80){.avatar}](/@geburtstagsiete){.avatar-link}
+[!(https://secure.gravatar.com/avatar/f05379088aee2c03a89218c8358255bb?d=identicon&s=80){.avatar}](/@geburtstagsiete){.avatar-link}
  Banni 
 :::
 
@@ -1411,7 +1402,7 @@ list of happy best birthday wishes
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/f05379088aee2c03a89218c8358255bb?d=identicon&s=80){.avatar}](/@geburtstagsiete){.avatar-link}
+[!(https://secure.gravatar.com/avatar/f05379088aee2c03a89218c8358255bb?d=identicon&s=80){.avatar}](/@geburtstagsiete){.avatar-link}
  Banni 
 :::
 
@@ -1442,7 +1433,7 @@ of happy best birthday wishes
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/305f4386f9f7cc1af7d9b151dd324d79?d=identicon&s=80){.avatar}](/@williamliz){.avatar-link}
+[!(https://secure.gravatar.com/avatar/305f4386f9f7cc1af7d9b151dd324d79?d=identicon&s=80){.avatar}](/@williamliz){.avatar-link}
 :::
 
 ::: {.message}
@@ -1473,7 +1464,7 @@ That is demonstrated and proven through [Five Nights at Freddy's
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/e1b3749da6ccf9f978ea7d7c7b1d9eec?d=identicon&s=80){.avatar}](/@larryellison){.avatar-link}
+[!(https://secure.gravatar.com/avatar/e1b3749da6ccf9f978ea7d7c7b1d9eec?d=identicon&s=80){.avatar}](/@larryellison){.avatar-link}
 :::
 
 ::: {.message}
@@ -1506,7 +1497,7 @@ bloodbath](https://geometrydashbloodbath.com)
 :::
 
 ::: {.user}
-[![](https://secure.gravatar.com/avatar/a20c200ea9e3717dd031d999ec8fc366?d=identicon&s=80){.avatar}](/@earingwilted){.avatar-link}
+[!(https://secure.gravatar.com/avatar/a20c200ea9e3717dd031d999ec8fc366?d=identicon&s=80){.avatar}](/@earingwilted){.avatar-link}
 :::
 
 ::: {.message}
@@ -1558,13 +1549,13 @@ Connectez-vous pour pouvoir poster un message.\
 ::: {.alert-box .not-member .alert-box-not-closable}
 
 
-#### Pas encore membre ? {#pas-encore-membre .alert-box-title}
+#### Pas encore membre ? 
 
 Créez un compte en une minute pour profiter pleinement de toutes les
 fonctionnalités de Zeste de Savoir.
 Ici, tout est gratuit et sans
 publicité.\
-[Créer un compte](/membres/inscription/){.alert-box-btn}
+[Créer un compte]{.alert-box-btn}
 :::
 :::
 
@@ -1574,8 +1565,7 @@ publicité.\
 ### Sommaire
 
 1. [Les différents
-  ensembles](#1-les-differents-ensembles){.mobile-menu-link
-  .mobile-menu-sublink}
+  ensembles]
 2. [Les opérateurs](#2-les-operateurs){.mobile-menu-link
   .mobile-menu-sublink}
 3. [Les groupes](#3-les-groupes){.mobile-menu-link
@@ -1592,8 +1582,7 @@ publicité.\
 
 ### Partager
 
--  [Twitter](https://twitter.com/share?url=https://zestedesavoir.com/tutoriels/3651/les-expressions-regulieres-1/&text=Les%20expressions%20régulières){.ico-after
-  .twitter .blue}
+-  [Twitter]
 
 -  [Facebook](https://www.facebook.com/sharer.php?u=https://zestedesavoir.com/tutoriels/3651/les-expressions-regulieres-1/&t=Les%20expressions%20régulières){.ico-after
   .facebook .blue}
@@ -1618,8 +1607,7 @@ publicité.\
 
 ### Télécharger
 
--  [PDF (175,0
-  Kio)](/tutoriels/pdf/3651/les-expressions-regulieres-1.pdf){.ico-after
+-  [PDF ]{.ico-after
   .download .blue}
 -  [LaTeX (26,7
   Kio)](/tutoriels/tex/3651/les-expressions-regulieres-1.tex){.ico-after
@@ -1639,15 +1627,15 @@ Zeste de Savoir [ • Version :
 [v30.6-ostara/2da324a](https://github.com/zestedesavoir/zds-site/tree/2da324a6ecf8d45e007e260e4ec4cc34ef87fc10)
 ]{.version}
 
--  [](https://framapiaf.org/@ZesteDeSavoir "Suivez-nous sur Mastodon"){.btn
+-  (https://framapiaf.org/@ZesteDeSavoir "Suivez-nous sur Mastodon"){.btn
   .ico-after .mastodon .light .btn-mastodon .btn-holder}
--  [](https://www.facebook.com/ZesteDeSavoir "Aimez notre page Facebook"){.btn
+-  (https://www.facebook.com/ZesteDeSavoir "Aimez notre page Facebook"){.btn
   .ico-after .facebook .light .btn-facebook .btn-holder}
--  [](https://twitter.com/ZesteDeSavoir "Suivez-nous sur Twitter"){.btn
+-  (https://twitter.com/ZesteDeSavoir "Suivez-nous sur Twitter"){.btn
   .ico-after .twitter .light .btn-twitter .btn-holder}
--  [](https://discord.com/invite/ue5MTKq "Discutez avec nous sur Discord"){.btn
+-  (https://discord.com/invite/ue5MTKq "Discutez avec nous sur Discord"){.btn
   .ico-after .discord .light .btn-discord .btn-holder}
--  [](https://github.com/zestedesavoir/zds-site "Contribuez au développement"){.btn
+-  (https://github.com/zestedesavoir/zds-site "Contribuez au développement"){.btn
   .ico-after .github .light .btn-github .btn-holder}
 
 ```{=html}
