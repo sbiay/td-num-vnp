@@ -7,25 +7,16 @@ Plan :
 1. [Les ensembles](#t1)
 	1. [Les classes de caractères](#t1-1)
 	2. [Les raccourcis de classes de caractères](#t1-2)
-	3. [Caractères de regex](#t1-3)
-	4. [Caractères unicode](#t1-4)
-2. [Les opérateurs]](#t2)
+	3. [Les métacaractères](#t1-3)
+2. [Les opérateurs](#t2)
 	1. [L'opérateur d'alternative](#t2-1)
-	2. [Les opérateurs de quantité](#t2-2)
-	3. [Quelques exemples](#t2-3)
-3. [Les groupes](#t3)
-	1. [Les groupes capturant](#t3-1)
-	2. [Les groupes non capturant](#t3-2)
-	3. [Les groupes nommés](#t3-3)
-	4. [Les groupes spéciaux](#t3-4)
+	2. [Les quantificateurs](#t2-2)
+3. [La capture](#t3)
 
 [comment]: <> (FINET)
 
 
-**Un tutoriel pour comprendre les bases des expressions régulières**
-
-
-**Une expression régulière est une chaîne de caractères qui décrit les ensembles possible d'une autre chaîne de caractères.**
+**Une expression régulière est une chaîne de caractères qui décrit les ensembles possibles d'une autre chaîne de caractères.**
 
 On peut les utiliser aussi bien pour rechercher des \"motifs\" dans des fichiers texte,
 appliquer des transformations dans des cellules de tableurs, valider la conformité d'une donnée ou encore extraire des informations.
@@ -59,14 +50,16 @@ Dans les expressions régulières, un ensemble se représente entre crochets `[]
 Majuscules et minuscules sont deux classes différentes.
 Pour avoir l'ensemble des lettres du texte, on doit écrire deux classes à l'intérieur de notre ensemble: `[a-zA-Z]`.
 
-Ainsi on comprend bien que `[a-z]` signifie : *\"Je veux les lettres allant de a à z\"*, ce qu'il ne sera pas possible de faire avec les voyelles puisqu'elles ne se suivent pas, il faudra écrire `[aeiou]`.
+Pour définir un ensemble de lettres qui ne se suivent pas dans l'alphabet, comme les voyelles : `[aeiouy]`.
+
+**Attention !** Les lettres accentuées sont des caractères spéciaux… `[a-zA-Z]` ne les comprend pas.
 
 
 <a id='t1-2'/>
 
 ## Les raccourcis de classes de caractères
 
-Il existe des classes déjà définies :
+Il existe des classes prédéfinies :
 
 - Les lettres + les chiffres + l'*underscore* (`_`) `\w` ;
 - Les chiffres `\d` ;
@@ -82,15 +75,15 @@ Chaque raccourci a également son contraire :
 
 <a id='t1-3'/>
 
-## Caractères de regex
+## Les métacaractères
 
 Dans certains cas, on peut vouloir détecter des éléments qu'on ne peut pas écrire au clavier, c'est le cas d'un début de ligne, une fin de ligne, mais également d'un début ou une fin de mot.
 
 Pour les détecter avec une regex, il existe ceci :
 
-- début de ligne : `^` ;
-- fin de ligne : `$` ;
-- début/fin de mot : `\b`.
+- Début de ligne : `^` ;
+- Fin de ligne : `$` ;
+- Début/fin de mot : `\b`.
 
 Pour comprendre l'utilisation de ces caractères, voici des exemples :
 
@@ -101,30 +94,9 @@ Pour comprendre l'utilisation de ces caractères, voici des exemples :
   - en utilisant `\bbon\b` on obtient le mot seul.
 
 
-<a id='t1-4'/>
-
-## Caractères unicode
-
-Il est aussi possible d'utiliser des regex pour trouver des caractères
-[Unicode] :
-
-- Le caractère ! en unicode: `\x21` ou `\u0021` ;
-- un marqueur unicode: `\p{M}` ;
-- n'importe quelle lettre de n'importe quel langage: `\p{L}\p{M}*` ;
-- n'importe quel graphème unicode: `\X` (équivalent de `\P{M}\p{M}*)`.
-
-::: {.custom-block .custom-block-information}
-::: {.custom-block-body}
-Un graphème unicode est un caractère potentiellement enrichi de marqueurs (comme des signes diacritiques) représenté comme une seule unité graphique.
-Par exemple a (`\u0061`) et à (qui peut être encodé comme `\u0224` ou bien `\u0061\u0300`) sont des graphèmes.
-:::
-:::
-:::
-
-
 <a id='t2'/>
 
-# Les opérateurs]
+# Les opérateurs
 
 Dans la partie précédente, on a vu comment chercher des éléments d'un ensemble mais cela fonctionnait caractère par caractère.
 Nous allons maintenant voir comment faire pour trouver un mot au lieu d'une succession de caractères.
@@ -140,126 +112,49 @@ Pour cela on va simplement écrire `a|b` qui signifie *\"Je veux seulement les a
 
 <a id='t2-2'/>
 
-## Les opérateurs de quantité
+## Les quantificateurs
 
-- 0 ou 1 élément `?`
-- 0 ou plusieurs éléments `*`
-- Au moins 1 élément `+`
-- Un nombre défini d'élément ``
-  - `{0,}` = `*`
-  - `{1,}` = `+`
-  - `{,1}` = `?`
-  - `\b\w{4,6}\b` (les mots qui font de 4 à 6 lettres)
-
-L'intérêt est par exemple de ne plus chercher un chiffre mais un nombre.
-Avec la partie précédente on peut écrire `\d+` qui va allumer tous les nombres (dans une date par exemple).
-
-::: {.custom-block .custom-block-neutral}
-::: {.custom-block-heading}
-Petite précision :::
-
-::: {.custom-block-body}
-Le chiffre est au nombre ce que la lettre est au mot.
-:::
-:::
-
-
-<a id='t2-3'/>
-
-## Quelques exemples
-
-Pour les exemples suivants, nous prendrons comme référence le texte ***\"Bonjour 2020\"***.
-
-- L'expression `[a-zA-Z]` doit trouver la liste suivante `['B', 'o', 'n', 'j', 'o', 'u', 'r']` alors que l'expression `[a-zA-Z]+` doit trouver `['Bonjour']`.
-- L'expression `\d` doit trouver la liste suivante `['2', '0', '2', '0']` alors que l'expression `\d+` doit trouver `['2020']`.
-- L'expression `on|ou` doit trouver la liste suivante `['on', 'ou']`.
-- L'expression `\d` doit trouver la liste suivante `['20', '20']`.
-:::
+- 0 ou 1 fois `?`
+- 0 ou plusieurs fois `*`
+- 1 ou plusieurs fois `+`
+- Un nombre défini de fois entre `{}` : `{1,3}` signifie *de 1 à 3 fois*
 
 
 <a id='t3'/>
 
-# Les groupes
+# La capture
 
-
-<a id='t3-1'/>
-
-## Les groupes capturant
 
 Dans certains cas, on peut vouloir capturer seulement une partie de l'expression régulière que l'on a écrite.
 Par exemple, quand on sait comment une phrase est formée, on peut vouloir récupérer une information précise.
 
-> Ex. ***\"Bonjour, je m'appelle Toto\"***
+> - Bonjour, je m'appelle Aubin et je vis à Angers.
 
-Si on veut récupérer le prénom, on ne peut pas écrire `[a-zA-Z]+` car nous aurions tous les mots même ceux qui ne nous intéressent pas.
-On sait que le prénom se trouve généralement après avoir dit \"***je m'appelle***\".
+> - Bonjour, je m'appelle Radegonde et je vis à Poitiers.
 
-On peut alors écrire `je m'appelle ` et on obtient ceci:
+> - Et que fais-tu dans la vie ?
+
+On veut récupérer les prénoms.
+On sait que dans ce texte le prénom se trouve après *je m'appelle*
+
+On peut faire dans une nouvelle copie du texte :
+
+- Rechercher `^[^\n]+je m'appelle (\w+)[^\n]+$`. Cette expression se compose ainsi :
+  - `^` un début de ligne ;
+  - `[^\n]+` plusieurs caractères sauf un retour à la ligne ;
+  - `je m'appelle`
+  - `(\w+)` : **capture** d'un mot (suite de caractères étant soit des lettres, soit des chiffres soit *underscore*, le tout entre parenthèses pour la capture)
+  - `[^\n]+` plusieurs caractères sauf un retour à la ligne ;
+  - `$` une fin de ligne.
+
+- On copie la sélection dans un nouveau fichier (qui ne contiendra que les phrases intéressant notre recherche)
+- On répète la même recherche : `^[^\n]+je m'appelle (\w+)[^\n]+$`
+- Remplacer par : `$1` c'est-à-dire le premier motif capturé entre parenthèses
+
+On a ainsi remplacé 
 
 ![Groupe capturant](/media/galleries/12002/b7789dcd-0817-4888-b581-8c3f40e063b6.png)
 
 Le match complet est `je m'appelle Toto` mais on a précisé que la capture intéressante était la partie après \"**je m'appelle**\".
-
-
-<a id='t3-2'/>
-
-## Les groupes non capturant
-
-Dans certains cas, il est possible que nous devions repérer une information importante mais dont la capture finale nous importe peu.
-Dans ce cas on peut utiliser un groupe qui ne va pas capturer ce qui est entre parenthèses : ``.
-
-Pas d'exemple pour celui là, vous en trouverez sûrement une utilité en pratiquant par vous même ![;)](/static/smileys/svg/clin.svg){.smiley} .
-
-
-<a id='t3-3'/>
-
-## Les groupes nommés
-
-Quand on veut récupérer des données ordonnées d'une certaine manière comme le format ***jj/dd/yyyy*** d'une date par exemple, ce type de groupe devient très intéressant.
-Un groupe nommé s'écrit de cette manière: ``.
-
-Donc si on veut récupérer le jour, le mois et l'année, on peut écrire:\
-`(?<day>\d+)\/(?<month>\d+)\/(?<year>\d+)`
-
-![Groupe nommé](/media/galleries/12002/b5c049aa-28a2-48f2-809b-9d6e28326f5a.png)
-
-::: {.custom-block .custom-block-information}
-::: {.custom-block-body}
-Le caractère `/` dans une expression régulière est un caractère spécial.
-Pour l'utiliser, il faut \"échapper\" le caractère avec un `\`,
-exactement comme pour les tabulations et les retours à la ligne: `\/`.
-:::
-:::
-
-
-<a id='t3-4'/>
-
-## Les groupes spéciaux
-
-Ces types de groupes vont être utilisés pour faire des recherches plus avancées dans le texte.
-
-- Positive lookahead : trouver l'élément qui précède
-
-  > Ex. `a` -\> *\"Les a qui précèdent un b\"*.
-
-- Negative lookahead : trouver l'élément qui ne précède pas
-
-  > Ex. `a(?!b)` -\> *\"Les a qui ne précèdent pas un
-  > b\"*.
-
-- Positive lookbehind : trouver l'élément qui succède
-
-  > Ex. `(?<=b)a` -\> *\"Les a qui succèdent un b\"*.
-
-- Negative lookbehind : trouver l'élément qui ne succède pas
-
-  > Ex. `(?<!b)a` -\> *\"Les a qui ne succèdent pas un
-  > b\"*.
-
-> Ex. *\"Je veux le mot qui se trouve avant **zestedesavoir**\"*\
-`\w+(?=\s*zestedesavoir)` -\> doit allumer *\"**site**\"*.
-
-La liste complète des groupes [est accessible ici](https://www.regular-expressions.info/refadv.html) (en anglais).
-:::
 
 
