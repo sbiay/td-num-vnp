@@ -134,10 +134,10 @@ Par exemple, quand on sait comment une phrase est formée, on peut vouloir récu
 >
 > — Et que fais-tu dans la vie ?
 
-On veut récupérer les prénoms.
+**On veut récupérer les prénoms**.
 On sait que dans ce texte le prénom se trouve après *je m'appelle*
 
-On peut faire dans une nouvelle copie du texte :
+On peut procéder ainsi :
 
 - Rechercher `^[^\n]+je m'appelle (\w+)[^\n]+$`. Cette expression se compose ainsi :
   - `^` un début de ligne ;

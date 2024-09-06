@@ -288,6 +288,15 @@ On recherche :
 
 ### <22>
 
+**Pour bien maîtriser les expressions régulières** :
+
+- Un [{vademecum}](https://github.com/sbiay/td-num-vnp/blob/main/tuto-regex.md) contenant les fondamentaux
+
+- Un [didacticiel](https://regexlearn.com/fr/learn/regex101) complet
+
+
+### <23>
+
 Tous les champs sont-ils utiles ?
 
 L'ordre est-il le plus logique ?
@@ -305,7 +314,7 @@ On peut également personnaliser leur intitulé de cette façon :
 - `code_insee_de_la_commune AS insee`
 
 
-### <23>
+### <24>
 
 Enfin, il faut convertir cette succession de lignes en une clause **select** écrite sur une seule ligne
 
@@ -323,7 +332,7 @@ Pour la clause **where**, on peut copier-coller à partir de [ce fichier](https:
 
 ## Exporter le fichier de résultats 
 
-### <24>
+### <25>
 
 Il reste un problème !
 
@@ -333,7 +342,7 @@ mais le droit d'en exporter jusqu'à 100…
 Comment faire ?
 
 
-### <25>
+### <26>
 
 Solutions possibles :
 
@@ -351,7 +360,7 @@ Solutions possibles :
 		- Résultats [ici](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%20AS%20nom%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%20AS%20appellation%2C%20datation_de_l_oeuvre%20AS%20datation%2C%20commune%2C%20departement%2C%20code_insee_de_la_commune%20AS%20insee%2C%20code_departement%2C%20localisation%2C%20edifice_contenant_l_objet_mobilier%20AS%20appartient_a%2C%20materiau_du_gros_oeuvre%2C%20auteur_de_l_oeuvre%20AS%20auteur%2C%20historique_du_batiment_ou_de_l_oeuvre%2C%20description_du_batiment%2C%20type_de_protection%2C%20chercheur%2C%20copyright&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=identifiant%20DESC&limit=62)
 
 
-### <26>
+### <27>
 
 Sauvegarder les deux fichiers Json dans un dossier dédié :
 
@@ -367,7 +376,7 @@ Sauvegarder les deux fichiers Json dans un dossier dédié :
 
 ## Transformer Json en CSV 
 
-### <27>
+### <28>
 
 Pour obtenir un tableau à partir de ces résultats, on utilisera une application en ligne de transformation : [convertcsv.com](https://www.convertcsv.com/json-to-csv.htm)
 
@@ -380,7 +389,7 @@ Pour obtenir un tableau à partir de ces résultats, on utilisera une applicatio
 Effectuer l'opération pour les deux fichiers Json
 
 
-### <28>
+### <29>
 
 Sauvegarder les deux fichiers Json dans un dossier dédié :
 
