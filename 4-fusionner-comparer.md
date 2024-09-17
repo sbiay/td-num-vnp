@@ -248,12 +248,12 @@ Essayez de composer des expressions régulières pour sélectionner ces élémen
 **Récupérer les identifiants**
 
 - Dans l'éditeur de texte, ouvrir la boîte de dialogue de recherche (**Ctrl + F**)
-- Vérifier que les expressions régulières sont activées : `.*`
+- Accéder à l'onglet **Marquer**
+- Vérifier que les expressions régulières sont activées
 - Chercher : `[I|P]A[\d]{8}`
-- Sélectionner tout : **Ctrl + Maj + L** (VS Code)
-- Fermer la boîte de dialogue de recherche
-- Copier la sélection
-- Coller dans la 1^re^ colonne du tableau à partir de la 2^e^ ligne (on mettra en 1^re^ ligne : `identifiant`)
+- Rechercher tout
+- Copier le texte marqué
+- Coller (Ctrl + Maj + V) dans la 1^re^ colonne du tableau à partir de la 2^e^ ligne (on mettra en 1^re^ ligne : `identifiant`)
 
 
 ### <17>
@@ -268,7 +268,8 @@ On sait que les noms se trouvent sur les lignes qui suivent celles des identifia
 	L'expression signifie : *un identifiant, suivi d'un retour à la ligne, puis d'une ligne avec tous ses caractères (de un à une infinité de caractères sauf un retour à la ligne)*
 	
 
-Le résultat est-il satisfaisant ?
+- Rechercher tout
+- Parcourir les résultats signalés dans le texte… Est-ce satisfaisant ?
 
 
 ### <18>
@@ -300,7 +301,7 @@ Il faut aussi éliminer les titres des documents PDF qui poseront le même probl
 
 **Récupérer le nom**
 
-- Ouvrir un second document vide dans l'éditeur de textes
+- Ouvrir un second document vide dans l'éditeur de textes (Ctrl + N)
 
 - Chercher : `[P|I]A[\d]{8}\n[^\n]+`
 
@@ -312,11 +313,12 @@ Il faut aussi éliminer les titres des documents PDF qui poseront le même probl
 **Récupérer le nom**
 
 - Dans ce nouveau document, on veut éliminer toutes les lignes qui ne sont pas le nom de l'édifice
+	- Les lignes contenant `----`
 	- Les identifiants
 		- Chercher : `[P|I]A[\d]{8}\n`
 		- Remplacer par : *vide*
 
-- Copier toutes les lignes et les coller dans le tableau : **Ctrl + Maj + V**
+- Copier toutes les lignes restantes et les coller dans le tableau : **Ctrl + Maj + V**
 
 Le résultat est-il satisfaisant ?
 
@@ -535,3 +537,5 @@ Nous avons la liste des identifiants et le modèle des URL des notices dans l'AP
 4. Demander à un prof qui connaît le langage python et qui a déjà préparé ce cours de vous extraire les données
 
 Voici le résultat directement importé dans un [fichier .odt](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/inventaire-pays-loire-complet-etape-2.ods)
+
+<!--Pour la suite du cours : ils doivent évaluer les données de Mérimée, comprendre pourquoi il y a peu de recoupements ; reprendre fdr à "Recouper les données entre Mérimée et Gertrude"-->

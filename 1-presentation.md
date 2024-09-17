@@ -34,6 +34,14 @@ Plan :
 # Ce que l'on va faire
 [comment1]: <1> (TITRE1)
 
+[comment2]: <1> (***Avant de commencer*** : lancer ma base Heurist.)
+
+[comment3]: <1> (Vous êtes des utilisateurs des bases de données ; la plupart du temps sans le savoir ; mais pratiquement toute recherche sur un site web --catalogue de bibliothèque ou autre, site commercial-- s'appuie sur une ou plusieurs bases de données.)
+
+[comment4]: <1> (1. On va apprendre à utiliser de manière experte et critique certaines bases de données patirmoniales)
+
+[comment5]: <1> (2. On va découvrir l'envers du décor : comment faire sa base de données sur un objet patrimonial ? On va découvrir ensemble les principes de conception et quelques techniques de réalisation d'une base de données)
+
 
 <a id='t1-1'/>
 
@@ -53,6 +61,8 @@ Plan :
 	https://www.tablettes-rennaises.fr/app/photopro.sk/rennes/detail?docid=231
 -->
 
+[comment7]: <2> (Nous allons appréhender ce sujet sous l'angle de l'information numérique ; pour cela, nous allons découvrir l'univers des bases de données patrimoniales.)
+
 
 <a id='t1-2'/>
 
@@ -60,14 +70,20 @@ Plan :
 
 ### <3>
 
+Principaux :
+
 - Conceptualiser une base de données
 - Récolter des données en ligne sur les sites pertinents
 - Construire une base de données relationnelles dans un tableur
 - Convertir la base dans un gestionnaire de bases de données professionnel : **Heurist**
-- Produire des statistiques et les visualiser
-- Publier la base de données dans un *système de gestion de contenu*[^1] libre : Omeka
+- Proposer une [interface web de consultation](https://heurist.huma-num.fr/heurist/?db=sbiay_ponts_pays_loire&website&id=199&pageid=663)
 
-[^1]: CMS pour *content management system*.
+Bonus :
+
+- Produire des statistiques et les visualiser
+- Publier la base de données dans un *système de gestion de contenu*^1^ libre : Omeka
+
+\textsuperscript{1} CMS pour content management system.
 
 
 <a id='t1-3'/>
@@ -92,9 +108,9 @@ Plan :
 
 - Que les personnes du groupe les moins à l'aise en informatique puissent avoir 20/20
 
-[comment6]: <5> (Si j'ouvre un tableur, qui se sent déjà un peu mal ?)
+[comment11]: <5> (Si j'ouvre un tableur, qui se sent déjà un peu mal ?)
 
-- Que vous vous sentiez capables de réutiliser ces apprentissages pour vos propres recherches (SAV)
+- Que vous vous sentiez capables de réutiliser ces apprentissages pour vos propres études (SAV)
 
 **Votre implication** :
 
@@ -113,11 +129,6 @@ Tous les diaporamas sont accessibles en deux formats :
 1. PDF
 2. Markdown sur mon compte Github [ici](https://github.com/sbiay/td-num-vnp)
 
-<!--
-	- Créer une automatisation de mise en forme pour les liens hypertextes
-	- Eliminer les balises latex dans les exports github
--->
-
 
 <a id='t1-6'/>
 
@@ -130,7 +141,7 @@ Tous les diaporamas sont accessibles en deux formats :
 	- [Visual Studio Code](https://code.visualstudio.com/download) : pour tous les systèmes d'exploitation, développé par Microsoft, gratuit
 
 - Un logiciel de tableur
-	- [LibreOffice](https://fr.libreoffice.org/download/telecharger-libreoffice/) Calc : pour tous les systèmes d'exploitation, libre et gratuit
+	- [LibreOffice Calc](https://fr.libreoffice.org/download/telecharger-libreoffice/) : pour tous les systèmes d'exploitation, libre et gratuit
 	- Microsoft Excel : suite Office payante Microsoft
 	- Google Sheets : via navigateur web, gratuit
 
@@ -142,7 +153,7 @@ Tous les diaporamas sont accessibles en deux formats :
 <a id='t2'/>
 
 # Qu'est-ce qu'une base de donnée ?
-[comment9]: <7> (TITRE1)
+[comment14]: <7> (TITRE1)
 
 
 <a id='t2-1'/>
@@ -151,6 +162,7 @@ Tous les diaporamas sont accessibles en deux formats :
 
 ### <8>
 
+**Base de données** :\
 Fichier ou ensemble de fichiers contenant des informations structurées.
 
 **3 modèles logiques** de structuration des données :
@@ -162,14 +174,26 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 
 ### <9>
 
-- *Mode de structuration* : ligne et colonne
-- *Format de fichier fréquemment associé* : **CSV**
-- *Langage de requête (recherche, modification)* : SQL (*Structured query language*)
+- *Mode de structuration* :
+	- Table, feuille ou entité
+	- Ligne : enregistrement
+	- Colonne : attributs ou champs
 
-**Image** : [Exemple de table<a date='sans'/>](img/bdd_table.jpg)
+skip
+
+**Image** : [<a date='sans'/>](img/bdd_table.jpg)
 
 
 ### <10>
+
+- *Format de fichier fréquemment associé* : **CSV**
+- *Langage de requête (recherche, modification)* : SQL (*Structured query language*)
+
+
+![](/home/sbiay/bibliotheque-numerique/images/documents-divers/bdd/table.jpg)
+
+
+### <11>
 
 - *Mode de structuration* : parent-enfant(s)
 - *Format de fichier fréquemment associé* :
@@ -182,9 +206,9 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 Exemple de [fichier XML](https://uncloud.univ-nantes.fr/index.php/s/8aP2QmkLsrYM86b)
 
 
-### <11>
+### <12>
 
-- *Mode de structuration* : noeuds et arêtes (ou relations)
+- *Mode de structuration* : triplet sujet-prédicat-objet
 - *Format de fichier fréquemment associé* : **XML-RDF**
 - *Langage de requête* : Sparql
 
@@ -205,60 +229,53 @@ Exemple de [fichier XML](https://uncloud.univ-nantes.fr/index.php/s/8aP2QmkLsrYM
 <a id='t3'/>
 
 # Sauvegarder son travail
-[comment11]: <11> (TITRE1)
+[comment16]: <12> (TITRE1)
 
 
 <a id='t3-1'/>
 
 ## Au fait, comment sauvegardez-vous vos données ? 
 
-### <12>
+### <13>
 
 **Image** : [G. Courbet, Le Désespéré, 1843, collection particulière<a date='sans'/>](img/Courbet_desespere.jpg)
 
+[comment18]: <13> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master : quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
 
-[comment13]: <12> (**Quelle est la méthode de préservation des données la plus durable ?**)
-
-[comment14]: <12> (Il y a dans cette salle quelqu'un qui perdra tout son mémoire à un moment donné.)
-
-[comment15]: <12> (Ce sera peut-être vous… *Prendre un volontaire pour qu'il raconte sa méthode*.)
-
-[comment16]: <12> (Qui pense avoir une bonne méthode ?)
-
-[comment17]: <12> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master: quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
+[comment19]: <13> (**Quelle est la méthode de préservation des données la plus durable ?**)
 
 
 <a id='t3-2'/>
 
 ## Des méthodes très très durables 
 
-### <13>
+### <14>
 
 
 **Méthode n^o^ 1**
 
 **Image** : [Code d'Hammurabi, musée du Louvre, v. 1750 av. JC<a date='sans'/>](img/code-hammurabi_detail-01.jpg)
 
-[comment19]: <13> (Il a 3750 ans, et il tient toujours le coup.)
+[comment21]: <14> (Il a 3750 ans, et il tient toujours le coup.)
 
-[comment20]: <13> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
+[comment22]: <14> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
 
 
-### <14>
+### <15>
 
 
 **Méthode n^o^ 2**
 
 **Image** : [Le manuscrit sur parchemin, ici 1^re^ moitié IX^e^ s.<a date='1re moitié IXe s.'/>](img/lat-5763_fol-001r-detail-a.jpg)
 
-[comment21]: <14> (Ça tient bien aussi, depuis 11 siècles.)
+[comment23]: <15> (Ça tient bien aussi, depuis 11 siècles.)
 
 
 <a id='t3-3'/>
 
 ## Des méthodes plus modernes 
 
-### <15>
+### <16>
 
 
 - Microfilm pour les photos : 100 ans et plus
@@ -266,16 +283,20 @@ Exemple de [fichier XML](https://uncloud.univ-nantes.fr/index.php/s/8aP2QmkLsrYM
 - Disque dur : 5-10 ans
 
 
-### <16>
+### <17>
 
 **Image** : [Le *cloud*, servi par un centre de données<a date='sans'/>](img/calcul-informatique_data-center.jpg)
 
+[comment25]: <17> (Il y a toujours un risque que dans cette salle quelqu'un perde son rapport de stage ou un gros travail…)
 
-### <17>
+[comment26]: <17> (Qui pense avoir une bonne méthode de sauvegarde ? *Prendre un volontaire pour qu'il raconte sa méthode*.)
+
+
+### <18>
 
 - ***Cloud*** :
 	- Options d'accès : Accès à partir de plusieurs appareils
-	- Sécurité des données : Fort mais peut être piraté
+	- Sécurité des données : Fort mais peut être piraté (attention au détournement des contenus personnels voire intimes)
 	- Technologie de synchronisation : Mises à jour automatiques
 	- Coût par unité : Gratuit ou abonnement mensuel
 	- Propriété : Peut partager vos fichiers avec n'importe qui
@@ -283,18 +304,18 @@ Exemple de [fichier XML](https://uncloud.univ-nantes.fr/index.php/s/8aP2QmkLsrYM
 
 - **Disque dur externe** :
 	- Options d'accès : Utiliser une connexion USB
-	- Sécurité des données : Fort mais on peut se le faire voler
+	- Sécurité des données : Fort mais on peut le perdre ou se le faire voler
 	- Technologie de synchronisation : Mises à jour automatiques en cas de connexion
 	- Coût par unité : Achat ponctuel
 	- Propriété : Sûre
-	- Fiabilité : Peut se casser, des secteurs peuvent être défectueux
+	- Fiabilité : Peut se casser, ne plus démarrer, des secteurs peuvent être défectueux
 
 
 <a id='t3-4'/>
 
 ## Conseils pratiques 
 
-### <18>
+### <19>
 
 
 **Au quotidien**
@@ -303,21 +324,22 @@ Exemple de [fichier XML](https://uncloud.univ-nantes.fr/index.php/s/8aP2QmkLsrYM
 
 2. Un support physique ET un *cloud* : l'idéal !
 
-[comment24]: <18> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
+[comment28]: <19> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
 
 
 **Pour archiver**
 
 - J'utilise deux supports physiques localisés en deux endroits
+- Je ne fais pas confiance à un disque dur de plus de 10 ans (écrire la date de mise en service sur une étiquette !)
 
-[comment25]: <18> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
+[comment29]: <19> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
 
 
 <a id='t3-5'/>
 
 ## Des solutions cloud 
 
-### <19>
+### <20>
 
 - [One-Drive](https://onedrive.live.com) : avec Windows et un compte de messagerie Outlook
 - [Dropbox](https://www.dropbox.com/home) : gratuit pour quelques Go et quelques appareils connectés

@@ -51,7 +51,7 @@ Les institutions publiques pratiquent **l'ouverture des données** (*opendata*)�
 Il s'agit d'une partie seulement des notices de Mérimée, *sans les notices issues de l'Inventaire du patrimoine*.
 
 **Formats d'export**\
-\small généralement identique sur tous les sites de données ouvertes :
+ généralement identique sur tous les sites de données ouvertes :
 
 - CSV (*Comma-separated values*) : valeurs séparées par des virgules (ou un autre séparateur ; dans ce jeu, c'est le point-virgule) ; forme des **tableaux**
 	
@@ -157,7 +157,7 @@ La bonne clause était :
 
 Maintenant, pourquoi avons-nous moins de résultats que les [121](https://gertrude.paysdelaloire.fr/recherche/experte/results?q=(typeDossiers:(OeuvreArchitecture),blocs:((id:eabe2308-8749-4c1f-9a89-b55ce4298914,thematiqueType:LOCALISATION,operateur:AND,criteres:(),position:0),(id:e86ca9bb-906e-4f97-ba74-f1de08f543b3,thematiqueType:TYPE_OEUVRE,operateur:AND,criteres:((id:df7152f4-f47a-4a52-85fb-d9c4ad6d3b4c,champRecherche:TYPE_OEUVRE_DENOMINATION,valeur:http!:%2F%2Fwww.culture.fr%2Fthesaurus%2FL96-2280,operateur:EQUAL,label:pont,ancestorLabels:(g%C3%A9nie+civil,ouvrage+d%27art))),position:1)))) que donnait le site public ?
 
-*Ouvrez-donc un éditeur de texte pour taper vos clauses et pouvoir en écrire de nouvelles en faisant des copier-coller…*
+*Ouvrez-donc un éditeur de texte comme Notepad ++ pour taper vos clauses et pouvoir en écrire de nouvelles en faisant des copier-coller…*
 
 
 ### <11>
@@ -180,7 +180,7 @@ On va ajouter au passage :
 - order_by : `commune ASC`
 - limit : 100
 
-\small
+
 Une fois la requête complétée, cliquer sur le lien en bas de page, et utiliser le filtre en haut de la page : en tapant `appellation` on ne visualise plus que la donnée qui contient ce terme, et on peut repérer plus vite les types d'appellation qui ne sont pas "pont".
 
 
@@ -239,7 +239,7 @@ L'objectif est de convertir une sélection de ces informations dans un ordre log
 
 - Récupérer ce contenu en téléchargeant [ce fichier .txt](https://raw.githubusercontent.com/sbiay/td-num-vnp/main/txt/notice-inventaire-patrimoine.txt) (une fois le contenu afficher, un simple clic sur enregistrer sous)
 
-- Ouvrir le fichier dans un éditeur de texte
+- Ouvrir le fichier dans un éditeur de texte (Notepad ++)
 
 
 ### <18>
@@ -260,18 +260,18 @@ Puis on élimine les **valeurs** pour ne conserver que les intitulés des champs
 Pour cela on va effectuer des *cherche-remplace* à l'aide des **Expressions régulières** :
 
 - Activer la boîte de dialogue *cherche-remplace* : **Ctrl + H**
-- Cliquer sur l'option qui ressemble à `.*` pour activer la recherche par expression régulière
-- Dans le champ **Find**, taper `\t` : cela exprime **Tabulation**, qui sert ici de séparateur entre l'intitulé du champ et la valeur placée entre guillemets
+- Cocher l'option **Expression régulière**
+- Dans le champ **Recherche**, taper `\t` : cela exprime **Tabulation**, qui sert ici de séparateur entre l'intitulé du champ et la valeur placée entre guillemets
 
 
 ### <20>
 
-- Dans le champ **Find** (vidé), taper maintenant `\n` : cela exprime **Retour à la ligne**
+- Dans le champ **Recherche** (vidé), taper maintenant `\n` : cela exprime **Retour à la ligne**
 
-Pour conserver l'intitulé du champ, on va supprimer le séparateur (`\t`) et tous les caractères ce qui suivent, jusqu'au retour à la ligne (`\n`) qu'il faudra conserver… Voici comment :
+Pour conserver l'intitulé du champ, on va supprimer le séparateur (`\t`) et tous les caractères qui suivent, jusqu'au retour à la ligne (`\n`) qu'il faudra conserver… Voici comment :
 
-- **Find** : `\t[^\n]+`
-- **Replace** : *laisser vide*
+- **Recherche** : `\t[^\n]+`
+- **Remplacer par** : *laisser vide*
 
 
 ### <21>
@@ -281,7 +281,7 @@ Pour conserver l'intitulé du champ, on va supprimer le séparateur (`\t`) et to
 On recherche :
 
 - `\t` une tabulation
-- Suivie de `[]` un caractère (l'espace entre les crochets permet de définir un ensemble de caractères)
+- Suivie d'un ensemble de caractères défini entre `[]`
 - `^` signifie "tout sauf" ; par exemple `[^a]` signifie "tout caractère sauf `a`" ; `[^\t]` signifie "tout caractère sauf une tabulation" ; or, après la tabulation, on veut éliminer tout caractère sauf un retour à la ligne, pour éliminer tout jusqu'à la fin de la ligne `[^\n]`
 - `+` est un **quantificateur** signifie "entre 1 et l'infini" : or la suite de la ligne est constituée de "tout sauf un retour à la ligne" (`[^\n]`) un certain nombre (une infinité) de fois (`+`)
 
@@ -297,16 +297,16 @@ On recherche :
 
 ### <23>
 
-Tous les champs sont-ils utiles ?
+Tous les champs sont-ils utiles ? *(Ctrl + Suppr pour supprimer une ligne)*
 
-L'ordre est-il le plus logique ?
+L'ordre est-il le plus logique ? *(Ctrl + Maj + flêche pour déplacer une ligne vers le haut ou vers le bas)*
 
 Pour tous travailler au même diapason, voici la réorganisation que vous pouver télécharger avec 
 [ce fichier .txt](https://raw.githubusercontent.com/sbiay/td-num-vnp/main/txt/champs-inventaire-patrimoine.txt)
 
 On peut également personnaliser leur intitulé de cette façon :
 
-\small
+
 - `nom_de_l_edifice_ou_de_l_objet AS nom`
 - `appellation_du_batiment_eglise_ferme_ou_de_l_objet`\
 `AS appellation`
@@ -320,8 +320,8 @@ Enfin, il faut convertir cette succession de lignes en une clause **select** éc
 
 On remplace donc les retours à la ligne par **virgule suivie d'une espace** :
 
-- **Find** : `\n`
-- **Replace** : `, `
+- **Recherche** : `\n`
+- **Remplacer par** : `, `
 
 Et on copie-colle le résultat dans le champ **select**
 

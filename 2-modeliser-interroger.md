@@ -12,8 +12,9 @@ Plan :
 
 1. [Modéliser un objet d'étude](#t1)
 	1. [Qu'est-ce que modéliser ? ](#t1-1)
-	2. [Modèle conceptuel : vocabulaire ](#t1-2)
-	3. [Prospective ](#t1-3)
+	2. [Rappel : vocabulaire ](#t1-2)
+	3. [Relations et cardinalités ](#t1-3)
+	4. [Prospective ](#t1-4)
 2. [Interroger les ressources numériques](#t2)
 	1. [Consulter les sites web ](#t2-1)
 	2. [POP : la plateforme ouverte du patrimoine ](#t2-2)
@@ -37,9 +38,9 @@ Plan :
 
 **Modéliser** : opération qui consiste à créer la représentation d'un objet ou d'un système complexe afin de pouvoir l'analyser par des techniques d'ingénierie documentaire.
 
-*Étapes de la modélisation* :
+**Étapes de la modélisation** :
 
-1. **Exploration** : définir l'objet
+1. *Exploration* : définir l'objet
 
 	- Quel objet ?
 	- Quel périmètre d'étude ?
@@ -51,12 +52,12 @@ Plan :
 
 ### <3>
 
-2. **Modèle conceptuel** : analyser les éléments constitutifs de l'objet
+2. *Modèle conceptuel* : analyser les éléments constitutifs de l'objet
 	
 	- Quels éléments ?
-	- Quelles relations des éléments entre eux ?
+	- Quelles relations des éléments entre-eux ?
 
-3. **Prospective** : poser des objectifs
+3. *Prospective* : poser des objectifs
 	
 	- Conservation
 	- Etude : questions que l'on posera à l'objet
@@ -65,11 +66,11 @@ Plan :
 
 ### <4>
 
-Les ponts dits romains… sont souvent médiévaux :
+Les ponts dits romains… sont souvent médiévaux !
 
 [comment3]: <4> (Il n'est pas du tout certain que la voie romaine Chartres-Le Mans traversait l'Huisne à cet emplacement ; c'est au Moyen Âge que cet axe devient important pour relier Le Mans et Paris.)
 
-**Image** : [Le pont dit Romain de Montfort-le-Gesnois, 1^re^ moitié XV^e^ s.<a date='sans'/>](img/img_10e0aa33-b8e9-4731-995e-83897f815155.jpg)
+**Image** : [Le pont dit Romain de Montfort-le-Gesnois, Sarthe, 1^re^ moitié XV^e^ s.<a date='sans'/>](img/img_10e0aa33-b8e9-4731-995e-83897f815155.jpg)
 
 
 ### <5>
@@ -83,7 +84,7 @@ le Grand Pont d'Angers (Grégoire de Tours, 590).
 
 ### <6>
 
-[comment4]: <6> (Le plus vieu pont conservé en PDL :)
+[comment4]: <6> (Le plus vieux pont conservé en PDL :)
 
 **Image** : [Vieux Pont de Laval, XIII^e^ s.](img/img_laval.jpg)
 
@@ -119,27 +120,34 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 
 **Questions :**
 
-- Quelles sont les informations essentielles qui permettront de caractériser un pont ?
-- Quels sont les concepts principaux qui vont graviter autour ? Quelles informations vont les caractériser à leur tour ?
+- Quelles sont les informations essentielles qui permettront de caractériser un pont ? (7 max.)
+- Quelles sont les entités (ou concepts) principales qui vont graviter autour ? Quels attributs (ou informations) vont les caractériser à leur tour ? (5 max.)
 
 [comment5]: <9> (Remarque : un pont est-il une architecture ou un point --immatériel-- de franchissement ?)
-[comment6]: <9> (- architecture : base orientée objet ; comme il n'y aura jamais qu'une seule architecture conservée en place --sauf à faire du phasage archéologique complexe--, chaque point de franchissement correspondra à une architecture)
-[comment7]: <9> (- point de franchissement : on peut en avoir sans architecture, avec par exemple une mention textuelle)
+
+[comment6]: <9> (- architecture : base orientée objet archéologique ; selon les sources, on pourra documenter plusieurs architectures consécutives ; on aura donc potentiellement plusieurs items au même point de franchissement)
+
+[comment7]: <9> (- point de franchissement : on rassemblera les données de différentes époques dans autour du même item)
 
 [comment8]: <9> (Il faut donc se demander ce qui est le plus important pour nous.)
 
 [comment9]: <9> (Revenons à l'idée du phasage : le cas du Grand Pont d'Angers est intéressant. On peut rattacher à chaque entité *pont* des entités *phases*, qui se distinguent par la date, les matériaux, les sources qui s'y rattachent --icono par exemple--. On voit que le site de l'inventaire comme la base POP --uniquement l'API-- font plus simple : rassembler toutes les données de phase et d'histoire dans une seule notice : l'utilisateur interprétera lui-même l'information « Haut Moyen Âge » en lisant l'ensemble de la notice.)
 
 
-<a id='t1-2'/>
-
-## Modèle conceptuel : vocabulaire 
-
 ### <10>
 
-- **Entité** : type d'objet pouvant être décrits par une même liste fermée d'attribut
+**Image** : [Schéma **yEd**<a date='sans'/>](img/bdd-ponts_01-initial.gif)
+
+
+<a id='t1-2'/>
+
+## Rappel : vocabulaire 
+
+### <11>
+
+- **Entité** : type d'objet pouvant être décrits par une même liste fermée d'attributs
 	- Egalement dénommé : classe, *record type*
-	- Exemples : pont, personne, localité, source iconographique, source bibliographique, source archivistique, etc.
+	- Exemples : pont, personne, lieu, source iconographique, source bibliographique, source archivistique, etc.
 
 - **Attribut** : caractéristique d'une entité permettant de distinguer des enregistrements
 	
@@ -147,36 +155,59 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 	- Exemples : 
 		- Pour une entité *personne* : nom, prénom, date de naissance, etc.
 
-- **Enregistrement** : élément singulier appartenant à une entité
-
-	- Egalement dénommé : *record*
-
 
 <a id='t1-3'/>
 
+## Relations et cardinalités 
+
+### <12>
+
+[comment12]: <12> (Rien qu'avec 8 ponts, on a dès données déjà encombrantes :)
+
+[comment13]: <12> (1. Pénibles à visualiser, car il faut voyager entre les colonnes)
+[comment14]: <12> (2. Risqué pour ajouter des données)
+
+[comment15]: <12> (J'ajoute un pont à Angers, ce sont quatre champs de localisation que je dois copier et coller.)
+
+[comment16]: <12> (Les lieux sont un problème simple parce qu'on va admettre qu'un pont n'est rattaché qu'à une seule commune.)
+
+[comment17]: <12> (Un lieu est une **clé étrangère** dans la table pont.)
+
+[comment18]: <12> (Passons aux matériaux : ils sont regroupés dans un seul champ, mais on voit que les valeurs sont multiples.)
+
+[comment19]: <12> (Tous les ponts de ces exemples sont constitués de plusieurs matériaux. Est-ce un problème de les organiser ainsi ? Cela permet de trouver l'information, mais si l'on veut porter une attention particulière aux matériaux dans notre corpus, si on a pour objectif de permettre de trier des résultats de notre base par facettes selon les matériaux, alors il faut leur donner une table séparée.)
+
+[comment20]: <12> (Maintenant, comment mettre en relation plusieurs ponts avec plusieurs matériaux ?)
+
+[comment21]: <12> (Il sera nécessaire de créer une **table de relation**.)
+
+**Image** : [Diagramme entité-association](img/bdd-ponts_01-cardinalites.gif)
+
+
+<a id='t1-4'/>
+
 ## Prospective 
 
-### <11>
+### <13>
 
 - Etablir une cartographie des ponts conservés
-- Réunir de la documentation iconographique sur les ponts disparus
-- Interroger le corpus par les intervenants
+- Interroger le corpus par les personnes (architectes)
 - Interroger le corpus par la chronologie
 
 
 <a id='t2'/>
 
 # Interroger les ressources numériques
-[comment12]: <11> (TITRE1)
+[comment23]: <13> (TITRE1)
 
-[comment13]: <11> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
+[comment24]: <13> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
 
 
 <a id='t2-1'/>
 
 ## Consulter les sites web 
 
-### <12>
+### <14>
 
 - Quels sont les sites me permettant d'accéder à de l'information sur le sujet ?
 - Quelles informations me donnent-ils ?
@@ -188,7 +219,7 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 Navigateur recommandé : **Firefox**
 
 
-### <13>
+### <15>
 
 Un article [Liste des ponts de France](https://fr.wikipedia.org/wiki/Liste_de_ponts_de_France)
 
@@ -203,7 +234,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 ## POP : la plateforme ouverte du patrimoine 
 
-### <14>
+### <16>
 
 [https://pop.culture.gouv.fr/](https://pop.culture.gouv.fr/)
 
@@ -224,7 +255,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 ## Mérimée : à vous de jouer ! 
 
-### <15>
+### <17>
 
 1. Avant de commencer, lire le [bref descriptif](https://www.culture.gouv.fr/espace-documentation/Bases-de-donnees/Fiches-bases-de-donnees/Merimee-une-base-de-donnees-du-patrimoine-monumental-francais-de-la-Prehistoire-a-nos-jours) de la base et de ce qu'elle contient
 
@@ -238,7 +269,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 	- Si vous trouvez très vite : cherchez les ponts du seul département de la Vendée (14 résultats)
 
 
-### <16>
+### <18>
 
 **Il faut comprendre comment fonctionne la recherche avancée** :
 
@@ -249,7 +280,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 - Examiner le menu déroulant des champs interrogeables en recheche avancée : les premiers sont multiples, puis ce sont des champs simples classés par ordre alphabétique de leurs abréviations
 
 
-### <17>
+### <19>
 
 - La recherche la plus pertinente pour le type :\
 **DENO** (dénomination) *contient* « pont »
@@ -268,7 +299,7 @@ Pour la recherche sur un département précis, il faut chercher :
 - ou bien **DPT_LETTRE** (département) *égal à* Vendée.
 
 
-### <18>
+### <20>
 
 **On sauvegarde la recherche** dans son navigateur avec un marque-page :
 
@@ -285,9 +316,9 @@ Pour la recherche sur un département précis, il faut chercher :
 `rech Mérimée PDL`
 
 
-### <19>
+### <21>
 
-[comment17]: <19> (Comment récupérer ces informations pour en faire un tableau de données ?)
+[comment28]: <21> (Comment récupérer ces informations pour en faire un tableau de données ?)
 
 - Ajouter quelques résultats de la liste au **Panier**
 - Tenter l'export du Panier…
@@ -299,7 +330,7 @@ Un export PDF est particulièrement difficile à convertir en tableau…
 
 ## Gertrude : l'Inventaire général des Pays de la Loire 
 
-### <20>
+### <22>
 
 [https://gertrude.paysdelaloire.fr/](https://gertrude.paysdelaloire.fr/)
 
@@ -312,7 +343,7 @@ Une compétence régionale depuis 2004
 - Tenter d'exporter ces résultats
 
 
-### <21>
+### <23>
 
 Les critères de la recherche avancée doivent être :\
 **(Type de dossier : Oeuvre architecture)\
