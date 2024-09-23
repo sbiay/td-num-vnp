@@ -1,11 +1,11 @@
 ---
 mainfont: Alegreya
-title: Les API Requêtes et exports de données en masse
+title:  Les API  Requêtes et exports de données en masse
 date: 1^er^ semestre 2024-2025
 author: Sébastien Biay
 ---
 
-Les API Requêtes et exports de données en masse
+ Les API  Requêtes et exports de données en masse
 =====
 
 Plan :
@@ -26,9 +26,9 @@ Plan :
 
 Les institutions publiques pratiquent **l'ouverture des données** (*opendata*) : accès à la donnée brute indépendammant des sites webs qui les valorisent
 
-- Les données de [POP](https://pop.culture.gouv.fr/opendata) --- mais, quelles données et pour quel usage ? *À lire attentivement…*
+- Les données de [POP](https://pop.culture.gouv.fr/opendata) --- *mais, quelles données et pour quel usage ? À lire attentivement…*
 	
-	- [Mérimée](https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/table/?disjunctive.departement_en_lettres)
+	- [Mérimée MH](https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/table/?disjunctive.departement_en_lettres)
 
 - Les données de l'[Inventaire du patrimoine](https://data.paysdelaloire.fr/explore/dataset/234400034_052-001_inventaire-du-patrimoine-rpdl/information/) \
 (qui correspondent au site gertrude.paysdelaloire.fr)
@@ -146,14 +146,14 @@ Il s'agit de retrouver nos 121 résultats, et plus si affinité…
 
 Commencer par examiner les notices d'exemple pour repérer le champ pertinent à interroger.
 
-Une requête sur "pont" doit permettre de trouver 104 résultats.
+Une requête sur « pont » doit permettre de trouver 104 résultats.
 
 
 ### <10>
 
 La bonne clause était :
 
-- where : `appellation_du_batiment_eglise_ferme_ou_de_l_objet = "pont"`
+- where : `appellation_du_batiment_eglise_ferme_ou_de_l_objet = « pont »`
 
 Maintenant, pourquoi avons-nous moins de résultats que les [121](https://gertrude.paysdelaloire.fr/recherche/experte/results?q=(typeDossiers:(OeuvreArchitecture),blocs:((id:eabe2308-8749-4c1f-9a89-b55ce4298914,thematiqueType:LOCALISATION,operateur:AND,criteres:(),position:0),(id:e86ca9bb-906e-4f97-ba74-f1de08f543b3,thematiqueType:TYPE_OEUVRE,operateur:AND,criteres:((id:df7152f4-f47a-4a52-85fb-d9c4ad6d3b4c,champRecherche:TYPE_OEUVRE_DENOMINATION,valeur:http!:%2F%2Fwww.culture.fr%2Fthesaurus%2FL96-2280,operateur:EQUAL,label:pont,ancestorLabels:(g%C3%A9nie+civil,ouvrage+d%27art))),position:1)))) que donnait le site public ?
 
@@ -162,13 +162,13 @@ Maintenant, pourquoi avons-nous moins de résultats que les [121](https://gertru
 
 ### <11>
 
-Il faut parvenir à élargir la recherche sans perdre sa pertinence, en commençant par chercher les appellations qui *contiennent* "pont" sans être strictement égales à "pont".
+Il faut parvenir à élargir la recherche sans perdre sa pertinence, en commençant par chercher les appellations qui *contiennent* « pont » sans être strictement égales à « pont ».
 
 On va ajouter au passage :
 
 1. Une petite clause *select* pour balayer les résultats avec moins d'informations
 2. On augmente le nombre de résultats (*limit*) au max autorisé : 100
-2. Une clause *order_by* pour trier les communes en ordre "ascendant" (ASC), soit alphabétique ; on pourra ainsi faire DESC pour voir la fin de l'alphabet et ainsi visualiser plus de données
+2. Une clause *order_by* pour trier les communes en ordre « ascendant » (ASC), soit alphabétique ; on pourra ainsi faire DESC pour voir la fin de l'alphabet et ainsi visualiser plus de données
 
 
 ### <12>
@@ -176,12 +176,12 @@ On va ajouter au passage :
 À vous de jouer :
 
 - select : `identifiant, nom_de_l_edifice_ou_de_l_objet, appellation_du_batiment_eglise_ferme_ou_de_l_objet, commune, code_departement`
-- where : `appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont"`
+- where : `appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE « pont »`
 - order_by : `commune ASC`
 - limit : 100
 
 
-Une fois la requête complétée, cliquer sur le lien en bas de page, et utiliser le filtre en haut de la page : en tapant `appellation` on ne visualise plus que la donnée qui contient ce terme, et on peut repérer plus vite les types d'appellation qui ne sont pas "pont".
+Une fois la requête complétée, cliquer sur le lien en bas de page, et utiliser le filtre en haut de la page : en tapant `appellation` on ne visualise plus que la donnée qui contient ce terme, et on peut repérer plus vite les types d'appellation qui ne sont pas « pont ».
 
 
 ```
@@ -191,15 +191,15 @@ Une fois la requête complétée, cliquer sur le lien en bas de page, et utilise
 ### <13>
 
 
-On monte donc à 107 résultats, avec les "pont mobile" ! Comment élargir encore et faire apparaître d'autres types pertinents ?…
+On monte donc à 107 résultats, avec les « pont mobile » ! Comment élargir encore et faire apparaître d'autres types pertinents ?…
 
 
 ### <14>
 
-On peut chercher les notices qui contiennent le mot "pont" dans le champ **nom_de_l_edifice_ou_de_l_objet** mais dont l'**appellation** n'est pas pont, ce que l'on traduit ainsi :
+On peut chercher les notices qui contiennent le mot « pont » dans le champ **nom_de_l_edifice_ou_de_l_objet** mais dont l'**appellation** n'est pas pont, ce que l'on traduit ainsi :
 
-- where : `nom_de_l_edifice_ou_de_l_objet LIKE "pont" AND NOT 
-appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont"`
+- where : `nom_de_l_edifice_ou_de_l_objet LIKE « pont » AND NOT 
+appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE « pont »`
 
 
 ### <15>
@@ -213,9 +213,9 @@ Par cette requête on a pu repérer de nouveaux types d'appellation pertinents 
 
 where :\
 \scriptsize
-`appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont"`\
-`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = "passerelle"`\
-`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = "viaduc"`
+`appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE « pont »`\
+`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = « passerelle »`\
+`OR appellation_du_batiment_eglise_ferme_ou_de_l_objet = « viaduc »`
 
 
 Résultats : [124](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%2C%20commune%2C%20code_departement&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=commune%20ASC&limit=100) !
@@ -255,7 +255,7 @@ On commence par éliminer à la main les **lignes** qui ne comportent pas d'inti
 
 Puis on élimine les **valeurs** pour ne conserver que les intitulés des champs :
 
-- Exemple : sur la première ligne, `identifiant	"IA85003243"`, on ne veut garder que `identifiant`
+- Exemple : sur la première ligne, `identifiant	"IA85003243 »`, on ne veut garder que `identifiant`
 
 Pour cela on va effectuer des *cherche-remplace* à l'aide des **Expressions régulières** :
 
@@ -282,8 +282,8 @@ On recherche :
 
 - `\t` une tabulation
 - Suivie d'un ensemble de caractères défini entre `[]`
-- `^` signifie "tout sauf" ; par exemple `[^a]` signifie "tout caractère sauf `a`" ; `[^\t]` signifie "tout caractère sauf une tabulation" ; or, après la tabulation, on veut éliminer tout caractère sauf un retour à la ligne, pour éliminer tout jusqu'à la fin de la ligne `[^\n]`
-- `+` est un **quantificateur** signifie "entre 1 et l'infini" : or la suite de la ligne est constituée de "tout sauf un retour à la ligne" (`[^\n]`) un certain nombre (une infinité) de fois (`+`)
+- `^` signifie « tout sauf » ; par exemple `[^a]` signifie « tout caractère sauf `a`" ; `[^\t]` signifie « tout caractère sauf une tabulation » ; or, après la tabulation, on veut éliminer tout caractère sauf un retour à la ligne, pour éliminer tout jusqu'à la fin de la ligne `[^\n]`
+- `+` est un **quantificateur** signifie « entre 1 et l'infini » : or la suite de la ligne est constituée de « tout sauf un retour à la ligne » (`[^\n]`) un certain nombre (une infinité) de fois (`+`)
 
 
 ### <22>

@@ -77,6 +77,8 @@ Principaux :
 - Construire une base de données relationnelles dans un tableur
 - Convertir la base dans un gestionnaire de bases de données professionnel : **Heurist**
 - Proposer une [interface web de consultation](https://heurist.huma-num.fr/heurist/?db=sbiay_ponts_pays_loire&website&id=199&pageid=663)
+	- identifiant : `vnp`
+	- mot de passe : `vnp2024`
 
 Bonus :
 

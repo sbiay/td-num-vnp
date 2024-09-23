@@ -13,8 +13,8 @@ Plan :
 1. [Modéliser un objet d'étude](#t1)
 	1. [Qu'est-ce que modéliser ? ](#t1-1)
 	2. [Rappel : vocabulaire ](#t1-2)
-	3. [Relations et cardinalités ](#t1-3)
-	4. [Prospective ](#t1-4)
+	3. [Prospective ](#t1-3)
+	4. [Du modèle conceptuel au m. logique : cardinalité ](#t1-4)
 2. [Interroger les ressources numériques](#t2)
 	1. [Consulter les sites web ](#t2-1)
 	2. [POP : la plateforme ouverte du patrimoine ](#t2-2)
@@ -136,7 +136,14 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 
 ### <10>
 
+
 **Image** : [Schéma **yEd**<a date='sans'/>](img/bdd-ponts_01-initial.gif)
+
+\vskip -1em
+
+Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/angers-saumur.ods)
+
+[comment10]: <10> (Il présente dans une première feuille ou table les données « à plat », toutes ensemble.)
 
 
 <a id='t1-2'/>
@@ -158,56 +165,63 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 
 <a id='t1-3'/>
 
-## Relations et cardinalités 
+## Prospective 
 
 ### <12>
 
-[comment12]: <12> (Rien qu'avec 8 ponts, on a dès données déjà encombrantes :)
-
-[comment13]: <12> (1. Pénibles à visualiser, car il faut voyager entre les colonnes)
-[comment14]: <12> (2. Risqué pour ajouter des données)
-
-[comment15]: <12> (J'ajoute un pont à Angers, ce sont quatre champs de localisation que je dois copier et coller.)
-
-[comment16]: <12> (Les lieux sont un problème simple parce qu'on va admettre qu'un pont n'est rattaché qu'à une seule commune.)
-
-[comment17]: <12> (Un lieu est une **clé étrangère** dans la table pont.)
-
-[comment18]: <12> (Passons aux matériaux : ils sont regroupés dans un seul champ, mais on voit que les valeurs sont multiples.)
-
-[comment19]: <12> (Tous les ponts de ces exemples sont constitués de plusieurs matériaux. Est-ce un problème de les organiser ainsi ? Cela permet de trouver l'information, mais si l'on veut porter une attention particulière aux matériaux dans notre corpus, si on a pour objectif de permettre de trier des résultats de notre base par facettes selon les matériaux, alors il faut leur donner une table séparée.)
-
-[comment20]: <12> (Maintenant, comment mettre en relation plusieurs ponts avec plusieurs matériaux ?)
-
-[comment21]: <12> (Il sera nécessaire de créer une **table de relation**.)
-
-**Image** : [Diagramme entité-association](img/bdd-ponts_01-cardinalites.gif)
+- Etablir une cartographie des ponts conservés
+- Interroger le corpus par les personnes (architectes)
+- Interroger le corpus par les matériaux
+- Interroger le corpus par la chronologie
+- …
 
 
 <a id='t1-4'/>
 
-## Prospective 
+## Du modèle conceptuel au m. logique : cardinalité 
 
 ### <13>
 
-- Etablir une cartographie des ponts conservés
-- Interroger le corpus par les personnes (architectes)
-- Interroger le corpus par la chronologie
+[comment14]: <13> (Rien qu'avec 8 ponts, on a dès données déjà encombrantes :)
+
+[comment15]: <13> (1. Pénibles à visualiser, car il faut voyager entre les colonnes)
+[comment16]: <13> (2. Risqué pour ajouter des données)
+
+[comment17]: <13> (J'ajoute un pont à Angers, ce sont quatre champs de localisation que je dois copier et coller.)
+
+[comment18]: <13> (Les lieux sont un problème simple parce qu'on va admettre qu'un pont n'est rattaché qu'à une seule commune.)
+
+[comment19]: <13> (Un lieu est une **clé étrangère** dans la table pont.)
+
+[comment20]: <13> (**Passons aux matériaux** : ils sont regroupés dans un seul champ --C--, mais on voit que les valeurs sont multiples.)
+
+[comment21]: <13> (Tous les ponts de ces exemples sont constitués de plusieurs matériaux. Est-ce un problème de les organiser ainsi ? Cela permet de trouver l'information, mais si l'on veut porter une attention particulière aux matériaux dans notre corpus, si on a pour objectif de permettre de trier des résultats de notre base par facettes selon les matériaux, alors il faut leur donner une table séparée.)
+
+[comment22]: <13> (Maintenant, comment mettre en relation plusieurs ponts avec plusieurs matériaux ?)
+
+[comment23]: <13> (Il sera nécessaire de créer une **table de relation**.)
+
+**Image** : [Diagramme entité-association](img/bdd-ponts_01-cardinalites.gif)
+
+
+### <14>
+
+Pour aller plus loin sur le diagramme entité-association, voir [cette page](https://www.lucidchart.com/pages/fr/diagramme-entite-association)
 
 
 <a id='t2'/>
 
 # Interroger les ressources numériques
-[comment23]: <13> (TITRE1)
+[comment24]: <14> (TITRE1)
 
-[comment24]: <13> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
+[comment25]: <14> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
 
 
 <a id='t2-1'/>
 
 ## Consulter les sites web 
 
-### <14>
+### <15>
 
 - Quels sont les sites me permettant d'accéder à de l'information sur le sujet ?
 - Quelles informations me donnent-ils ?
@@ -219,7 +233,7 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 Navigateur recommandé : **Firefox**
 
 
-### <15>
+### <16>
 
 Un article [Liste des ponts de France](https://fr.wikipedia.org/wiki/Liste_de_ponts_de_France)
 
@@ -234,11 +248,12 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 ## POP : la plateforme ouverte du patrimoine 
 
-### <16>
+### <17>
 
-[https://pop.culture.gouv.fr/](https://pop.culture.gouv.fr/)
+ [https://pop.culture.gouv.fr/](https://pop.culture.gouv.fr/)
 
-\vskip 3em
+
+\vskip 2em
 
 - Collections des musées de France : la base Joconde
 
@@ -255,7 +270,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 ## Mérimée : à vous de jouer ! 
 
-### <17>
+### <18>
 
 1. Avant de commencer, lire le [bref descriptif](https://www.culture.gouv.fr/espace-documentation/Bases-de-donnees/Fiches-bases-de-donnees/Merimee-une-base-de-donnees-du-patrimoine-monumental-francais-de-la-Prehistoire-a-nos-jours) de la base et de ce qu'elle contient
 
@@ -269,7 +284,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 	- Si vous trouvez très vite : cherchez les ponts du seul département de la Vendée (14 résultats)
 
 
-### <18>
+### <19>
 
 **Il faut comprendre comment fonctionne la recherche avancée** :
 
@@ -280,10 +295,12 @@ Des données beaucoup trop lacunaires pour être utiles !
 - Examiner le menu déroulant des champs interrogeables en recheche avancée : les premiers sont multiples, puis ce sont des champs simples classés par ordre alphabétique de leurs abréviations
 
 
-### <19>
+### <20>
 
 - La recherche la plus pertinente pour le type :\
 **DENO** (dénomination) *contient* « pont »
+
+[comment29]: <20> (Si l'on utilise le champ **Désignation**, on obtient du bruit, avec des ponts en tant que partie constitutive d'un ensemble plus vaste, comme un village --155 résultats--.)
 
 - La recherche la plus pertinente pour la localisation :\
 **REG** (région) *égal à* « Pays de la Loire »
@@ -299,16 +316,17 @@ Pour la recherche sur un département précis, il faut chercher :
 - ou bien **DPT_LETTRE** (département) *égal à* Vendée.
 
 
-### <20>
+### <21>
 
 **On sauvegarde la recherche** dans son navigateur avec un marque-page :
 
 - Ouvrir le volet des marque-pages : Ctrl + B
 - Dans le Menu des marque-pages créer des dossiers :
-	
-	- `Prénom/Nom`\
-	- => `Ponts`\
-	- =>	=> `Sites`
+
+`TD-ponts/`
+
+- => `Ponts`\
+- =>	=> `Sites`
 
 - Ajouter la page des résultats comme marque-page : Ctrl + D
 - Trouver le dossier via **Choisir**
@@ -316,9 +334,9 @@ Pour la recherche sur un département précis, il faut chercher :
 `rech Mérimée PDL`
 
 
-### <21>
+### <22>
 
-[comment28]: <21> (Comment récupérer ces informations pour en faire un tableau de données ?)
+[comment30]: <22> (Comment récupérer ces informations pour en faire un tableau de données ?)
 
 - Ajouter quelques résultats de la liste au **Panier**
 - Tenter l'export du Panier…
@@ -330,9 +348,10 @@ Un export PDF est particulièrement difficile à convertir en tableau…
 
 ## Gertrude : l'Inventaire général des Pays de la Loire 
 
-### <22>
+### <23>
 
-[https://gertrude.paysdelaloire.fr/](https://gertrude.paysdelaloire.fr/)
+ [https://gertrude.paysdelaloire.fr/](https://gertrude.paysdelaloire.fr/)
+
 
 Une compétence régionale depuis 2004
 
@@ -343,7 +362,7 @@ Une compétence régionale depuis 2004
 - Tenter d'exporter ces résultats
 
 
-### <23>
+### <24>
 
 Les critères de la recherche avancée doivent être :\
 **(Type de dossier : Oeuvre architecture)\
