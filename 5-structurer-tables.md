@@ -13,6 +13,8 @@ Plan :
 1. [Relation simple par une clé étrangère](#t1)
 	1. [Table des lieux ](#t1-1)
 2. [Relation multiple par une table de relation](#t2)
+	1. [Table des matériaux ](#t2-1)
+	2. [1. Transformer les données ](#t2-2)
 
 [comment]: <> (FINET)
 
@@ -83,3 +85,46 @@ Pour copier-coller une formule sans modifier la couleur de fond de la cellule :
 <a id='t2'/>
 
 # Relation multiple par une table de relation
+[comment3]: <6> (TITRE1)
+
+
+<a id='t2-1'/>
+
+## Table des matériaux 
+
+### <7>
+
+Commencer par isoler les données dans une nouvelle feuille brouillon :
+
+1. Filtrer la colonne **P** materiau_du_gros_oeuvre pourne pas avoir de donnée vide
+
+2. Copier dans une nouvelle feuille brouillon :
+
+- Identifiant
+- materiau_du_gros_oeuvre
+
+### <8>
+
+Pour créer la relation multiple entre pont et matériaux, il faut procéder en trois étapes :
+
+1. Transformer les données pour parvenir à des relations unilatérales : un identifiant de pont pour un matériau
+
+2. Prévoir une méthode d'identification de chaque matériau
+
+3. Créer la table des matériaux
+
+
+<a id='t2-2'/>
+
+## 1. Transformer les données 
+
+### <9>
+
+Pour avoir sur chaque ligne un identifiant et un seul matériau, on fait appel aux expressions régulières
+
+- Copier toutes les données (sans les en-têtes) dans Notepad ++
+
+- On veut remplacer chaque point-virgule par l'identifiant du début de la ligne
+
+- Find : `([IP]A\d+)(\t[^;]+); ` (une espace après le dernier point-virgule)
+- Replace with : `$1$2\r\n$1\t`
