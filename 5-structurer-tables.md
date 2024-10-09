@@ -15,6 +15,9 @@ Plan :
 2. [Relation multiple par une table de relation](#t2)
 	1. [Table des matériaux ](#t2-1)
 	2. [1. Transformer les données ](#t2-2)
+	3. [2. Prévoir une méthode d'identification de chaque matériau ](#t2-3)
+3. [Evaluation](#t3)
+	1. [Consignes ](#t3-1)
 
 [comment]: <> (FINET)
 
@@ -103,6 +106,7 @@ Commencer par isoler les données dans une nouvelle feuille brouillon :
 - Identifiant
 - materiau_du_gros_oeuvre
 
+
 ### <8>
 
 Pour créer la relation multiple entre pont et matériaux, il faut procéder en trois étapes :
@@ -126,5 +130,105 @@ Pour avoir sur chaque ligne un identifiant et un seul matériau, on fait appel a
 
 - On veut remplacer chaque point-virgule par l'identifiant du début de la ligne
 
-- Find : `([IP]A\d+)(\t[^;]+); ` (une espace après le dernier point-virgule)
+- Find : `([IP]A\d+)(\t[^;]+);\s`\
+
 - Replace with : `$1$2\r\n$1\t`
+
+
+### <10>
+
+- Vérifier la propreté du résultat (nettoyer à la main si besoin)
+- Il y a des espaces invisibles en fin de ligne
+
+	- Find `\s\r`
+	- Replace `\r`
+
+
+<a id='t2-3'/>
+
+## 2. Prévoir une méthode d'identification de chaque matériau 
+
+### <11>
+
+La feuille obtenue est une **table de relations**
+
+À présent, on souhaite créer le thésaurus des matériaux, qui ne devra contenir aucun doublon et où chaque matériau aura son identifiant.
+
+On doit donc trouver une méthode pour créer des identifiants
+
+
+### <12>
+
+- Trier la colonne des matériaux
+- Dans une nouvelle colonne **id matériau** inscrire la première valeur pour le premier matériau : `1`
+
+- Pour générer l'identifiant de l'enregistrement suivant j'écris la formule : `=SI(B3=B2;C2;C2+1)`
+
+
+### <13>
+
+- Renommer la colonne A : `id Pont`
+- Insérer une nouvelle colonne en B
+- Y copier-coller le contenu de la colonne **id matériau** pour transformer les formules en valeurs
+- Supprimer la colonne D
+
+
+### <14>
+
+- Dans une nouvelle feuille, copier-coller tous les matériaux avec leurs identifiants
+- Supprimer les doublons
+
+	- Sélectionner toutes les données
+	- **Données** > Plus de filtres > Filtre standard
+	- Nom de champ : aucun(e)
+	- Options : sans doublon
+
+
+<a id='t3'/>
+
+# Evaluation
+[comment7]: <14> (TITRE1)
+
+
+### <15>
+
+Félicitations !!!
+
+Vous êtes devenus de véritables ingénieurs de la donnée patrimoniale !
+
+Et avez d'ores-et-déjà obtenu **14 points** pour l'évaluation !
+
+
+<a id='t3-1'/>
+
+## Consignes 
+
+### <16>
+
+- Créer une copie de la base de données qui ne contienne que le département de la **Sarthe**
+
+- Nettoyer les données du mieux que vous pouvez :
+	
+	- Supprimer les doublons
+	- Récupérer les infos utiles des enregistrements à supprimer
+	- Documenter l'existence de l'enregistrement supprimé
+		
+		- Il existe ailleurs sous le même identifiant
+		- Il existe aussi sous un autre identifiant
+
+
+- Créer une table spécifique pour les **Personnes**\
+	(travailler à la main sera plus efficace qu'avec des expressions régulières)
+
+- Pour avoir 22/20 : créer une table pour les **Datations**
+
+
+### <17>
+
+- **Il est permis** :
+
+	- De me poser toutes les questions que vous voulez
+	- De vous entraider
+	- De travailler à la maison
+
+- **Il est obligatoire** de me remettre un fichier individuel le 21 octobre à 18h
