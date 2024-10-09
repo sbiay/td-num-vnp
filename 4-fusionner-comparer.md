@@ -16,6 +16,8 @@ Plan :
 	3. [Evaluer la qualité respective des données ](#t1-3)
 2. [Fusionner deux tableaux](#t2)
 	1. [Comparer les en-têtes et adapter le tableau Fusion ](#t2-1)
+3. [Analyser les données](#t3)
+	1. [Chercher les problèmes, comprendre les données ](#t3-1)
 
 [comment]: <> (FINET)
 
@@ -158,6 +160,7 @@ Creér une nouvelle colonne est simple par un clic droit
 	
 - **G** : `datation/3`
 
+
 ### <11>
 
 **Déplacer une colonne (ou une ligne)** :
@@ -174,3 +177,104 @@ Démarche :
 3. Cliquer gaucher sur une cellule de cette colonne et maintenir le clic gauche.
 4. Déplacer vers la destination le curseur (colonne H par exemple)
 
+
+### <12>
+
+On ajoute une colonne **Source** ou l'on renseignera soit `Gertrude` soit `Mérimée`
+
+Il est intéressant de conserver les couleurs pour la comparaison des notices.
+
+
+### <13>
+
+Félicitations !!!
+
+Vous avez correctement fusionné deux tableaux !
+
+Pour retrouver le résultat : [étape 2](https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/inventaire-pays-loire-complet-etape-2.ods)
+
+
+<a id='t3'/>
+
+# Analyser les données
+[comment7]: <13> (TITRE1)
+
+
+<a id='t3-1'/>
+
+## Chercher les problèmes, comprendre les données 
+
+### <14>
+
+Pour analyser les données, il est utile de les trier selon un double critère :
+
+1. La localisation, via le numéro INSEE
+2. L'identifiant, pour rapprocher les notices existant sous le même identifiant dans Gertrude et Mérimée
+
+
+### <15>
+
+La première notice pose problème ! (IA17047185)
+
+Quelle solution proposez-vous ?
+
+
+### <16>
+
+Un clic droit sur Google Maps permet d'afficher la commune, mais attention le code est le code postal, non le code INSEE
+
+Le pont ferroviaire (IA17047185) est donc localisé ainsi :
+
+- Commune 1 : L'Île-d'Elle, 85111
+- Commune 2 : Marans, 17218
+
+
+### <17>
+
+Il faut aussi chercher les doublons : l'objectif d'un corpus est d'avoir un seul enregistrement par pont
+
+Parcourir par communes peut être utile, ou encore trier par géolocalisation :
+
+1. Latitude
+2. Longitude
+
+Les enregistrements ayant les mêmes coordonnées seront voisins.
+
+Filtrer pour éliminer les ponts ayant en géolocalisation des valeurs 0.
+
+
+### <18>
+
+Tout naturellement la géolocalisation rapproche les ponts ayant le même identifiant : par exemple IA49000842
+
+On trouve que la notice Mérimée (jaune) est plus riche
+
+On peut créer une nouvelle colonne **Existe avec le même identifiant dans** et insérer la valeur `Gertrude`
+
+Trouvez-vous d'autres doublons qui n'ont pas le même identifiant ?
+
+
+### <19>
+
+Le pont de Beaulieu à Candé (49)
+
+- IA49001529
+- IA49001526
+
+Est-ce le même pont ?
+
+Ou encore le Pont - D 210, Blandouet :
+
+- IA53002314
+- IA53002318
+
+Même question…
+
+
+### <20>
+
+Dans le premier cas les deux ponts existent toujours.
+
+Dans le second l'un a remplacé l'autre.
+
+Il nous appartient de décider si notre corpus conserve ce type de doublon ou les élimine.
