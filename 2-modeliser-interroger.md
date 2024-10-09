@@ -405,32 +405,73 @@ Essayez de composer des expressions régulières pour sélectionner ces élémen
 
 **Récupérer les identifiants**
 
-- Dans l'éditeur de texte, ouvrir la boîte de dialogue de recherche (**Ctrl + F**)
+- Dans l'éditeur de texte Notepad ++, ouvrir la boîte de dialogue de recherche (**Ctrl + F**)
 - Accéder à l'onglet **Marquer**
 - Vérifier que les expressions régulières sont activées
-- Chercher : `[I|P]A[\d]{8}`
+- Chercher : `\n[I|P]A\d{8}`
 - Rechercher tout
 - Copier le texte marqué
-- Coller (Ctrl + Maj + V) dans la 1^re^ colonne du tableau à partir de la 2^e^ ligne (on mettra en 1^re^ ligne : `identifiant`)
+- Le coller dans une nouvelle feuille dans le Notepad
 
 
 ### <28>
+
+On obtient une liste de résultats séparés par des lignes contenant `----`.\
+Pour nettoyer la liste des identifiants :
+
+- Find : `\n----\r`\
+	(`\n` signifie *nouvelle ligne* ; `\r` signifie *retour à la ligne*)
+- Replace with : *vide*
+
+S'il reste des lignes vides, on les supprime ainsi :
+
+- Find : `\r\n\r\n`
+- Replace with : `\r\n`
+
+
+### <29>
+
+**Récupérer la localisation**
+
+Ce n'est pas le plus difficile, puisque la localisation commence toujours par « Pays de la Loire ».
+
+- Mark All : `Pays de la Loire[^\r]+`\
+	(qui signifie `Pays de la Loire` suivi de plusieurs caractères qui ne sont pas un retour à la ligne)
+
+L'information « Pays de la Loire » n'étant pas utile pour nous, on peut ensuite l'éliminer :
+
+- Find : `Pays de la Loire ; `
+- Replace with : *vide*
+
+
+### <30>
+
+Sachant que cette localisation contient plusieus valeurs séparées par `;` on peut l'importer dans le tableau en plusieurs colonnes :
+
+- **Ctrl + Maj + V**
+- Choisir **Utiliser le dialgue d'importation**
+- Options de séparateur : point-virgule
+
+Ainsi on obtient deux colonnes pour le département et la commune
+
+
+### <31>
 
 **Récupérer le nom**
 
 On sait que les noms se trouvent sur les lignes qui suivent celles des identifiants :
 
-- Tester la recherche suivante : `[P|I]A[\d]{8}\n[^\n]+`
+- Tester la recherche suivante : `[P|I]A\d{8}\r\n[^\r]+`
 
 	
-	L'expression signifie : *un identifiant, suivi d'un retour à la ligne, puis d'une ligne avec tous ses caractères (de un à une infinité de caractères sauf un retour à la ligne)*
+	L'expression signifie : *un identifiant, suivi d'un retour à la ligne, puis d'une nouvelle ligne avec tous ses caractères (de un à une infinité de caractères sauf un retour à la ligne)*
 	
 
 - Rechercher tout
 - Parcourir les résultats signalés dans le texte… Est-ce satisfaisant ?
 
 
-### <29>
+### <32>
 
 **Récupérer le nom**
 
@@ -439,11 +480,11 @@ Il faut procéder à des nettoyages :
 
 - Eliminer les numéros de pages (ils s'interposent entre des identifiants et des noms)
 
-	- Chercher : `\n\d+ / \d+`
+	- Chercher : `\n\d+ / \d+\r`
 	- Remplacer par : *vide*
 
 
-### <30>
+### <33>
 
 **Récupérer le nom**
 
@@ -455,33 +496,34 @@ Il faut aussi éliminer les titres des documents PDF qui poseront le même probl
 - Le faire à la main ou par une expression régulière de votre invention… (le nombre de notices n'est pas de « 50 » dans la dernière partie du fichier)
 
 
-### <31>
+### <34>
 
 **Récupérer le nom**
 
-- Ouvrir un second document vide dans l'éditeur de textes (Ctrl + N)
-
-- Chercher : `[P|I]A[\d]{8}\n[^\n]+`
+- Mark : `[P|I]A\d{8}\r\n[^\r]+`
 
 - Coller dans le nouveau document
 
 
-### <32>
+### <35>
 
 **Récupérer le nom**
 
 - Dans ce nouveau document, on veut éliminer toutes les lignes qui ne sont pas le nom de l'édifice
-	- Les lignes contenant `----`
+	- Les lignes contenant `\n----\r`
 	- Les identifiants
-		- Chercher : `[P|I]A[\d]{8}\n`
+		
+		- Chercher : `\n[P|I]A\d{8}\r`
 		- Remplacer par : *vide*
+
+	- Les lignes vides qui peuvent rester
 
 - Copier toutes les lignes restantes et les coller dans le tableau : **Ctrl + Maj + V**
 
 Le résultat est-il satisfaisant ?
 
 
-### <33>
+### <36>
 
 **Récupérer le nom**
 
@@ -491,23 +533,7 @@ Le premier nom de la liste n'a pas pu être attrappé par notre méthode !
 - Coller à la main le nom du premier enregistrement
 
 
-### <34>
-
-**Récupérer la localisation**
-
-Ce n'est pas le plus difficile, puisque la localisation commence toujours par « Pays de la Loire ».
-
-À vous de composer l'expression régulière pour capturer toute cette ligne et la coller dans le tableau.
-
-L'information « Pays de la Loire » n'étant pas utile pour nous, on peut ensuite l'éliminer de la colonne C du tableau :
-
-- Cliquer sur **C** pour sélectionner toute la colonne
-- Ouvrir la boîte de dialogue pour chercher-remplacer : **Ctrl + H**
-- Bien cocher : Autres options > Sélection active seulement
-- Compléter judicieusement les champs **Rechercher** et **Remplacer**
-
-
-### <35>
+### <37>
 
 **Félicitations !**
 
@@ -515,12 +541,14 @@ Vous avez extrait les principales données d'un PDF et les avez rendues exploita
 
 Le résultat peut se retrouver dans [ce fichier](https://github.com/sbiay/td-num-vnp/raw/main/csv/merimee-export-manuel.csv)
 
+Voir ce [{vademecum}](https://github.com/sbiay/td-num-vnp/blob/main/tuto-regex.md) contenant les fondamentaux sur les expressions régulières
+
 
 <a id='t2-6'/>
 
 ## Gertrude : l'Inventaire général des Pays de la Loire 
 
-### <36>
+### <38>
 
  [https://gertrude.paysdelaloire.fr/](https://gertrude.paysdelaloire.fr/)
 
@@ -534,7 +562,7 @@ Une compétence régionale depuis 2004
 - Tenter d'exporter ces résultats
 
 
-### <37>
+### <39>
 
 Les critères de la recherche avancée doivent être :\
 **(Type de dossier : Oeuvre architecture)\

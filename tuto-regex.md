@@ -39,9 +39,10 @@ Dans les expressions régulières, un ensemble se représente entre crochets `[]
 - Les lettres minuscules `[a-z]` ;
 - Les lettres majuscules `[A-Z]` ;
 - Les chiffres `[0-9]` ;
-- Les caractères blanc `[ \t\n]` :
+- Les caractères blanc `[ \t\n\r]` :
   - `\t` est la manière textuelle de représenter une tabulation ;
-  - `\n` est la manière textuelle de représenter un retour à la ligne ;
+  - `\r` un retour à la ligne ;
+  - `\n` une nouvelle ligne.
 - Les caractères spéciaux `[&é »'=]` (à compléter en fonction des besoins) ;
 - La négation (trouver ce qui n'est pas compris dans mon ensemble)
   `[^a]` (tout ce qui n'est pas un *a*).
