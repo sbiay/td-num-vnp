@@ -11,9 +11,11 @@ Fusionner et comparer des données tabulaires
 Plan :
 
 1. [Comparer deux tableaux de données](#t1)
-	1. [Les fonctions ](#t1-1)
+	1. [Fonction de recherche ](#t1-1)
 	2. [Comparer des jeux de données ](#t1-2)
-	3. [Récupérer les données de l'API POP ](#t1-3)
+	3. [Evaluer la qualité respective des données ](#t1-3)
+2. [Fusionner deux tableaux](#t2)
+	1. [Comparer les en-têtes et adapter le tableau Fusion ](#t2-1)
 
 [comment]: <> (FINET)
 
@@ -26,14 +28,15 @@ Plan :
 
 <a id='t1-1'/>
 
-## Les fonctions 
+## Fonction de recherche 
 
 ### <2>
 
 On a obtenu via les API plusieurs fichiers de données tabulaires :
 
 1. Données de l'Inventaire extraites de Gertrude
-2. Données de Mérimée :
+2. Données de Mérimée\
+	(API complète [https://api.pop.culture.gouv.fr/merimee/](https://api.pop.culture.gouv.fr/merimee/PA00109550)) :
 
 	- PA : protection au titre des MH
 	- IA : Inventaire (compétence nationale jusqu'en 2004)
@@ -57,86 +60,11 @@ Pour comparer les deux feuilles, on doit créer une fonction de **Recherche** :
 C'est une information qu'il faut *calculer*.
 
 
-### <4>
-
-Les tableurs ne sont pas seulement un mode de présentation des données, ils sont aussi des outils de calcul.
-
-Pour cela, on utilise des **Fonctions**.
-
-La fonction la plus simple qui soit consiste à citer une autre case :
-
-- Se placer dans la case X2
-- Saisir : `=C2`
-
-Dans la case X2 s'affiche désormais le contenu de la case C2, qui est l'**appellation** de notre enregistrement.
-
-
-### <5>
-
-Si je copie une case contenant une fonction, le tableur recalcule automatiquement la formule.
-
-- Copier la case X2 et la coller en X3
-
-La fonction recalculée présente le contenu de la case A3 Je peux ainsi créer une formule dans la première ligne d'une colonne et l'appliquer à toute la colonne par un simple copier-coller.
-
-
-### <6>
-
-Passons à un calcul un peu plus subtil : une **condition**
-
-Dans la case X2 écrire : `=SI(C2="pont";"pont";"pas pont")`
-
-La formule se décompose ainsi :
-
-- Un type de fonction : **SI**
-- Plusieurs clauses (entre parenthèses et séparées par des points-virgules)
-	- La condition à tester : `C2="pont"` *la case C2 est égale à la chaîne de caractère `pont`*
-	- Si oui, alors le résultat est : "pont"
-	- Si non, alors le résultat est : "pas pont"
-
-Appliquer cette formule à toute la colonne (pour sélectionner toutes les cases de la X3 jusqu'en bas : Ctrl + Maj + Fin)
-
-
-### <7>
-
-**Afficher des valeurs logiques**
-
-Ce résultat ne fait pas très scientifique, mieux vaudrait exprimer les résultats de façon booléenne…
-
-Comment coder VRAI et FAUX en langage booléen ?
-
-Réécrire la fonction et l'appliquer à toutes les lignes de la colonne X
-
-
-### <8>
-
-La réponse était : `=SI(C2="pont";1;0)`
-
-Mais le résultat n'exprime pas encore des valeurs logiques : il n'affiche que des 0 et des 1
-
-Il faut définir le format de données comme étant des valeurs booléennes :
-
-- Sélectionner toutes les cellules de la colonne
-- Cliquer droit > Formater des cellules
-- Catégorie : Valeur logique
-
-Désormais, si la colonne C contient strictement le mot "pont", la colonne X dit VRAI, sinon elle dit FAUX
-
-
 <a id='t1-2'/>
 
 ## Comparer des jeux de données 
 
-### <9>
-
-Maintenant que vous connaissez le principe des fonctions et des conditions, revenons à notre objectif : tester si oui ou non l'identifiant (colonne A) de chaque enregistrement de la feuille Gertrude existe dans la feuille Mérimée (colonne A également).
-
-Dans les formules de cette colonne, à la place de `C2="pont"`, il faut écrire une condition bien différente.
-
-Dans la case X2, au lieu d'une simple condition, nous allons écrire une fonction de **recherche**.
-
-
-### <10>
+### <4>
 
 Dans X2, écrire : `=RECHERCHEV(A2;$Mérimée.A:C;1;0)`
 
@@ -154,7 +82,7 @@ La formule se décompose ainsi :
 Votre résultat est sans doute : `#N/D` et c'est normal !
 
 
-### <11>
+### <5>
 
 `#N/D` signifie *no data* ou "valeur non disponible".
 Ce n'est pas une erreur, cela signifie : l'identifiant que vous cherchez n'est pas dans la matrice de recherche --- il n'est pas dans la feuille Mérimée.
@@ -165,7 +93,7 @@ Certains identifiants sont trouvés ! Combien ?\
 En créant un auto-filtre sur la colonne, vous pourrez manipuler les résultats et les compter facilement.
 
 
-### <12>
+### <6>
 
 La réponse est 20.
 
@@ -178,28 +106,71 @@ Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
 
 <a id='t1-3'/>
 
-## Récupérer les données de l'API POP 
+## Evaluer la qualité respective des données 
 
-### <13>
+### <7>
 
-Ayant appris qu'il existe peu de recoupements entre les notices des Mérimée et de Gertrude, il devient indispensable à notre corpus d'obtenir des données complètes de Mérimée…
+Lorsque les deux bases contiennent une notice sous le même identifiant, laquelle est la meilleure ?
 
-En cherchant bien, on trouve une API qui contient toutes les notices de Mérimée.
-En voici un exemple : [https://api.pop.culture.gouv.fr/merimee/PA00109550](https://api.pop.culture.gouv.fr/merimee/PA00109550)
+Il faut parcourir les données en procédant à des sondages :
+
+- Ouvrir un nouveau tableau pour comparer deux enregistrements
+- Choisir un identifiant
+- Copier l'ensemble de la ligne dans le nouveau tableau :
+	
+	- Clic droit
+	- **Collage spécial** : transposer
 
 
-### <14>
+### <8>
 
-Nous avons la liste des identifiants et le modèle des URL des notices dans l'API… Pour récupérer les données de toutes les notices, quatre solutions :
+On en déduit que les données de Mérimée sont plus complètes pour les matériaux et pour la chronologie.
 
-1. Contacter l'administration du site POP pour leur demander une méthode de requêtage de tous les résultats d'un seul coup…
+On sait que les données de Gertrude contiennent un plus grand nombre de notices.
 
-2. Tout faire à la main (prévoir une cafetière, des bonbons schtroumpf, une série en 4 saisons voire plus, etc.)
+Il est donc intéressant pour notre corpus de chercher à fusionner ces données.
 
-3. Apprendre le langage python pour écrire un petit programme
 
-4. Demander à un prof qui connaît le langage python et qui a déjà préparé ce cours de vous extraire les données
+<a id='t2'/>
 
-Voici le résultat directement importé dans un [fichier .odt](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/inventaire-pays-loire-complet-etape-2.ods)
+# Fusionner deux tableaux
+[comment5]: <8> (TITRE1)
 
-<!--Pour la suite du cours : ils doivent évaluer les données de Mérimée, comprendre pourquoi il y a peu de recoupements ; reprendre fdr à "Recouper les données entre Mérimée et Gertrude"-->
+
+<a id='t2-1'/>
+
+## Comparer les en-têtes et adapter le tableau Fusion 
+
+### <9>
+
+- Créer une nouvelle feuille que l'on peut appeler "Fusion"
+
+- Y coller tout le contenu de la feuille Gertrude
+
+- Dans un nouveau tableau servant de brouillon comparer les en-têtes de la feuille Gertrude et de la feuille Mérimée
+
+- Quelles différences ? Que faut-il faire ?
+
+
+### <10>
+
+Creér une nouvelle colonne est simple par un clic droit
+	
+- **G** : `datation/3`
+
+### <11>
+
+**Déplacer une colonne (ou une ligne)** :
+
+Dans la feuille Fusion On veut :
+
+- **K** : `localisation/lat`
+- **L** : `localisation/lon`
+
+Démarche :
+
+1. Cliquer sur l'en-tête de la colonne (B par exemple).
+2. Appuyer sur Alt et maintenir
+3. Cliquer gaucher sur une cellule de cette colonne et maintenir le clic gauche.
+4. Déplacer vers la destination le curseur (colonne H par exemple)
+
