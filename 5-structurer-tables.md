@@ -16,7 +16,7 @@ Plan :
 	1. [Table des matériaux ](#t2-1)
 	2. [1. Transformer les données ](#t2-2)
 	3. [2. Prévoir une méthode d'identification de chaque matériau ](#t2-3)
-3. [Evaluation](#t3)
+3. [Évaluation](#t3)
 	1. [Consignes ](#t3-1)
 
 [comment]: <> (FINET)
@@ -70,8 +70,8 @@ Est-ce satisfaisant ?
 
 On a un problème avec :
 
-- Certains enregistrements où le lieu est un département
-- Des communes particulières comme L'Île-d'Elle ou Sainte-Radégonde-des-Noyers
+- Il peut rester des enregistrements où l'INSEE est un numéro département : à corriger
+- Des communes particulières comme L'Île-d'Elle ou Sainte-Radégonde-des-Noyers créent des doublons : supprimer les lignes inutiles
 
 
 ### <6>
@@ -99,11 +99,11 @@ Pour copier-coller une formule sans modifier la couleur de fond de la cellule :
 
 Commencer par isoler les données dans une nouvelle feuille brouillon :
 
-1. Filtrer la colonne **P** materiau_du_gros_oeuvre pourne pas avoir de donnée vide
+1. Filtrer la colonne **P** materiau_du_gros_oeuvre pour ne pas avoir de donnée vide
 
 2. Copier dans une nouvelle feuille brouillon :
 
-- Identifiant
+- identifiant
 - materiau_du_gros_oeuvre
 
 
@@ -111,11 +111,11 @@ Commencer par isoler les données dans une nouvelle feuille brouillon :
 
 Pour créer la relation multiple entre pont et matériaux, il faut procéder en trois étapes :
 
-1. Transformer les données pour parvenir à des relations unilatérales : un identifiant de pont pour un matériau
+1. Transformer les données pour parvenir à des **relations 1-1** : 1 identifiant de pont pour 1 matériau
 
-2. Prévoir une méthode d'identification de chaque matériau
+2. Créer un **identifiant** pour chaque matériau
 
-3. Créer la table des matériaux
+3. Créer la **table** des matériaux
 
 
 <a id='t2-2'/>
@@ -124,13 +124,14 @@ Pour créer la relation multiple entre pont et matériaux, il faut procéder en 
 
 ### <9>
 
-Pour avoir sur chaque ligne un identifiant et un seul matériau, on fait appel aux expressions régulières
+Pour avoir sur chaque ligne un identifiant et un seul matériau,\
+on fait appel aux expressions régulières
 
-- Copier toutes les données (sans les en-têtes) dans Notepad ++
+- Copier toutes les données (sans les en-têtes) dans Notepad++
 
 - On veut remplacer chaque point-virgule par l'identifiant du début de la ligne
 
-- Find : `([IP]A\d+)(\t[^;]+);\s`\
+- Find : `([IP]A\d+)(\t[^;\r]+);\s?`\
 
 - Replace with : `$1$2\r\n$1\t`
 
@@ -140,8 +141,8 @@ Pour avoir sur chaque ligne un identifiant et un seul matériau, on fait appel a
 - Vérifier la propreté du résultat (nettoyer à la main si besoin)
 - Il y a des espaces invisibles en fin de ligne
 
-	- Find `\s\r`
-	- Replace `\r`
+	- Find : `\s\r`
+	- Replace All : `\r`
 
 
 <a id='t2-3'/>
@@ -150,7 +151,7 @@ Pour avoir sur chaque ligne un identifiant et un seul matériau, on fait appel a
 
 ### <11>
 
-La feuille obtenue est une **table de relations**
+La feuille obtenue est une **table de relations** ; on la renomme : `Relation matérialité`
 
 À présent, on souhaite créer le thésaurus des matériaux, qui ne devra contenir aucun doublon et où chaque matériau aura son identifiant.
 
@@ -183,20 +184,25 @@ On doit donc trouver une méthode pour créer des identifiants
 	- Nom de champ : aucun(e)
 	- Options : sans doublon
 
+- Copier le résultat dans une nouvelle feuille à nommer : `Matériaux`
 
-<a id='t3'/>
-
-# Evaluation
-[comment7]: <14> (TITRE1)
+- Remplacer la colonne C de la feuille **Relation matérialité** par une formule RECHERCHEV permettant d'afficher le matériau selon son identifiant
 
 
 ### <15>
+
 
 Félicitations !!!
 
 Vous êtes devenus de véritables ingénieurs de la donnée patrimoniale !
 
-Et avez d'ores-et-déjà obtenu **14 points** pour l'évaluation !
+Et avez d'ores-et-déjà obtenu **15 points** pour l'évaluation !
+
+
+<a id='t3'/>
+
+# Évaluation
+[comment7]: <15> (TITRE1)
 
 
 <a id='t3-1'/>
@@ -209,13 +215,16 @@ Et avez d'ores-et-déjà obtenu **14 points** pour l'évaluation !
 
 - Nettoyer les données du mieux que vous pouvez :
 	
-	- Supprimer les doublons
-	- Récupérer les infos utiles des enregistrements à supprimer
-	- Documenter l'existence de l'enregistrement supprimé
-		
-		- Il existe ailleurs sous le même identifiant
-		- Il existe aussi sous un autre identifiant
+	- Fusionner les infos des notices qui documentent le même pont :
+		- Notices Gertrude et Mérimée ayant le même identifiant
+		- Ponts possédant à la fois une notice IA et une notice PA
+	
+	- Sourcer les notices
+	- Supprimer les doublons pour n'avoir qu'un seul enregistrement par pont
+	- Compléter la colonne renvoi (AD) si un autre identifiant existe pour le même pont
 
+
+### <17>
 
 - Créer une table spécifique pour les **Personnes**\
 	(travailler à la main sera plus efficace qu'avec des expressions régulières)
@@ -223,7 +232,7 @@ Et avez d'ores-et-déjà obtenu **14 points** pour l'évaluation !
 - Pour avoir 22/20 : créer une table pour les **Datations**
 
 
-### <17>
+### <18>
 
 - **Il est permis** :
 
@@ -231,4 +240,4 @@ Et avez d'ores-et-déjà obtenu **14 points** pour l'évaluation !
 	- De vous entraider
 	- De travailler à la maison
 
-- **Il est obligatoire** de me remettre un fichier individuel le 21 octobre à 18h
+- **Il est obligatoire** de me remettre un fichier individuel le 4 nov. à 18h

@@ -126,9 +126,10 @@ Il faut parcourir les données en procédant à des sondages :
 
 ### <8>
 
-On en déduit que les données de Mérimée sont plus complètes pour les matériaux et pour la chronologie.
+On en déduit que les données de Mérimée sont plus complètes pour les matériaux, pour la chronologie, pour l'état de la construction.
 
-On sait que les données de Gertrude contiennent un plus grand nombre de notices.
+On sait que les données de Gertrude contiennent un plus grand nombre de notices.\
+Elles sont signées par un chercheur de l'inventaire (textes identiques non signés dans Mérimée).
 
 Il est donc intéressant pour notre corpus de chercher à fusionner ces données.
 
@@ -147,7 +148,7 @@ Il est donc intéressant pour notre corpus de chercher à fusionner ces données
 
 - Créer une nouvelle feuille que l'on peut appeler "Fusion"
 
-- Y coller tout le contenu de la feuille Gertrude
+- Y coller tout le contenu de la feuille Gertrude (en s'assurant qu'il n'y ait pas de filtre actif qui masque une partie des lignes !)
 
 - Dans un nouveau tableau servant de brouillon comparer les en-têtes de la feuille Gertrude et de la feuille Mérimée
 
@@ -165,24 +166,28 @@ Creér une nouvelle colonne est simple par un clic droit
 
 **Déplacer une colonne (ou une ligne)** :
 
-Dans la feuille Fusion On veut :
+Dans la feuille Fusion, on veut :
 
-- **K** : `localisation/lat`
-- **L** : `localisation/lon`
+- **L** : `localisation/lat`
+- **M** : `localisation/lon`
 
 Démarche :
 
-1. Cliquer sur l'en-tête de la colonne (B par exemple).
+1. Cliquer sur l'en-tête de la colonne **M**
 2. Appuyer sur Alt et maintenir
 3. Cliquer gaucher sur une cellule de cette colonne et maintenir le clic gauche.
-4. Déplacer vers la destination le curseur (colonne H par exemple)
+4. Déplacer le curseur vers la destination
 
 
 ### <12>
 
-On ajoute une colonne **Source** ou l'on renseignera soit `Gertrude` soit `Mérimée`
+- 5 en-têtes propres à Mérimée doivent être ajoutés à la fin de Fusion (de **Y** à **AC**)
 
-Il est intéressant de conserver les couleurs pour la comparaison des notices.
+- On ajoute une colonne **Source** en **AD** ou l'on renseignera soit `Gertrude` soit `Mérimée`
+
+- Coller le contenu de la feuille Mérimée --- **NB** : Il est intéressant de conserver les couleurs pour la comparaison des notices
+
+- Compléter la colonne source
 
 
 ### <13>
@@ -228,10 +233,17 @@ Le pont ferroviaire (IA17047185) est donc localisé ainsi :
 - Commune 1 : L'Île-d'Elle, 85111
 - Commune 2 : Marans, 17218
 
+Ajouter des colonnes à Fusion :
+
+- `commune/2` en **K**
+- `insee/2` en **L**
+
+Corriger aussi les INSEE erronés pour la ville de Mayenne…
+
 
 ### <17>
 
-Il faut aussi chercher les doublons : l'objectif d'un corpus est d'avoir un seul enregistrement par pont
+**Il faut aussi chercher les doublons** : l'objectif d'un corpus est d'avoir un seul enregistrement par pont
 
 Parcourir par communes peut être utile, ou encore trier par géolocalisation :
 
@@ -245,23 +257,14 @@ Filtrer pour éliminer les ponts ayant en géolocalisation des valeurs 0.
 
 ### <18>
 
-Tout naturellement la géolocalisation rapproche les ponts ayant le même identifiant : par exemple IA49000842
-
-On trouve que la notice Mérimée (jaune) est plus riche
-
-On peut créer une nouvelle colonne **Existe avec le même identifiant dans** et insérer la valeur `Gertrude`
-
-Trouvez-vous d'autres doublons qui n'ont pas le même identifiant ?
-
-
-### <19>
+On trouve des ponts ayant les mêmes coordonnées et le même nom, mais pas le même identifiant…
 
 Le pont de Beaulieu à Candé (49)
 
 - IA49001529
 - IA49001526
 
-Est-ce le même pont ?
+Est-ce deux fois le même pont ?
 
 Ou encore le Pont - D 210, Blandouet :
 
@@ -271,10 +274,11 @@ Ou encore le Pont - D 210, Blandouet :
 Même question…
 
 
-### <20>
+### <19>
 
 Dans le premier cas les deux ponts existent toujours.
 
 Dans le second l'un a remplacé l'autre.
 
 Il nous appartient de décider si notre corpus conserve ce type de doublon ou les élimine.
+
