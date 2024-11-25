@@ -160,10 +160,6 @@ Et en Loire-Atlantique…
 
 **Image** : [Schéma **yEd**<a date='sans'/>](img/bdd-ponts_01-initial.bmp)
 
-ple de données dans un [premier tableur](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/angers-saumur.ods)
-
-[comment11]: <11> (Il présente dans une première feuille ou table les données « à plat », toutes ensemble.)
-
 
 <a id='t1-3'/>
 
@@ -184,46 +180,59 @@ ple de données dans un [premier tableur](https://github.com/sbiay/td-num-vnp/ra
 
 ### <13>
 
-[comment14]: <13> (Rien qu'avec 8 ponts, on a dès données déjà encombrantes :)
 
-[comment15]: <13> (1. Pénibles à visualiser, car il faut voyager entre les colonnes)
-[comment16]: <13> (2. Risqué pour ajouter des données)
+Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/angers-saumur.ods)
 
-[comment17]: <13> (J'ajoute un pont à Angers, ce sont quatre champs de localisation que je dois copier et coller.)
-
-[comment18]: <13> (Les lieux sont un problème simple parce qu'on va admettre qu'un pont n'est rattaché qu'à une seule commune.)
-
-[comment19]: <13> (Un lieu est une **clé étrangère** dans la table pont.)
-
-[comment20]: <13> (**Passons aux matériaux** : ils sont regroupés dans un seul champ --C--, mais on voit que les valeurs sont multiples.)
-
-[comment21]: <13> (Tous les ponts de ces exemples sont constitués de plusieurs matériaux. Est-ce un problème de les organiser ainsi ? Cela permet de trouver l'information, mais si l'on veut porter une attention particulière aux matériaux dans notre corpus, si on a pour objectif de permettre de trier des résultats de notre base par facettes selon les matériaux, alors il faut leur donner une table séparée.)
-
-[comment22]: <13> (Maintenant, comment mettre en relation plusieurs ponts avec plusieurs matériaux ?)
-
-[comment23]: <13> (Il sera nécessaire de créer une **table de relation**.)
-
-**Image** : [Diagramme entité-association](img/bdd-ponts_02-cardinalites.bmp)
+[comment13]: <13> (Il présente dans une première feuille ou table les données « à plat », toutes ensemble.)
 
 
 ### <14>
 
-Pour aller plus loin sur le diagramme entité-association, voir [cette page](https://www.lucidchart.com/pages/fr/diagramme-entite-association)
+[comment14]: <14> (Rien qu'avec 8 ponts, on a dès données déjà encombrantes :)
+
+[comment15]: <14> (1. Pénibles à visualiser, car il faut voyager entre les colonnes)
+[comment16]: <14> (2. Risqué pour ajouter des données)
+
+[comment17]: <14> (J'ajoute un pont à Angers, ce sont quatre champs de localisation que je dois copier et coller.)
+
+[comment18]: <14> (Les lieux sont un problème simple parce qu'on va admettre qu'un pont n'est rattaché qu'à une seule commune.)
+
+[comment19]: <14> (Un lieu est une **clé étrangère** dans la table pont.)
+
+[comment20]: <14> (Dans la pratique, du tableur, il peut être moins avantageux de déporter ce type d'entité, aux données stables, que de les laisser dans la même table que l'objet principal.)
+
+[comment21]: <14> (En revanche, si les données sont plus complexes et instables que dans le cas des communes, si elles sont au coeur de la recherche que l'on mène, cela devient nécessaire.)
+
+[comment22]: <14> (**Passons aux matériaux** : ils sont regroupés dans un seul champ --C--, mais on voit que les valeurs sont multiples.)
+
+[comment23]: <14> (Tous les ponts de ces exemples sont constitués de plusieurs matériaux. Est-ce un problème de les organiser ainsi ? Cela permet de trouver l'information, mais si l'on veut porter une attention particulière aux matériaux dans notre corpus, si on a pour objectif de permettre de trier des résultats de notre base par facettes selon les matériaux, alors il faut leur donner une table séparée.)
+
+[comment24]: <14> (Maintenant, comment mettre en relation plusieurs ponts avec plusieurs matériaux ?)
+
+[comment25]: <14> (Il sera nécessaire de créer une **table de relation**.)
+
+**Image** : [Diagramme entité-association](img/bdd-ponts_02-cardinalites.bmp)
+
+
+### <15>
+
+Pour aller plus loin sur le diagramme entité-association,\
+voir [cette page](https://www.lucidchart.com/pages/fr/diagramme-entite-association)
 
 
 <a id='t2'/>
 
 # Interroger les ressources numériques
-[comment24]: <14> (TITRE1)
+[comment26]: <15> (TITRE1)
 
-[comment25]: <14> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
+[comment27]: <15> (L'un des enjeux majeurs de ce TD est de vous apprendre à récolter le plus de données possibles de manière automatisée, plutôt que de faire 10 000 copier-coller.)
 
 
 <a id='t2-1'/>
 
 ## Consulter les sites web 
 
-### <15>
+### <16>
 
 - Quels sont les sites me permettant d'accéder à de l'information sur le sujet ?
 - Quelles informations me donnent-ils ?
@@ -235,7 +244,7 @@ Pour aller plus loin sur le diagramme entité-association, voir [cette page](htt
 Navigateur recommandé : **Firefox**
 
 
-### <16>
+### <17>
 
 Un article [Liste des ponts de France](https://fr.wikipedia.org/wiki/Liste_de_ponts_de_France)
 
@@ -250,7 +259,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 ## POP : la plateforme ouverte du patrimoine 
 
-### <17>
+### <18>
 
  [https://pop.culture.gouv.fr/](https://pop.culture.gouv.fr/)
 
@@ -270,7 +279,7 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 ## Mérimée : à vous de jouer ! 
 
-### <18>
+### <19>
 
 1. Avant de commencer, lire le [bref descriptif](https://www.culture.gouv.fr/espace-documentation/Bases-de-donnees/Fiches-bases-de-donnees/Merimee-une-base-de-donnees-du-patrimoine-monumental-francais-de-la-Prehistoire-a-nos-jours) de la base et de ce qu'elle contient
 
@@ -279,28 +288,15 @@ Des données beaucoup trop lacunaires pour être utiles !
 
 2. Chercher tous les ponts de la région Pays de la Loire sur [Mérimée](https://pop.culture.gouv.fr/search/mosaic?base=%5B%22Patrimoine%20architectural%20%28M%C3%A9rim%C3%A9e%29%22%5D)
 
-	- Il faut aboutir à une liste de 112 résultats
-	- Et pour l'instant on ne va pas voir la solution dans la suite du diaporama !
-	- Si vous trouvez très vite : cherchez les ponts du seul département de la Vendée (14 résultats)
-
-
-### <19>
-
-**Il faut comprendre comment fonctionne la recherche avancée** :
-
-- Par une recherche simple, trouver n'importe quelle notice de pont
-
-- Identifier les champs pertinents pour croiser le type de monument cherché et la localisation
-
-- Examiner le menu déroulant des champs interrogeables en recheche avancée : les premiers sont multiples, puis ce sont des champs simples classés par ordre alphabétique de leurs abréviations
-
 
 ### <20>
+
+**Recherche avancée :**
 
 - La recherche la plus pertinente pour le type :\
 **DENO** (dénomination) *contient* « pont »
 
-[comment29]: <20> (Si l'on utilise le champ **Désignation**, on obtient du bruit, avec des ponts en tant que partie constitutive d'un ensemble plus vaste, comme un village --155 résultats--.)
+[comment31]: <20> (Si l'on utilise le champ **Désignation**, on obtient du bruit, avec des ponts en tant que partie constitutive d'un ensemble plus vaste, comme un village --155 résultats--.)
 
 - La recherche la plus pertinente pour la localisation :\
 **REG** (région) *égal à* « Pays de la Loire »
@@ -340,7 +336,7 @@ Pour la recherche sur un département précis, il faut chercher :
 
 ### <22>
 
-[comment31]: <22> (Comment récupérer ces informations pour en faire un tableau de données ?)
+[comment33]: <22> (Comment récupérer ces informations pour en faire un tableau de données ?)
 
 - Ajouter quelques résultats de la liste au **Panier**
 - Tenter l'export du Panier…
