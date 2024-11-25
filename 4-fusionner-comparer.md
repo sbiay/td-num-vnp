@@ -276,9 +276,7 @@ Même question…
 
 ### <19>
 
-Dans le premier cas les deux ponts existent toujours.
 
-Dans le second l'un a remplacé l'autre.
+1. Les deux ponts sont voisins l'un de l'autre
 
-Il nous appartient de décider si notre corpus conserve ce type de doublon ou les élimine.
-
+2. Ils sont situés sur la même route départementale de part et d'autre de la commune

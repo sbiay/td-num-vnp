@@ -21,11 +21,10 @@ Plan :
 	1. [Définition ](#t2-1)
 	2. [Avantages et inconvénients du modèle en table ](#t2-2)
 3. [Sauvegarder son travail](#t3)
-	1. [Au fait, comment sauvegardez-vous vos données ? ](#t3-1)
-	2. [Des méthodes très très durables ](#t3-2)
-	3. [Des méthodes plus modernes ](#t3-3)
-	4. [Conseils pratiques ](#t3-4)
-	5. [Des solutions cloud ](#t3-5)
+	1. [La méthode la plus durable ](#t3-1)
+	2. [Des méthodes plus modernes ](#t3-2)
+	3. [Conseils pratiques ](#t3-3)
+	4. [Des solutions cloud ](#t3-4)
 
 [comment]: <> (FINET)
 
@@ -246,8 +245,8 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 
 - Risque majeur : déstructurer ses données
 
-- Contre les risques de déstructuration des données :skip
-	- Privilégier le transfert vers un système de type SQL comme Heuristskip
+- Contre les risques de [destructuration](https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/risque-destructurer.ods) des données :skip
+	- Privilégier le transfert vers un système de type SQL comme Heuristskip
 	- Acquérir **une bonne méthode de sauvegarde**
 
 
@@ -259,48 +258,23 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 
 <a id='t3-1'/>
 
-## Au fait, comment sauvegardez-vous vos données ? 
+## La méthode la plus durable 
 
 ### <14>
 
-**Image** : [G. Courbet, Le Désespéré, 1843, collection particulière<a date='sans'/>](img/Courbet_desespere.jpg)
 
-[comment19]: <14> (Projetons-nous dans un monde idéal, où on aurait le temps de faire tout bien comme il faut. Vous venez de soutenir votre mémoire de master : quelle méthode choisissez vous pour que vos arrières-arrières… petits enfants puissent le lire ?)
+**Image** : [Code d'Hammurabi, musée du Louvre, v. 1750 av. JC<a date='sans'/>](img/code-hammurabi_detail-01.jpg)
 
-[comment20]: <14> (**Quelle est la méthode de préservation des données la plus durable ?**)
+[comment19]: <14> (Il a 3750 ans, et il tient toujours le coup.)
+
+[comment20]: <14> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
 
 
 <a id='t3-2'/>
 
-## Des méthodes très très durables 
-
-### <15>
-
-
-**Méthode n^o^ 1**
-
-**Image** : [Code d'Hammurabi, musée du Louvre, v. 1750 av. JC<a date='sans'/>](img/code-hammurabi_detail-01.jpg)
-
-[comment22]: <15> (Il a 3750 ans, et il tient toujours le coup.)
-
-[comment23]: <15> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
-
-
-### <16>
-
-
-**Méthode n^o^ 2**
-
-**Image** : [Le manuscrit sur parchemin, ici 1^re^ moitié IX^e^ s.<a date='1re moitié IXe s.'/>](img/lat-5763_fol-001r-detail-a.jpg)
-
-[comment24]: <16> (Ça tient bien aussi, depuis 11 siècles.)
-
-
-<a id='t3-3'/>
-
 ## Des méthodes plus modernes 
 
-### <17>
+### <15>
 
 
 - Microfilm pour les photos : 100 ans et plus
@@ -308,39 +282,37 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 - Disque dur : 5-10 ans
 
 
-### <18>
+### <16>
 
 **Image** : [Le *cloud*, servi par un centre de données<a date='sans'/>](img/calcul-informatique_data-center.jpg)
 
-[comment26]: <18> (Il y a toujours un risque que dans cette salle quelqu'un perde son rapport de stage ou un gros travail…)
+[comment22]: <16> (Il y a toujours un risque que dans cette salle quelqu'un perde son rapport de stage ou un gros travail…)
 
-[comment27]: <18> (Qui pense avoir une bonne méthode de sauvegarde ? *Prendre un volontaire pour qu'il raconte sa méthode*.)
+[comment23]: <16> (Qui pense avoir une bonne méthode de sauvegarde ? *Prendre un volontaire pour qu'il raconte sa méthode*.)
 
 
-### <19>
+### <17>
 
 - ***Cloud*** :
-	- Options d'accès : Accès à partir de plusieurs appareils
-	- Sécurité des données : Fort mais peut être piraté (attention au détournement des contenus personnels voire intimes)
-	- Technologie de synchronisation : Mises à jour automatiques
-	- Coût par unité : Gratuit ou abonnement mensuel
-	- Propriété : Peut partager vos fichiers avec n'importe qui
-	- Fiabilité : Le serveur peut tomber en panne dans certains cas
+	- *Sécurité des données* : Fort mais peut être piraté (attention au détournement des contenus personnels voire intimes)
+	- *Coût par unité* : gratuit ou abonnement mensuel
+	- *Respect de la vie privée* : peut partager vos fichiers avec n'importe qui
+	- *Fiabilité* : risque de panne, de défaillance du réseau, faillite
+	- *Archivage des données* : versionnage
 
 - **Disque dur externe** :
-	- Options d'accès : Utiliser une connexion USB
-	- Sécurité des données : Fort mais on peut le perdre ou se le faire voler
-	- Technologie de synchronisation : Mises à jour automatiques en cas de connexion
-	- Coût par unité : Achat ponctuel
-	- Propriété : Sûre
-	- Fiabilité : Peut se casser, ne plus démarrer, des secteurs peuvent être défectueux
+	- *Sécurité des données* : fort mais on peut le perdre ou se le faire voler
+	- *Coût par unité* : achat ponctuel
+	- *Respect de la vie privée* : sûr
+	- *Fiabilité* : peut se casser, ne plus démarrer, des secteurs peuvent être défectueux
+	- *Archivage des données* : écrasement (versionnage complexe)
 
 
-<a id='t3-4'/>
+<a id='t3-3'/>
 
 ## Conseils pratiques 
 
-### <20>
+### <18>
 
 
 **Au quotidien**
@@ -348,10 +320,12 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 1. Je sauvegarde mon travail tous les jours
 
 2. Un support physique ET un *cloud* : l'idéal !
+	
+	- Comment récupérer une archive dans [Uncloud](https://uncloud.univ-nantes.fr/index.php/apps/files/files/1870556257?dir=/Enseignement/NUMPonts)
 
-	Versions de mon fichier dans [Uncloud](https://uncloud.univ-nantes.fr/index.php/apps/files/files/1870556428?dir=/Enseignement/NUMPonts#)
+[comment25]: <18> (Pour accéder aux versions dans Uncloud : cliquer sur …, puis sur *afficher les détails*.)
 
-[comment29]: <20> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
+[comment26]: <18> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
 
 
 **Pour archiver**
@@ -359,14 +333,14 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 - J'utilise deux supports physiques localisés en deux endroits
 - Je ne fais pas confiance à un disque dur de plus de 10 ans (écrire la date de mise en service sur une étiquette !)
 
-[comment30]: <20> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
+[comment27]: <18> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
 
 
-<a id='t3-5'/>
+<a id='t3-4'/>
 
 ## Des solutions cloud 
 
-### <21>
+### <19>
 
 - [One-Drive](https://onedrive.live.com) : avec Windows et un compte de messagerie Outlook
 - [Dropbox](https://www.dropbox.com/home) : gratuit pour quelques Go et quelques appareils connectés

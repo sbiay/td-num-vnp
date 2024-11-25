@@ -80,7 +80,6 @@ Les ponts dits romains… sont souvent médiévaux !
 Le pont le plus anciennement attesté en Pays de la Loire :\
 le Grand Pont d'Angers (Grégoire de Tours, 590).
 
-
 **Image** : [Angiers fait della main du capite Ercules conte de Senfront, v. 1590, Archives de l'État de Turin](img/img_0e1c4490-d6ab-4c9b-bd2a-a5929150ce1c.jpg)
 
 
@@ -101,12 +100,12 @@ Et en Loire-Atlantique…
 ### <8>
 
 
-Jusqu'aux **ouvrages d'art** les plus récents…
+**Jusqu'aux ouvrages d'art les plus récents…**
 
 
 **Image** : [Construction du pont de Cheviré, Nantes, achevé en 1990](img/img_985b86c3-fa3a-4538-a4da-2adc8c33c00b.jpeg)
 
-**Image** : [Vu depuis le terminal à bois vers les quais de la Roche-Maurice](img/img_ef409199-d761-464b-ac02-eb7a7b37e80b.jpeg)
+**Image** : [Vue depuis le terminal à bois vers les quais de la Roche-Maurice](img/img_ef409199-d761-464b-ac02-eb7a7b37e80b.jpeg)
 
 
 ### <9>
@@ -120,10 +119,14 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 
 	- [Notice 3](https://pop.culture.gouv.fr/notice/merimee/IA49000843)
 
+
 **Questions :**
 
 - Quelles sont les informations essentielles qui permettront de caractériser un pont ? (7 max.)
-- Quelles sont les entités (ou concepts) principales qui vont graviter autour ? Quels attributs (ou informations) vont les caractériser à leur tour ? (5 max.)
+
+- Quels sont les concepts qui vont graviter autour ? Par exemple, des *lieux*, des *personnes*, etc.
+
+- Quelles informations vont caractériser ces conceptes à leur tour ? (5 max.)
 
 [comment5]: <9> (Remarque : un pont est-il une architecture ou un point --immatériel-- de franchissement ?)
 
@@ -136,23 +139,11 @@ Jusqu'aux **ouvrages d'art** les plus récents…
 [comment9]: <9> (Revenons à l'idée du phasage : le cas du Grand Pont d'Angers est intéressant. On peut rattacher à chaque entité *pont* des entités *phases*, qui se distinguent par la date, les matériaux, les sources qui s'y rattachent --icono par exemple--. On voit que le site de l'inventaire comme la base POP --uniquement l'API-- font plus simple : rassembler toutes les données de phase et d'histoire dans une seule notice : l'utilisateur interprétera lui-même l'information « Haut Moyen Âge » en lisant l'ensemble de la notice.)
 
 
-### <10>
-
-
-**Image** : [Schéma **yEd**<a date='sans'/>](img/bdd-ponts_01-initial.gif)
-
-\vskip -1em
-
-Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/angers-saumur.ods)
-
-[comment10]: <10> (Il présente dans une première feuille ou table les données « à plat », toutes ensemble.)
-
-
 <a id='t1-2'/>
 
 ## Rappel : vocabulaire 
 
-### <11>
+### <10>
 
 - **Entité** : type d'objet pouvant être décrits par une même liste fermée d'attributs
 	- Egalement dénommé : classe, *record type*
@@ -165,6 +156,15 @@ Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vn
 		- Pour une entité *personne* : nom, prénom, date de naissance, etc.
 
 
+### <11>
+
+**Image** : [Schéma **yEd**<a date='sans'/>](img/bdd-ponts_01-initial.bmp)
+
+ple de données dans un [premier tableur](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/angers-saumur.ods)
+
+[comment11]: <11> (Il présente dans une première feuille ou table les données « à plat », toutes ensemble.)
+
+
 <a id='t1-3'/>
 
 ## Prospective 
@@ -172,8 +172,8 @@ Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vn
 ### <12>
 
 - Etablir une cartographie des ponts conservés
-- Interroger le corpus par les personnes (architectes)
 - Interroger le corpus par les matériaux
+- Interroger le corpus par les personnes (notamment les architectes ou ingénieurs)
 - Interroger le corpus par la chronologie
 - …
 
@@ -203,7 +203,7 @@ Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vn
 
 [comment23]: <13> (Il sera nécessaire de créer une **table de relation**.)
 
-**Image** : [Diagramme entité-association](img/bdd-ponts_01-cardinalites.gif)
+**Image** : [Diagramme entité-association](img/bdd-ponts_02-cardinalites.bmp)
 
 
 ### <14>
@@ -254,8 +254,6 @@ Des données beaucoup trop lacunaires pour être utiles !
 
  [https://pop.culture.gouv.fr/](https://pop.culture.gouv.fr/)
 
-
-\vskip 2em
 
 - Collections des musées de France : la base Joconde
 
@@ -565,7 +563,7 @@ Une compétence régionale depuis 2004
 ### <39>
 
 Les critères de la recherche avancée doivent être :\
-**(Type de dossier : Oeuvre architecture)\
+**(Type de dossier : Œuvre architecture)\
 ET\
 (Dénomination : pont)**
 
