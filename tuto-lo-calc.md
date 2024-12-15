@@ -79,4 +79,4 @@ Elle se décompose ainsi :
 - Le critère de recherche : `A2` *car on cherche si l'identifiant de la colonne A sera dans la feuille Mérimée*
 - La matrice (ou groupe de colonnes où chercher) : `$Mérimée.A:C` *qui signifie chercher dans la feuille nommée Mérimée, dans les colonnes de A à C*
 - L'indice : `1` *car c'est dans la 1^re^ colonne de la matrice que se trouve l'identifiant*
-- Recherche dans une plage triée : `0` *pour FAUX (faites-moi confiance !)*
+- Recherche dans une plage triée : toujours écrire `0` *pour FAUX*
