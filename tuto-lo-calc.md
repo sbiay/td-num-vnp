@@ -9,6 +9,9 @@ Plan :
 	1. [RechercheV](#t2-1)
 
 [comment]: <> (FINET)
+
+
+
 <a id='t1'/>
 
 # Navigation
@@ -58,12 +61,15 @@ Plan :
 
 Consiste à afficher dans une table (X) les données d'une autre table (Y) dès lors que les deux tables partagent une **clé** commune (une donnée identique).\
 Il est important que les deux tables soient structurées en tableau dynamiques (avec auto-filtres).
+
 La formule se décompose ainsi :
 
-- Type de fonction : **RECHERCHEV** qui recherche ***V***erticalement dans un groupe de colonnes
-- Plusieurs clauses (entre parenthèses et séparées par des ;) :
+- Type de fonction : **RECHERCHEV** qui recherche ***V***erticalement dans un groupe de colonnes (ou *matrice*)
+- Plusieurs clauses (entre parenthèses et séparées par des `;`) :
 	- Le critère de recherche : *c'est la donnée commune aux deux tables*
-	- La matrice : *c'est le groupe de colonnes de la table Y où se trouvent à la fois la clé commune aux deux tables et l'information que l'on souhaite afficher en X. Dans Y, la clé doit se trouver dans la première colonne de la sélection, tout à gauche. **NB** : il est plus facile de sélectionner à la souris les colonnes de la matrice plutôt que d'écrire ce paramètre à la main*.
+	- La matrice : *c'est le groupe de colonnes de la table Y où se trouvent à la fois la clé commune aux deux tables et l'information que l'on souhaite afficher en X\
+		Dans Y, la clé doit se trouver dans la première colonne de la sélection, tout à gauche\
+		**NB** : il est plus facile de sélectionner à la souris les colonnes de la matrice plutôt que d'écrire ce paramètre à la main*
 	- L'indice : *c'est le numéro de la colonne de la matrice correspondant à la donnée que l'on souhaite afficher en X*
 	- Recherche dans une plage triée : toujours écrire `0` *pour FAUX (faites-moi confiance !)*
 
