@@ -201,7 +201,11 @@ Exemple de données dans un [premier tableur](https://github.com/sbiay/td-num-vn
 
 [comment20]: <14> (Dans la pratique, du tableur, il peut être moins avantageux de déporter ce type d'entité, aux données stables, que de les laisser dans la même table que l'objet principal.)
 
+<<<<<<< HEAD
 [comment21]: <14> (En revanche, si les données sont plus complexes et instables que dans le cas des communes --- imaginons que l'on rédige des descriptions, qui par définition risquent d'évoluer ou d'être corrigées ---, si ces données sont le résultat d'une recherche en cours, cela devient nécessaire.)
+=======
+[comment21]: <14> (En revanche, si les données sont plus complexes et instables que dans le cas des communes, si elles sont au coeur de la recherche que l'on mène, cela devient nécessaire.)
+>>>>>>> cc5ef84536d3d7675324bf64537ebd98732b4a36
 
 [comment22]: <14> (**Passons aux matériaux** : ils sont regroupés dans un seul champ --C--, mais on voit que les valeurs sont multiples.)
 

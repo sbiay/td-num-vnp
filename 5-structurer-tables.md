@@ -199,7 +199,7 @@ Félicitations !!!
 
 Vous êtes devenus de véritables ingénieurs de la donnée patrimoniale !
 
-Et avez d'ores-et-déjà obtenu **15 points** pour l'évaluation !
+Et avez d'ores-et-déjà obtenu **18 points** pour l'évaluation !
 
 
 <a id='t2-4'/>
@@ -210,6 +210,7 @@ Et avez d'ores-et-déjà obtenu **15 points** pour l'évaluation !
 
 - Créer une copie de la base de données qui ne contienne que le département de la **Sarthe**
 
+<<<<<<< HEAD
 - Pour avoir 18/20 : créer une table spécifique pour les **Personnes** :
 	
 	- Attention : la même personne a pu intervenir sur plusieurs ponts, c'est donc une relation multiple, comme les matériaux
@@ -223,3 +224,18 @@ Et avez d'ores-et-déjà obtenu **15 points** pour l'évaluation !
 Vous pouvez me poser des questions à tout moment si vous avez un doute sur la marche à suivre.
 
 Il faut me remettre les fichiers le 16 décembre au plus tard.
+=======
+- Pour avoir 20/20 : créer une table spécifique pour les **Personnes** :
+	
+	- Attention : la même personne a pu intervenir sur plusieurs ponts, c'est donc une relation multiple, comme les matériaux
+	- Conseil : travailler à la main sera plus efficace qu'avec des expressions régulières
+
+- Pour avoir 22/20 : créer une table pour les **Datations**
+
+
+### <17>
+
+Vous pouvez me poser des questions à tout moment si vous avez un doute sur la marche à suivre.
+
+Il faut me remettre les fichiers le 12 novembre au plus tard.
+>>>>>>> cc5ef84536d3d7675324bf64537ebd98732b4a36
