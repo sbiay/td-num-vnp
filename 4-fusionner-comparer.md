@@ -45,6 +45,9 @@ On a obtenu via les API plusieurs fichiers de données tabulaires :
 
 Le tout est rassemblée dans un tableau : [étape 1](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/inventaire-pays-loire-complet-etape-1.ods)
 
+<!--
+	Simplification pour Gally
+
 On va évaluer la complémentarité des deux tableaux.
 
 
@@ -113,6 +116,8 @@ Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
 
 Lorsque les deux bases contiennent une notice sous le même identifiant, laquelle est la meilleure ?
 
+[comment5]: <7> (Il vaudrait mieux faire cela après avoir préparé la fusion : comparer en transposant se ferait case à case.)
+
 Il faut parcourir les données en procédant à des sondages :
 
 - Ouvrir un nouveau tableau pour comparer deux enregistrements
@@ -137,7 +142,9 @@ Il serait donc intéressant pour notre corpus de chercher à fusionner ces donn�
 <a id='t2'/>
 
 # Fusionner deux tableaux
-[comment5]: <8> (TITRE1)
+[comment6]: <8> (TITRE1)
+
+-->
 
 
 <a id='t2-1'/>
@@ -202,7 +209,7 @@ Pour retrouver le résultat : [étape 2](https://github.com/sbiay/td-num-vnp/ra
 <a id='t3'/>
 
 # Analyser les données
-[comment7]: <13> (TITRE1)
+[comment8]: <13> (TITRE1)
 
 
 <a id='t3-1'/>
@@ -226,6 +233,8 @@ Quelle solution proposez-vous ?
 
 ### <16>
 
+Copier-coller les coordonnées de géolocalisation du pont dans Google Maps pour visualiser l'environnement du pont.
+
 Un clic droit sur Google Maps permet d'afficher la commune, mais attention le code est le code postal, non le code INSEE
 
 Le pont ferroviaire (IA17047185) est donc localisé ainsi :
@@ -239,6 +248,8 @@ Ajouter des colonnes à Fusion :
 - `insee/2` en **L**
 
 Corriger aussi les INSEE erronés pour la ville de Mayenne…
+
+<!--
 
 
 ### <17>
@@ -280,3 +291,5 @@ Même question…
 1. Les deux ponts sont voisins l'un de l'autre
 
 2. Ils sont situés sur la même route départementale de part et d'autre de la commune
+
+-->
