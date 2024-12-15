@@ -1,11 +1,11 @@
 ---
 mainfont: Alegreya
-title: Fusionner et comparer des données tabulaires
+title: Fusionner et comparer des données tabulaires
 date: 1^er^ semestre 2024-2025
 author: Sébastien Biay
 ---
 
-Fusionner et comparer des données tabulaires
+Fusionner et comparer des données tabulaires
 =====
 
 Plan :
@@ -72,14 +72,13 @@ Dans X2, écrire : `=RECHERCHEV(A2;$Mérimée.A:C;1;0)`
 
 La formule se décompose ainsi :
 
-- Un type de fonction : **RECHERCHEV** qui recherche ***v***erticalement dans un groupe de colonnes
+- Un type de fonction : **RECHERCHEV** qui recherche ***V***erticalement dans un groupe de colonnes
 - Plusieurs clauses (entre parenthèses et séparées par des ;) :
 	- Le critère de recherche : `A2` *car on cherche si l'identifiant de la colonne A sera dans la feuille Mérimée*
-	- La matrice (ou groupe de colonne où chercher) : `$Mérimée.A:C` *qui signifie chercher dans la feuille nommée Mérimée, dans les colonnes de A à C*
+	- La matrice (ou groupe de colonnes où chercher) : `$Mérimée.A:C` *qui signifie chercher dans la feuille nommée Mérimée, dans les colonnes de A à C*
 	- L'indice : `1` *car c'est dans la 1^re^ colonne de la matrice que se trouve l'identifiant*
 	- Recherche dans une plage triée : `0` *pour FAUX (faites-moi confiance !)*
 
-\vskip -0,5em
 
 Votre résultat est sans doute : `#N/D` et c'est normal !
 
@@ -101,7 +100,7 @@ La réponse est 20.
 
 On constate donc que sur les 112 résultats de Mérimée, seuls 20 sont dans l'Inventaire du patrimoine tel qu'exposé sur le site Gertrude et tel qu'on a pu le récupérer grâce à l'API.
 
-**NB** Remplacer les résultats de recherche par des valeurs booléennes (si l'identifiant est trouvé, alors 1, sinon 0) est assez compliqué et ce n'est pas utile de l'apprendre
+**NB** : Remplacer les résultats de recherche par des valeurs booléennes (si l'identifiant est trouvé, alors 1, sinon 0) est assez compliqué et ce n'est pas utile de l'apprendre
 
 Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
 
@@ -126,12 +125,13 @@ Il faut parcourir les données en procédant à des sondages :
 
 ### <8>
 
-On en déduit que les données de Mérimée sont plus complètes pour les matériaux, pour la chronologie, pour l'état de la construction.
+On en déduit que les données de **Mérimée** sont plus complètes pour les *matériaux*, pour la *chronologie*, pour l'*état de la construction*.
 
-On sait que les données de Gertrude contiennent un plus grand nombre de notices.\
-Elles sont signées par un chercheur de l'inventaire (textes identiques non signés dans Mérimée).
+On sait que les données de **Gertrude** contiennent un *plus grand nombre de notices*.\
+Elles sont *signées* par un chercheur de l'inventaire\
+(textes identiques non signés dans Mérimée).
 
-Il est donc intéressant pour notre corpus de chercher à fusionner ces données.
+Il serait donc intéressant pour notre corpus de chercher à fusionner ces données.
 
 
 <a id='t2'/>
@@ -276,9 +276,7 @@ Même question…
 
 ### <19>
 
-Dans le premier cas les deux ponts existent toujours.
 
-Dans le second l'un a remplacé l'autre.
+1. Les deux ponts sont voisins l'un de l'autre
 
-Il nous appartient de décider si notre corpus conserve ce type de doublon ou les élimine.
-
+2. Ils sont situés sur la même route départementale de part et d'autre de la commune

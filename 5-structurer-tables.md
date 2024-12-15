@@ -16,10 +16,11 @@ Plan :
 	1. [Table des matériaux ](#t2-1)
 	2. [1. Transformer les données ](#t2-2)
 	3. [2. Prévoir une méthode d'identification de chaque matériau ](#t2-3)
-3. [Évaluation](#t3)
-	1. [Consignes ](#t3-1)
+	4. [Créer de nouvelles tables ](#t2-4)
 
 [comment]: <> (FINET)
+
+<!--
 
 
 <a id='t1'/>
@@ -84,6 +85,8 @@ On a un problème avec :
 
 Pour copier-coller une formule sans modifier la couleur de fond de la cellule : clic droit > Collage spécial > Formule
 
+-->
+
 
 <a id='t2'/>
 
@@ -99,7 +102,7 @@ Pour copier-coller une formule sans modifier la couleur de fond de la cellule :
 
 Commencer par isoler les données dans une nouvelle feuille brouillon :
 
-1. Filtrer la colonne **P** materiau_du_gros_oeuvre pour ne pas avoir de donnée vide
+1. Filtrer la colonne **materiau_du_gros_oeuvre** pour ne pas avoir de donnée vide
 
 2. Copier dans une nouvelle feuille brouillon :
 
@@ -170,7 +173,7 @@ On doit donc trouver une méthode pour créer des identifiants
 
 - Renommer la colonne A : `id Pont`
 - Insérer une nouvelle colonne en B
-- Y copier-coller le contenu de la colonne **id matériau** pour transformer les formules en valeurs
+- Y copier-coller le contenu de la colonne **id matériau** pour transformer les formules en valeurs (copier-coller avec un **Ctrl + Maj + V** et cliquer sur valeurs seulement)
 - Supprimer la colonne D
 
 
@@ -199,45 +202,24 @@ Vous êtes devenus de véritables ingénieurs de la donnée patrimoniale !
 Et avez d'ores-et-déjà obtenu **15 points** pour l'évaluation !
 
 
-<a id='t3'/>
+<a id='t2-4'/>
 
-# Évaluation
-[comment7]: <15> (TITRE1)
-
-
-<a id='t3-1'/>
-
-## Consignes 
+## Créer de nouvelles tables 
 
 ### <16>
 
 - Créer une copie de la base de données qui ne contienne que le département de la **Sarthe**
 
-- Nettoyer les données du mieux que vous pouvez :
+- Pour avoir 18/20 : créer une table spécifique pour les **Personnes** :
 	
-	- Fusionner les infos des notices qui documentent le même pont :
-		- Notices Gertrude et Mérimée ayant le même identifiant
-		- Ponts possédant à la fois une notice IA et une notice PA
-	
-	- Sourcer les notices
-	- Supprimer les doublons pour n'avoir qu'un seul enregistrement par pont
-	- Compléter la colonne renvoi (AD) si un autre identifiant existe pour le même pont
+	- Attention : la même personne a pu intervenir sur plusieurs ponts, c'est donc une relation multiple, comme les matériaux
+	- Conseil : travailler à la main sera plus efficace qu'avec des expressions régulières
+
+- Pour avoir 20/20 : créer une table pour les **Datations**
 
 
 ### <17>
 
-- Créer une table spécifique pour les **Personnes**\
-	(travailler à la main sera plus efficace qu'avec des expressions régulières)
+Vous pouvez me poser des questions à tout moment si vous avez un doute sur la marche à suivre.
 
-- Pour avoir 22/20 : créer une table pour les **Datations**
-
-
-### <18>
-
-- **Il est permis** :
-
-	- De me poser toutes les questions que vous voulez
-	- De vous entraider
-	- De travailler à la maison
-
-- **Il est obligatoire** de me remettre un fichier individuel le 4 nov. à 18h
+Il faut me remettre les fichiers le 16 décembre au plus tard.

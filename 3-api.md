@@ -13,24 +13,27 @@ Plan :
 1. [Mérimée, mais pas tout…](#t1)
 	1. [Télécharger en différents formats ](#t1-1)
 	2. [Obtenir les données de l'API ](#t1-2)
+	3. [Transformer du Json en CSV ](#t1-3)
+	4. [L'API Mérimée complète ](#t1-4)
 2. [L'Inventaire du patrimoine](#t2)
 	1. [Faire parler l'API : clauses WHERE complexes ](#t2-1)
 	2. [Préparer une liste ordonnée des champs ](#t2-2)
 	3. [Exporter le fichier de résultats ](#t2-3)
-	4. [Transformer Json en CSV ](#t2-4)
 
 [comment]: <> (FINET)
 
 
 ### <2>
 
-Les institutions publiques pratiquent **l'ouverture des données** (*opendata*) : accès à la donnée brute indépendammant des sites webs qui les valorisent
+Les institutions publiques pratiquent **l'ouverture des données** (*opendata*) : accès à la donnée brute indépendammant des sites webs qui les présentent.
 
-- Les données de [POP](https://pop.culture.gouv.fr/opendata) --- *mais, quelles données et pour quel usage ? À lire attentivement…*
+On peut ainsi accéder :
+
+- Aux données de [POP](https://pop.culture.gouv.fr/opendata) --- *mais, quelles données et pour quel usage ? À lire attentivement…*
 	
 	- [Mérimée MH](https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/table/?disjunctive.departement_en_lettres)
 
-- Les données de l'[Inventaire du patrimoine](https://data.paysdelaloire.fr/explore/dataset/234400034_052-001_inventaire-du-patrimoine-rpdl/information/) \
+- Aux données de l'[Inventaire du patrimoine](https://data.paysdelaloire.fr/explore/dataset/234400034_052-001_inventaire-du-patrimoine-rpdl/information/) \
 (qui correspondent au site gertrude.paysdelaloire.fr)
 
 
@@ -48,7 +51,7 @@ Les institutions publiques pratiquent **l'ouverture des données** (*opendata*)�
 
 **Immeubles protégés au titre des Monuments Historiques**
 
-Il s'agit d'une partie seulement des notices de Mérimée, *sans les notices issues de l'Inventaire du patrimoine*.
+Il s'agit d'une partie seulement des notices de Mérimée, *sans les notices issues de l'inventaire du patrimoine pour les sites non protégés*.
 
 **Formats d'export**\
  généralement identique sur tous les sites de données ouvertes :
@@ -96,16 +99,16 @@ Cette API permet de formuler des **requêtes SQL** (*Structured query language*)
 
 ### <7>
 
-Formulons une première requête, pour obtenir la **liste des sites protégés de la Loire-Atlantique**
+Formulons une première requête, pour obtenir la **liste des sites protégés de la Loire-Atlantique**.
 
-On se contentera de sélectionner (clause *select*) quelques informations simples : la référence de la notice, son titre, le nom de la commune
+On se contentera de sélectionner (clause *select*) quelques informations simples : la référence de la notice, son titre, le nom de la commune.
 
 Saisir les informations suivantes :
 
 - select : `reference, titre_editorial_de_la_notice, commune_forme_editoriale`
 - where : `departement_format_numerique=44`
 
-Les résultats s'affichent instantanément à droite et on accède à [ce fichier Json](https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/records?select=reference%2C%20titre_editorial_de_la_notice%2C%20commune_forme_editoriale&where=departement_format_numerique%3D44&limit=20&refine=region%3A%22Pays%20de%20la%20Loire%22) via le lien en bas de page
+Les résultats s'affichent instantanément à droite et on accède à [ce fichier Json](https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/records?select=reference%2C%20titre_editorial_de_la_notice%2C%20commune_forme_editoriale&where=departement_format_numerique%3D44&limit=20&refine=region%3A%22Pays%20de%20la%20Loire%22) via le lien en bas de page.
 
 
 ### <8>
@@ -117,8 +120,7 @@ Les résultats s'affichent instantanément à droite et on accède à [ce fichie
 
 Il faut trouver [22 résultats](https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/records?select=reference%2C%20titre_editorial_de_la_notice%2C%20commune_forme_editoriale&where=denomination_de_l_edifice%20%3D%20%22pont%22&limit=100&refine=region%3A%22Pays%20de%20la%20Loire%22)
 
-N'est-il pas étrange de ne trouver que 22 résultats ?\
-Comment l'expliquer ?
+Pourquoi n'obtient-on que 22 résultats ?
 
 [comment4]: <8> (On ne récolte que les sites protégés MH, dont les notices ont un identifiant en PA ; sur le site web de Mérimée, on avait aussi des notices de l'Inventaire du patrimoine, à l'identifiant en IA.)
 
@@ -127,17 +129,44 @@ Comment l'expliquer ?
 [comment6]: <8> (On peut toujours espérer que toutes les notices IA de Mérimée soit aussi dans Gertrude… Il faudra évaluer la question.)
 
 
+<a id='t1-3'/>
+
+## Transformer du Json en CSV 
+
+### <9>
+
+Pour obtenir un tableau à partir de ces résultats, on utilisera une application en ligne de transformation : [convertcsv.com](https://www.convertcsv.com/json-to-csv.htm)
+
+1. Charger le fichier Json
+2. *Choose output options* : cliquer sur **optional**
+	- Output Field Separator : **Tab**
+
+3. Cliquer sur **Download results**
+
+
+<a id='t1-4'/>
+
+## L'API Mérimée complète 
+
+### <10>
+
+Cette API ne fait l'objet d'aucune publicité, pourtant, elle existe.\
+Voici son adresse :
+
+[https://api.pop.culture.gouv.fr/merimee/](https://api.pop.culture.gouv.fr/merimee/PA00109550)
+
+
 <a id='t2'/>
 
 # L'Inventaire du patrimoine
-[comment7]: <8> (TITRE1)
+[comment9]: <10> (TITRE1)
 
 
 <a id='t2-1'/>
 
 ## Faire parler l'API : clauses WHERE complexes 
 
-### <9>
+### <11>
 
 [Données ouvertes de l'Inventaire en Pays de la Loire](https://data.paysdelaloire.fr/explore/dataset/234400034_052-001_inventaire-du-patrimoine-rpdl/information/)
 
@@ -149,7 +178,7 @@ Commencer par examiner les notices d'exemple pour repérer le champ pertinent à
 Une requête sur "pont" doit permettre de trouver 104 résultats.
 
 
-### <10>
+### <12>
 
 La bonne clause était :
 
@@ -160,7 +189,7 @@ Maintenant, pourquoi avons-nous moins de résultats que les [121](https://gertru
 *Ouvrez-donc un éditeur de texte comme Notepad ++ pour taper vos clauses et pouvoir en écrire de nouvelles en faisant des copier-coller…*
 
 
-### <11>
+### <13>
 
 Il faut parvenir à élargir la recherche sans perdre sa pertinence, en commençant par chercher les appellations qui *contiennent* "pont" sans être strictement égales à "pont".
 
@@ -171,7 +200,7 @@ On va ajouter au passage :
 2. Une clause *order_by* pour trier les communes en ordre "ascendant" (ASC), soit alphabétique ; on pourra ainsi faire DESC pour voir la fin de l'alphabet et ainsi visualiser plus de données
 
 
-### <12>
+### <14>
 
 À vous de jouer :
 
@@ -188,13 +217,13 @@ Une fois la requête complétée, cliquer sur le lien en bas de page, et utilise
 ```
 
 
-### <13>
+### <15>
 
 
 On monte donc à 107 résultats, avec les "pont mobile" ! Comment élargir encore et faire apparaître d'autres types pertinents ?…
 
 
-### <14>
+### <16>
 
 On peut chercher les notices qui contiennent le mot "pont" dans le champ **nom_de_l_edifice_ou_de_l_objet** mais dont l'**appellation** n'est pas pont, ce que l'on traduit ainsi :
 
@@ -202,7 +231,7 @@ On peut chercher les notices qui contiennent le mot "pont" dans le champ **nom_d
 appellation_du_batiment_eglise_ferme_ou_de_l_objet LIKE "pont"`
 
 
-### <15>
+### <17>
 
 Par cette requête on a pu repérer de nouveaux types d'appellation pertinents :
 
@@ -220,12 +249,14 @@ where :\
 
 Résultats : [124](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%2C%20commune%2C%20code_departement&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=commune%20ASC&limit=100) !
 
+<!--
+
 
 <a id='t2-2'/>
 
 ## Préparer une liste ordonnée des champs 
 
-### <16>
+### <18>
 
 Les attributs ou champs d'une notice sont assez nombreux, et ne sont pas présentés dans un ordre très satisfaisant !\
 On peut les passer en revue avec [cet exemple](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&limit=1) où j'ai limité les résultats à 1 seul
@@ -233,7 +264,7 @@ On peut les passer en revue avec [cet exemple](https://data.paysdelaloire.fr/api
 L'objectif est de convertir une sélection de ces informations dans un ordre logique et d'éliminer ce qui ne nous intéresse pas
 
 
-### <17>
+### <19>
 
 À partir du résultat de la diapo précédente, je copie-colle dans un éditeur de texte l'ensemble du contenu de la notice
 
@@ -242,7 +273,7 @@ L'objectif est de convertir une sélection de ces informations dans un ordre log
 - Ouvrir le fichier dans un éditeur de texte (Notepad ++)
 
 
-### <18>
+### <20>
 
 On commence par éliminer à la main les **lignes** qui ne comportent pas d'intitulé de champ :
 
@@ -251,7 +282,7 @@ On commence par éliminer à la main les **lignes** qui ne comportent pas d'inti
 **NB** : quand le curseur est sur une ligne ou lorsque l'on en sélectionne plusieurs, **Maj + Suppr** supprime toute la ou les lignes
 
 
-### <19>
+### <21>
 
 Puis on élimine les **valeurs** pour ne conserver que les intitulés des champs :
 
@@ -264,7 +295,7 @@ Pour cela on va effectuer des *cherche-remplace* à l'aide des **Expressions ré
 - Dans le champ **Recherche**, taper `\t` : cela exprime **Tabulation**, qui sert ici de séparateur entre l'intitulé du champ et la valeur placée entre guillemets
 
 
-### <20>
+### <22>
 
 - Dans le champ **Recherche** (vidé), taper maintenant `\n` : cela exprime **Retour à la ligne**
 
@@ -274,7 +305,7 @@ Pour conserver l'intitulé du champ, on va supprimer le séparateur (`\t`) et to
 - **Remplacer par** : *laisser vide*
 
 
-### <21>
+### <23>
 
 **Traduction de cette chose** : `\t[^\n]+`
 
@@ -286,7 +317,7 @@ On recherche :
 - `+` est un **quantificateur** signifie "entre 1 et l'infini" : or la suite de la ligne est constituée de "tout sauf un retour à la ligne" (`[^\n]`) un certain nombre (une infinité) de fois (`+`)
 
 
-### <22>
+### <24>
 
 **Pour bien maîtriser les expressions régulières** :
 
@@ -295,7 +326,7 @@ On recherche :
 - Un [didacticiel](https://regexlearn.com/fr/learn/regex101) complet
 
 
-### <23>
+### <25>
 
 Tous les champs sont-ils utiles ? *(Ctrl + Suppr pour supprimer une ligne)*
 
@@ -314,7 +345,7 @@ On peut également personnaliser leur intitulé de cette façon :
 - `code_insee_de_la_commune AS insee`
 
 
-### <24>
+### <26>
 
 Enfin, il faut convertir cette succession de lignes en une clause **select** écrite sur une seule ligne
 
@@ -332,7 +363,7 @@ Pour la clause **where**, on peut copier-coller à partir de [ce fichier](https:
 
 ## Exporter le fichier de résultats 
 
-### <25>
+### <27>
 
 Il reste un problème !
 
@@ -342,7 +373,7 @@ mais le droit d'en exporter jusqu'à 100…
 Comment faire ?
 
 
-### <26>
+### <28>
 
 Solutions possibles :
 
@@ -360,7 +391,7 @@ Solutions possibles :
 		- Résultats [ici](https://data.paysdelaloire.fr/api/explore/v2.1/catalog/datasets/234400034_052-001_inventaire-du-patrimoine-rpdl/records?select=identifiant%2C%20nom_de_l_edifice_ou_de_l_objet%20AS%20nom%2C%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%20AS%20appellation%2C%20datation_de_l_oeuvre%20AS%20datation%2C%20commune%2C%20departement%2C%20code_insee_de_la_commune%20AS%20insee%2C%20code_departement%2C%20localisation%2C%20edifice_contenant_l_objet_mobilier%20AS%20appartient_a%2C%20materiau_du_gros_oeuvre%2C%20auteur_de_l_oeuvre%20AS%20auteur%2C%20historique_du_batiment_ou_de_l_oeuvre%2C%20description_du_batiment%2C%20type_de_protection%2C%20chercheur%2C%20copyright&where=appellation_du_batiment_eglise_ferme_ou_de_l_objet%20LIKE%20%22pont%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22passerelle%22%20OR%20appellation_du_batiment_eglise_ferme_ou_de_l_objet%3D%22viaduc%22&order_by=identifiant%20DESC&limit=62)
 
 
-### <27>
+### <29>
 
 Sauvegarder les deux fichiers Json dans un dossier dédié :
 
@@ -371,32 +402,6 @@ Sauvegarder les deux fichiers Json dans un dossier dédié :
 => => `inventaire-pays-loire-debut.json`\
 => => `inventaire-pays-loire-fin.json`
 
+-->
 
-<a id='t2-4'/>
-
-## Transformer Json en CSV 
-
-### <28>
-
-Pour obtenir un tableau à partir de ces résultats, on utilisera une application en ligne de transformation : [convertcsv.com](https://www.convertcsv.com/json-to-csv.htm)
-
-1. Charger le fichier Json
-2. *Choose output options* : cliquer sur **optional**
-	- Output Field Separator : **Tab**
-
-3. Cliquer sur **Download results**
-
-Effectuer l'opération pour les deux fichiers Json
-
-
-### <29>
-
-Sauvegarder les deux fichiers Json dans un dossier dédié :
-
-`TD-ponts/`
-
-=> `csv/`
-
-=> => `inventaire-pays-loire-debut.csv`\
-=> => `inventaire-pays-loire-fin.csv`
 

@@ -22,7 +22,7 @@ Plan :
 	2. [Avantages et inconvénients du modèle en table ](#t2-2)
 3. [Sauvegarder son travail](#t3)
 	1. [Au fait, comment sauvegardez-vous vos données ? ](#t3-1)
-	2. [Des méthodes très très durables ](#t3-2)
+	2. [La méthode la plus durable ](#t3-2)
 	3. [Des méthodes plus modernes ](#t3-3)
 	4. [Conseils pratiques ](#t3-4)
 	5. [Des solutions cloud ](#t3-5)
@@ -247,7 +247,7 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 - Risque majeur : déstructurer ses données
 
 - Contre les risques de déstructuration des données :skip
-	- Privilégier le transfert vers un système de type SQL comme Heuristskip
+	- Privilégier le transfert vers un système de type SQL comme Heuristskip
 	- Acquérir **une bonne méthode de sauvegarde**
 
 
@@ -272,12 +272,10 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 
 <a id='t3-2'/>
 
-## Des méthodes très très durables 
+## La méthode la plus durable 
 
 ### <15>
 
-
-**Méthode n^o^ 1**
 
 **Image** : [Code d'Hammurabi, musée du Louvre, v. 1750 av. JC<a date='sans'/>](img/code-hammurabi_detail-01.jpg)
 
@@ -286,21 +284,11 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 [comment23]: <15> (Le tout c'est de savoir **décoder…** Combien de temps saura-t-on décoder un fichier .docx ou .pages ?)
 
 
-### <16>
-
-
-**Méthode n^o^ 2**
-
-**Image** : [Le manuscrit sur parchemin, ici 1^re^ moitié IX^e^ s.<a date='1re moitié IXe s.'/>](img/lat-5763_fol-001r-detail-a.jpg)
-
-[comment24]: <16> (Ça tient bien aussi, depuis 11 siècles.)
-
-
 <a id='t3-3'/>
 
 ## Des méthodes plus modernes 
 
-### <17>
+### <16>
 
 
 - Microfilm pour les photos : 100 ans et plus
@@ -308,39 +296,37 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 - Disque dur : 5-10 ans
 
 
-### <18>
+### <17>
 
 **Image** : [Le *cloud*, servi par un centre de données<a date='sans'/>](img/calcul-informatique_data-center.jpg)
 
-[comment26]: <18> (Il y a toujours un risque que dans cette salle quelqu'un perde son rapport de stage ou un gros travail…)
+[comment25]: <17> (Il y a toujours un risque que dans cette salle quelqu'un perde son rapport de stage ou un gros travail…)
 
-[comment27]: <18> (Qui pense avoir une bonne méthode de sauvegarde ? *Prendre un volontaire pour qu'il raconte sa méthode*.)
+[comment26]: <17> (Qui pense avoir une bonne méthode de sauvegarde ? *Prendre un volontaire pour qu'il raconte sa méthode*.)
 
 
-### <19>
+### <18>
 
 - ***Cloud*** :
-	- Options d'accès : Accès à partir de plusieurs appareils
-	- Sécurité des données : Fort mais peut être piraté (attention au détournement des contenus personnels voire intimes)
-	- Technologie de synchronisation : Mises à jour automatiques
-	- Coût par unité : Gratuit ou abonnement mensuel
-	- Propriété : Peut partager vos fichiers avec n'importe qui
-	- Fiabilité : Le serveur peut tomber en panne dans certains cas
+	- *Sécurité des données* : Fort mais peut être piraté (attention au détournement des contenus personnels voire intimes)
+	- *Coût par unité* : gratuit ou abonnement mensuel
+	- *Respect de la vie privée* : peut partager vos fichiers avec n'importe qui
+	- *Fiabilité* : risque de panne, de défaillance du réseau, faillite
+	- *Archivage des données* : versionnage
 
 - **Disque dur externe** :
-	- Options d'accès : Utiliser une connexion USB
-	- Sécurité des données : Fort mais on peut le perdre ou se le faire voler
-	- Technologie de synchronisation : Mises à jour automatiques en cas de connexion
-	- Coût par unité : Achat ponctuel
-	- Propriété : Sûre
-	- Fiabilité : Peut se casser, ne plus démarrer, des secteurs peuvent être défectueux
+	- *Sécurité des données* : fort mais on peut le perdre ou se le faire voler
+	- *Coût par unité* : achat ponctuel
+	- *Respect de la vie privée* : sûr
+	- *Fiabilité* : peut se casser, ne plus démarrer, des secteurs peuvent être défectueux
+	- *Archivage des données* : versionnage complexe, on privilégie l'écrasement
 
 
 <a id='t3-4'/>
 
 ## Conseils pratiques 
 
-### <20>
+### <19>
 
 
 **Au quotidien**
@@ -348,10 +334,13 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 1. Je sauvegarde mon travail tous les jours
 
 2. Un support physique ET un *cloud* : l'idéal !
+	
+	- Comment [casser un fichier](https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/risque-destructurer.ods)
+	- Comment récupérer une archive dans [Uncloud](https://uncloud.univ-nantes.fr/index.php/apps/files/files/1870556257?dir=/Enseignement/NUMPonts)
 
-	Versions de mon fichier dans [Uncloud](https://uncloud.univ-nantes.fr/index.php/apps/files/files/1870556428?dir=/Enseignement/NUMPonts#)
+[comment28]: <19> (Pour accéder aux versions dans Uncloud : cliquer sur …, puis sur *afficher les détails*.)
 
-[comment29]: <20> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
+[comment29]: <19> (Mais attention, le but n'est pas de tuer le plus d'ours polaires possibles : on ne mettra sur le cloud que les fichiers légers, ou les plus précieux.)
 
 
 **Pour archiver**
@@ -359,14 +348,14 @@ Fichier ou ensemble de fichiers contenant des informations structurées.
 - J'utilise deux supports physiques localisés en deux endroits
 - Je ne fais pas confiance à un disque dur de plus de 10 ans (écrire la date de mise en service sur une étiquette !)
 
-[comment30]: <20> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
+[comment30]: <19> (Votre disque dur ne va pas vous en envoyer un message -- au fait, à partir de demain je ne marche plus !)
 
 
 <a id='t3-5'/>
 
 ## Des solutions cloud 
 
-### <21>
+### <20>
 
 - [One-Drive](https://onedrive.live.com) : avec Windows et un compte de messagerie Outlook
 - [Dropbox](https://www.dropbox.com/home) : gratuit pour quelques Go et quelques appareils connectés
