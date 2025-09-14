@@ -791,7 +791,7 @@ En typographie français, une espace insécable --- oui, espace est féminin en 
 
 - *Lexique des règles typographiques en usage à l'Imprimerie nationale* \[1^re^ éd. 1971\], Paris, Impr. nationale, 2002, [en ligne](https://archive.org/details/lexique-des-regles-typographiques-en-usage-a-l-imprimerie-nationale/mode/2up).
 
-- Quelques règles propres au domaine culture et patrimoineà télécharger sur Madoc : **conventions-patrimoine.pdf**
+- Quelques règles propres au domaine culture et patrimoine à télécharger sur Madoc : **conventions-patrimoine.pdf**
 
 <!--
 D'autres codes typographiques :
