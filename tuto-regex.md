@@ -140,22 +140,12 @@ On sait que dans ce texte le prénom se trouve après *je m'appelle*
 
 On peut procéder ainsi :
 
-- Rechercher `^[^\n]+je m'appelle (\w+)[^\n]+$`. Cette expression se compose ainsi :
-  - `^` un début de ligne ;
-  - `[^\n]+` plusieurs caractères sauf un retour à la ligne ;
-  - `je m'appelle`
+- Rechercher `je m'appelle (\w+)`. Cette expression se compose ainsi :
+  - `je m'appelle `
   - `(\w+)` : **capture** d'un mot (suite de caractères étant soit des lettres, soit des chiffres soit *underscore*, le tout entre parenthèses pour la capture)
-  - `[^\n]+` plusieurs caractères sauf un retour à la ligne ;
-  - `$` une fin de ligne.
 
 - On copie la sélection dans un nouveau fichier (qui ne contiendra que les phrases intéressant notre recherche)
-- On répète la même recherche : `^[^\n]+je m'appelle (\w+)[^\n]+$`
-- Remplacer par : `$1` c'est-à-dire le premier motif capturé entre parenthèses
+- On répète la même recherche : `je m'appelle (\w+)`
+- Remplacer par : `$1` c'est-à-dire le premier motif capturé entre parenthèses
 
-On a ainsi remplacé 
-
-![Groupe capturant](/media/galleries/12002/b7789dcd-0817-4888-b581-8c3f40e063b6.png)
-
-Le match complet est `je m'appelle Toto` mais on a précisé que la capture intéressante était la partie après \"**je m'appelle**\".
-
-
+Le *match* complet est `je m'appelle X` mais on a précisé que la capture intéressante était la partie après \"**je m'appelle**\".
