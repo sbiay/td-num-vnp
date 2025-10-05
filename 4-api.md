@@ -20,16 +20,16 @@ Plan :
 
 ### <2>
 
-Les institutions publiques pratiquent **l'ouverture des données** (*opendata*) : accès à la donnée brute indépendammant des sites webs qui les présentent.
+Les institutions publiques pratiquent **l'ouverture des données** (*opendata*) : accès à la donnée brute indépendammant des sites webs qui les valorisent.
 
 On peut ainsi accéder :
 
-- Aux données de [POP](https://pop.culture.gouv.fr/opendata) --- *mais, quelles données et pour quel usage ? À lire attentivement…*
+- Aux données de [POP](https://pop.culture.gouv.fr/opendata) --- *mais, quelles données et pour quel usage ? À lire attentivement [ici](https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/information/?disjunctive.departement_en_lettres)…*
 	
 	- [Mérimée MH](https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/table/?disjunctive.departement_en_lettres)
 
 - Aux données de l'[Inventaire du patrimoine](https://data.paysdelaloire.fr/explore/dataset/234400034_052-001_inventaire-du-patrimoine-rpdl/information/) \
-(qui correspondent au site gertrude.paysdelaloire.fr)
+(compétence régionale depuis 2004 --- publié pour les PDL sur [gertrude.paysdelaloire.fr](https://gertrude.paysdelaloire.fr/))
 
 
 <a id='t1'/>

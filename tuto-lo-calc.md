@@ -21,7 +21,7 @@ Plan :
 	- **Ctrl + flèche** vous renvoie à la dernière case non vide dans la direction de la flèche
 
 - Pour aller tout au début d'une ligne : touche **Début**
-- Pour aller tout au bout d'une ligne : touche **Fin**
+- Pour aller tout à la fin d'une ligne : touche **Fin**
 - Pour aller à la case A1 : **Ctrl + Début**
 - Pour aller à la case opposée (dernière ligne et dernière colonne de la partie non vide du tableau) : **Ctrl + Fin**
 
@@ -29,7 +29,7 @@ Plan :
 # Sélection et transformation
 
 - **Pour modifier** le contenu d'une cellule :
-	- Se placer sur la cellule
+	- Se placer sur la cellule avec les flèches ou les combinaisons précédentes
 	- Écrire un nouveau contenu
 	- Sortir de la cellule (par une touche flèche ou Entrée)
 	- **Ctrl + Z** pour annuler une modification malheureuse
