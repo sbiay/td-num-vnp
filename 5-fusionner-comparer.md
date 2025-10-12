@@ -15,9 +15,8 @@ Plan :
 	2. [Comparer des jeux de données ](#t1-2)
 	3. [Evaluer la qualité respective des données ](#t1-3)
 2. [Fusionner deux tableaux](#t2)
-	1. [Comparer les en-têtes et adapter le tableau Fusion ](#t2-1)
-3. [Analyser les données](#t3)
-	1. [Chercher les problèmes, comprendre les données ](#t3-1)
+	1. [Comparer les en-têtes et préparer le tableau Ponts ](#t2-1)
+	2. [Chercher les problèmes, comprendre les données ](#t2-2)
 
 <!--FINET-->
 
@@ -69,6 +68,7 @@ C'est une information qu'il faut *calculer*.
 
 ### <4>
 
+
 Dans X2, écrire : `=RECHERCHEV(A2;$Mérimée.A:C;1;0)`
 
 La formule se décompose ainsi :
@@ -81,7 +81,7 @@ La formule se décompose ainsi :
 	- Recherche dans une plage triée : `0` *pour FAUX (faites-moi confiance !)*
 
 
-Votre résultat est sans doute : `#N/D`.\
+Votre résultat est sans doute : `#N/D`. 
 Est-ce normal ?
 
 
@@ -100,7 +100,7 @@ En créant un auto-filtre sur la colonne, vous pourrez manipuler les résultats 
 
 La réponse est 20.
 
-On constate donc que sur les 112 résultats de Mérimée, seuls 20 sont dans l'Inventaire du patrimoine tel qu'exposé sur le site Gertrude et tel qu'on a pu le récupérer grâce à l'API.
+On constate donc que, sur les 112 résultats de Mérimée, seuls 20 sont dans l'Inventaire du patrimoine tel qu'exposé sur le site Gertrude et tel qu'on a pu le récupérer grâce à l'API.
 
 **NB** : Remplacer les résultats de recherche par des valeurs booléennes (si l'identifiant est trouvé, alors 1, sinon 0) est assez compliqué et ce n'est pas utile de l'apprendre
 
@@ -115,21 +115,7 @@ Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
 
 Lorsque les deux bases contiennent une notice sous le même identifiant, laquelle est la meilleure ?
 
-[comment5]: <7> (Il vaudrait mieux faire cela après avoir préparé la fusion : comparer en transposant se ferait case à case.)
-
-Il faut parcourir les données en procédant à des sondages :
-
-- Ouvrir un nouveau tableau pour comparer deux enregistrements
-- Choisir un identifiant
-- Copier l'ensemble de la ligne dans le nouveau tableau :
-	
-	- Clic droit
-	- **Collage spécial** : transposer
-
-
-### <8>
-
-On en déduit que les données de **Mérimée** sont plus complètes pour les *matériaux*, pour la *chronologie*, pour l'*état de la construction*.
+Les données de **Mérimée** sont plus complètes pour les *matériaux*, pour la *chronologie*, pour l'*état de la construction*.
 
 On sait que les données de **Gertrude** contiennent un *plus grand nombre de notices*.\
 Elles sont *signées* par un chercheur de l'inventaire\
@@ -141,16 +127,16 @@ Il serait donc intéressant pour notre corpus de chercher à fusionner ces donn�
 <a id='t2'/>
 
 # Fusionner deux tableaux
-[comment6]: <8> (TITRE1)
+[comment5]: <7> (TITRE1)
 
 
 <a id='t2-1'/>
 
-## Comparer les en-têtes et adapter le tableau Fusion 
+## Comparer les en-têtes et préparer le tableau Ponts 
 
-### <9>
+### <8>
 
-- Créer une nouvelle feuille que l'on peut appeler "Fusion"
+- Créer une nouvelle feuille que l'on peut appeler "Ponts", où l'on va fusionner les deux listes
 
 - Y coller tout le contenu de la feuille Gertrude (en s'assurant qu'il n'y ait pas de filtre actif qui masque une partie des lignes !)
 
@@ -159,18 +145,18 @@ Il serait donc intéressant pour notre corpus de chercher à fusionner ces donn�
 - Quelles différences ? Que faut-il faire ?
 
 
-### <10>
+### <9>
 
 Creér une nouvelle colonne est simple par un clic droit
 	
 - **G** : `datation/3`
 
 
-### <11>
+### <10>
 
 **Déplacer une colonne (ou une ligne)** :
 
-Dans la feuille Fusion, on veut :
+Dans la feuille Ponts, on veut :
 
 - **L** : `localisation/lat`
 - **M** : `localisation/lon`
@@ -183,37 +169,37 @@ Démarche :
 4. Déplacer le curseur vers la destination
 
 
-### <12>
+### <11>
 
-- 5 en-têtes propres à Mérimée doivent être ajoutés à la fin de Fusion (de **Y** à **AC**)
+- 5 en-têtes propres à Mérimée doivent être ajoutés à la fin de Ponts (de **Y** à **AC**)
 
 - On ajoute une colonne **Source** en **AD** ou l'on renseignera soit `Gertrude` soit `Mérimée`
 
 - Coller le contenu de la feuille Mérimée --- **NB** : Il est intéressant de conserver les couleurs pour la comparaison des notices
 
-- Compléter la colonne source
+- Compléter la colonne **source**
 
 
-### <13>
+### <12>
 
 Félicitations !!!
 
-Vous avez correctement fusionné deux tableaux !
+Vous avez correctement fusionné deux tableaux et atteint l'étape 2 !
 
-Pour retrouver le résultat : [étape 2](https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/inventaire-pays-loire-complet-etape-2.ods)
+<!--
+
+Pour retrouver le résultat : 
+
+https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/inventaire-pays-loire-complet-etape-2.ods
+
+-->
 
 
-<a id='t3'/>
-
-# Analyser les données
-[comment8]: <13> (TITRE1)
-
-
-<a id='t3-1'/>
+<a id='t2-2'/>
 
 ## Chercher les problèmes, comprendre les données 
 
-### <14>
+### <13>
 
 Pour analyser les données, il est utile de les trier selon un double critère :
 
@@ -221,35 +207,33 @@ Pour analyser les données, il est utile de les trier selon un double critère 
 2. L'identifiant, pour rapprocher les notices existant sous le même identifiant dans Gertrude et Mérimée
 
 
-### <15>
+### <14>
 
 La première notice pose problème ! (IA17047185)
 
 Quelle solution proposez-vous ?
 
 
-### <16>
+### <15>
 
 Copier-coller les coordonnées de géolocalisation du pont dans Google Maps pour visualiser l'environnement du pont.
 
-Un clic droit sur Google Maps permet d'afficher la commune, mais attention le code est le code postal, non le code INSEE
+Un clic droit sur Google Maps permet d'afficher la commune, mais attention ! le code est le code postal, non le code INSEE.
 
 Le pont ferroviaire (IA17047185) est donc localisé ainsi :
 
 - Commune 1 : L'Île-d'Elle, 85111
 - Commune 2 : Marans, 17218
 
-Ajouter des colonnes à Fusion :
+Ajouter des colonnes à Ponts :
 
 - `commune/2` en **K**
 - `insee/2` en **L**
 
 Corriger aussi les INSEE erronés pour la ville de Mayenne…
 
-<!--
 
-
-### <17>
+### <16>
 
 **Il faut aussi chercher les doublons** : l'objectif d'un corpus est d'avoir un seul enregistrement par pont
 
@@ -263,7 +247,7 @@ Les enregistrements ayant les mêmes coordonnées seront voisins.
 Filtrer pour éliminer les ponts ayant en géolocalisation des valeurs 0.
 
 
-### <18>
+### <17>
 
 On trouve des ponts ayant les mêmes coordonnées et le même nom, mais pas le même identifiant…
 
@@ -282,11 +266,10 @@ Ou encore le Pont - D 210, Blandouet :
 Même question…
 
 
-### <19>
+### <18>
 
 
 1. Les deux ponts sont voisins l'un de l'autre
 
 2. Ils sont situés sur la même route départementale de part et d'autre de la commune
 
--->
