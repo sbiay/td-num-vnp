@@ -177,18 +177,18 @@ Il faut transformer la feuille **Mérimée** pour ordonner les informations de l
 - F : datation/2
 - G : commune
 - H : departement
-- I : insee
+- I : insee *(laisser vide)*
 - J : code_departement
 - K : localisation/lat
 - L : localisation/lon
-- M : appartient_a
+- M : appartient_a *(laisser vide)*
 - N : materiau_du_gros_oeuvre
-- O : auteur
-- P : historique_du_batiment_ou_de_l_oeuvre
-- Q : description_du_batiment
-- R : type_de_protection
-- S : copyright
-- T : chercheur/0
+- O : auteur *(prendre Auteur de l'édifice)*
+- P : historique_du_batiment_ou_de_l_oeuvre *(prendre Description historique)*
+- Q : description_du_batiment *(prendre Commentaire descriptif de l'édifice)*
+- R : type_de_protection *(prendre Date et niveau de protection de l'édifice)*
+- S : copyright *(laisser vide)*
+- T : chercheur/0 *(prendre Rédacteur de la notice)*
 - U : chercheur/1
 - V : chercheur/2
 - W : chercheur/3
