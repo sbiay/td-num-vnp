@@ -20,9 +20,12 @@ Plan :
 
 	- **Ctrl + flèche** vous renvoie à la dernière case non vide dans la direction de la flèche
 
-- Pour aller tout au début d'une ligne : touche **Début**
+- Pour aller tout au début d'une ligne : touche **Début** ou **↖**
+
 - Pour aller tout à la fin d'une ligne : touche **Fin**
-- Pour aller à la case A1 : **Ctrl + Début**
+
+- Pour aller à la case A1 : **Ctrl + Début** ou **Ctrl + ↖**
+
 - Pour aller à la case opposée (dernière ligne et dernière colonne de la partie non vide du tableau) : **Ctrl + Fin**
 
 
@@ -30,17 +33,22 @@ Plan :
 
 - **Pour modifier** le contenu d'une cellule :
 	- Se placer sur la cellule avec les flèches ou les combinaisons précédentes
+
 	- Écrire un nouveau contenu
+
 	- Sortir de la cellule (par une touche flèche ou Entrée)
+
 	- **Ctrl + Z** pour annuler une modification malheureuse
 
 - **Pour sélectionner** un groupe de cellule :
+	
 	- Se placer sur une première cellule
 	- Rester appuyer sur **Maj**
 	- Se déplacer avec les flèches jusqu'à la dernière cellule souhaitée
 
 
 - **Pour sélectionner** tout le tableau :
+
 	- **Ctrl + Début**
 	- Puis maintenir **Ctrl + Maj**
 	- Appuyer sur **Fin**
