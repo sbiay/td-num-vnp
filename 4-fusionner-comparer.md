@@ -61,11 +61,11 @@ Le tout est rassemblé dans un tableau : [étape 1](https://github.com/sbiay/td
 Pour comparer les deux feuilles, on doit créer une fonction de **Recherche** :
 
 - Se placer dans la feuille Gertrude
-- Dans la dernière colonne disponible (normalement X) créer l'en-tête : `Mérimée`
+- Dans la dernière colonne disponible (`CR`) créer l'en-tête : `Gertrude`
 - Nous voulons que cette colonne nous renseigne de la façon suivante :
 	
 	
-	*Est-ce que l'identifiant (colonne A) de cet enregistrement existe dans la table Mérimée, oui ou non ?*
+	*Est-ce que l'identifiant (colonne A) de cet enregistrement existe dans la table Gertrude, oui ou non ?*
 	
 
 C'est une information qu'il faut *calculer*.
@@ -78,14 +78,14 @@ C'est une information qu'il faut *calculer*.
 ### <4>
 
 
-Dans X2, écrire : `=RECHERCHEV(A2;$Mérimée.A:A;1;0)`
+Dans X2, écrire : `=RECHERCHEV(A2;$Gertrude.A:A;1;0)`
 
 La formule se décompose ainsi :
 
 - Un type de fonction : **RECHERCHEV** qui recherche ***V***erticalement dans un groupe de colonnes
 - Plusieurs clauses (entre parenthèses et séparées par des ;) :
-	- Le critère de recherche : `A2` *car on cherche si l'identifiant de la colonne A sera dans la feuille Mérimée*
-	- La matrice (ou groupe de colonnes où chercher) : `$Mérimée.A:A` *qui signifie chercher dans la feuille nommée Mérimée, dans la colonne A*
+	- Le critère de recherche : `A2` *car on cherche si l'identifiant de la colonne A sera dans la feuille Gertrude*
+	- La matrice (ou groupe de colonnes où chercher) : `$Gertrude.A:A` *qui signifie chercher dans la feuille nommée Gertrude, dans la colonne A*
 	- L'indice : `1` *car c'est dans la 1^re^ (et unique) colonne de la matrice que se trouve l'identifiant*
 	- Recherche dans une plage triée : `0` *pour FAUX (faites-moi confiance !)*
 
@@ -95,6 +95,7 @@ Est-ce normal ?
 
 
 ### <5>
+
 
 `#N/D` signifie *no data* ou « valeur non disponible ».
 Ce n'est pas une erreur, cela signifie : l'identifiant que vous cherchez n'est pas dans la matrice de recherche --- il n'est pas dans la 1^re^ colonne de la feuille Mérimée.
@@ -106,7 +107,7 @@ Appliquer la formule à toute la colonne :
 - Utiliser les flèches haut/bas pour sélectionner toutes les cases jusqu'en bas des données
 - **Ctrl + V**
 
-Certains identifiants sont trouvés ! Combien ?En créant un auto-filtre sur la colonne (Ctrl + Maj + L), vous pourrez manipuler les résultats et les compter facilement.
+Certains identifiants sont trouvés ! Combien ? En créant un auto-filtre sur la colonne (Ctrl + Maj + L), vous pourrez manipuler les résultats et les compter facilement.
 
 
 ### <6>
@@ -119,7 +120,7 @@ On constate donc que, sur les 108 items de Mérimée, seuls 20 sont dans l'Inven
 
 **NB** : remplacer les résultats de recherche par des valeurs booléennes (si l'identifiant est trouvé, alors 1, sinon 0) est assez compliqué et ce n'est pas utile de l'apprendre
 
-Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
+Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Gertrude.A:A;1;0);0)=0;0;1)`
 
 </span>
 
@@ -132,11 +133,15 @@ Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
 
 Lorsque les deux bases contiennent une notice sous le même identifiant, laquelle est la meilleure ?
 
+<span info="coupure">
+
 Les données de **Mérimée** sont plus complètes pour les *matériaux*, pour la *chronologie*, pour l'*état de la construction*.
 
-On sait que les données de **Gertrude** contiennent un *plus grand nombre de notices*.Elles sont *signées* par un chercheur de l'inventaire(textes identiques non signés dans Mérimée).
+On sait que les données de **Gertrude** contiennent un *plus grand nombre de notices*. Elles sont *signées* par un chercheur de l'inventaire (textes identiques non signés dans Mérimée).
 
-Il serait donc intéressant pour notre corpus de chercher à fusionner ces données.
+</span>
+
+Est-il intéressant pour notre corpus de fusionner ces données ?
 
 
 <a id='t2'/>
@@ -151,23 +156,52 @@ Il serait donc intéressant pour notre corpus de chercher à fusionner ces donn�
 
 ### <8>
 
-- Créer une nouvelle feuille que l'on peut appeler « Ponts », où l'on va fusionner les deux listes
+- Dupliquer la feuille Gertrude (clic droit sur l'onglet en bas de l'écran)
 
-- Y coller tout le contenu de la feuille Gertrude (en s'assurant qu'il n'y ait pas de filtre actif qui masque une partie des lignes !)
+- Renommer la nouvelle feuille `Ponts`
 
-- Dans un nouveau tableau servant de brouillon comparer les en-têtes de la feuille Gertrude et de la feuille Mérimée
+- Dupliquer la feuille Mérimée
 
-- Quelles différences ? Que faut-il faire ?
-
+- Renommer la première feuille en `Mérimée_brut`
 
 ### <9>
+
+Il faut transformer la feuille **Mérimée** pour ordonner les informations de la même façon que dans la feuille **Ponts**
+
+
+- A : identifiant
+- B : nom
+- C : appellation
+- D : datation/0
+- E : datation/1
+- F : datation/2
+- G : commune
+- H : departement
+- I : insee
+- J : code_departement
+- K : localisation/lon
+- L : localisation/lat
+- M : appartient_a
+- N : materiau_du_gros_oeuvre
+- O : auteur
+- P : historique_du_batiment_ou_de_l_oeuvre
+- Q : description_du_batiment
+- R : type_de_protection
+- S : copyright
+- T : chercheur/0
+- U : chercheur/1
+- V : chercheur/2
+- W : chercheur/3
+
+
+### <10>
 
 Creér une nouvelle colonne est simple par un clic droit
 	
 - **G** : `datation/3`
 
 
-### <10>
+### <11>
 
 **Déplacer une colonne (ou une ligne)** :
 
@@ -184,7 +218,7 @@ Démarche :
 4. Déplacer le curseur vers la destination
 
 
-### <11>
+### <12>
 
 - 5 en-têtes propres à Mérimée doivent être ajoutés à la fin de Ponts (de **Y** à **AC**)
 
@@ -195,7 +229,7 @@ Démarche :
 - Compléter la colonne **source**
 
 
-### <12>
+### <13>
 
 Félicitations !!!
 
@@ -214,7 +248,7 @@ https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/inventaire-pays
 
 ## Chercher les problèmes, comprendre les données 
 
-### <13>
+### <14>
 
 Pour analyser les données, il est utile de les trier selon un double critère :
 
@@ -222,14 +256,14 @@ Pour analyser les données, il est utile de les trier selon un double critère 
 2. L'identifiant, pour rapprocher les notices existant sous le même identifiant dans Gertrude et Mérimée
 
 
-### <14>
+### <15>
 
 La première notice pose problème ! (IA17047185)
 
 Quelle solution proposez-vous ?
 
 
-### <15>
+### <16>
 
 Copier-coller les coordonnées de géolocalisation du pont dans Google Maps pour visualiser l'environnement du pont.
 
@@ -248,7 +282,7 @@ Ajouter des colonnes à Ponts :
 Corriger aussi les INSEE erronés pour la ville de Mayenne…
 
 
-### <16>
+### <17>
 
 **Il faut aussi chercher les doublons** : l'objectif d'un corpus est d'avoir un seul enregistrement par pont
 
@@ -262,7 +296,7 @@ Les enregistrements ayant les mêmes coordonnées seront voisins.
 Filtrer pour éliminer les ponts ayant en géolocalisation des valeurs 0.
 
 
-### <17>
+### <18>
 
 On trouve des ponts ayant les mêmes coordonnées et le même nom, mais pas le même identifiant…
 
@@ -281,7 +315,7 @@ Ou encore le Pont - D 210, Blandouet :
 Même question…
 
 
-### <18>
+### <19>
 
 
 1. Les deux ponts sont voisins l'un de l'autre
