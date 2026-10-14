@@ -166,7 +166,7 @@ Est-il intéressant pour notre corpus de fusionner ces données ?
 
 ### <9>
 
-Il faut transformer la feuille **Mérimée** pour ordonner les informations de la même façon que dans la feuille **Ponts**
+Il faut transformer la feuille **Mérimée** pour ordonner les informations de la même façon que dans la feuille **Ponts** :
 
 
 - A : identifiant
@@ -179,8 +179,8 @@ Il faut transformer la feuille **Mérimée** pour ordonner les informations de l
 - H : departement
 - I : insee
 - J : code_departement
-- K : localisation/lon
-- L : localisation/lat
+- K : localisation/lat
+- L : localisation/lon
 - M : appartient_a
 - N : materiau_du_gros_oeuvre
 - O : auteur
@@ -196,40 +196,14 @@ Il faut transformer la feuille **Mérimée** pour ordonner les informations de l
 
 ### <10>
 
-Creér une nouvelle colonne est simple par un clic droit
-	
-- **G** : `datation/3`
+Une fois les colonnes de **Mérimée_2** ordonnées comme celles de **Ponts**, on copie dans Ponts les lignes qui n'ont pas de doublon dans Gertrude :
+
+- Filtrer sur la colonne **Gertrude** (U) pour ne conserver que les items qui renvoient `#N/D`
+- Sélectionner toutes les lignes restantes en excluant la colonne U
+- Coller la sélection dans **Ponts**
 
 
 ### <11>
-
-**Déplacer une colonne (ou une ligne)** :
-
-Dans la feuille Ponts, on veut :
-
-- **L** : `localisation/lat`
-- **M** : `localisation/lon`
-
-Démarche :
-
-1. Cliquer sur l'en-tête de la colonne **M**
-2. Appuyer sur Alt et maintenir
-3. Cliquer gaucher sur une cellule de cette colonne et maintenir le clic gauche.
-4. Déplacer le curseur vers la destination
-
-
-### <12>
-
-- 5 en-têtes propres à Mérimée doivent être ajoutés à la fin de Ponts (de **Y** à **AC**)
-
-- On ajoute une colonne **Source** en **AD** ou l'on renseignera soit `Gertrude` soit `Mérimée`
-
-- Coller le contenu de la feuille Mérimée --- **NB** : Il est intéressant de conserver les couleurs pour la comparaison des notices
-
-- Compléter la colonne **source**
-
-
-### <13>
 
 Félicitations !!!
 
@@ -248,22 +222,14 @@ https://github.com/sbiay/td-num-vnp/raw/refs/heads/main/tableurs/inventaire-pays
 
 ## Chercher les problèmes, comprendre les données 
 
-### <14>
-
-Pour analyser les données, il est utile de les trier selon un double critère :
-
-1. La localisation, via le numéro INSEE
-2. L'identifiant, pour rapprocher les notices existant sous le même identifiant dans Gertrude et Mérimée
-
-
-### <15>
+### <12>
 
 La première notice pose problème ! (IA17047185)
 
 Quelle solution proposez-vous ?
 
 
-### <16>
+### <13>
 
 Copier-coller les coordonnées de géolocalisation du pont dans Google Maps pour visualiser l'environnement du pont.
 
@@ -282,21 +248,7 @@ Ajouter des colonnes à Ponts :
 Corriger aussi les INSEE erronés pour la ville de Mayenne…
 
 
-### <17>
-
-**Il faut aussi chercher les doublons** : l'objectif d'un corpus est d'avoir un seul enregistrement par pont
-
-Parcourir par communes peut être utile, ou encore trier par géolocalisation :
-
-1. Latitude
-2. Longitude
-
-Les enregistrements ayant les mêmes coordonnées seront voisins.
-
-Filtrer pour éliminer les ponts ayant en géolocalisation des valeurs 0.
-
-
-### <18>
+### <14>
 
 On trouve des ponts ayant les mêmes coordonnées et le même nom, mais pas le même identifiant…
 
@@ -314,11 +266,10 @@ Ou encore le Pont - D 210, Blandouet :
 
 Même question…
 
-
-### <19>
-
+<span info="coupure">
 
 1. Les deux ponts sont voisins l'un de l'autre
 
 2. Ils sont situés sur la même route départementale de part et d'autre de la commune
 
+</span>
