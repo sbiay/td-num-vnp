@@ -1,7 +1,7 @@
 ---
 mainfont: Alegreya
 title: Fusionner et comparer des données tabulaires
-date: 1^er^ semestre 2025-2026
+date: 1^er^ semestre 2026-2027
 author: sebastien.biay@univ-nantes.fr
 ---
 
@@ -21,6 +21,7 @@ Plan :
 <!--FINET-->
 
 
+
 <a id='t1'/>
 
 # Comparer deux tableaux de données
@@ -33,13 +34,14 @@ Plan :
 
 ### <2>
 
-On a obtenu via les API plusieurs fichiers de données tabulaires :
+On a obtenu via les jeux de données ouvertes (*open-data*) plusieurs fichiers de données tabulaires :
 
 1. Données de l'Inventaire extraites de Gertrude
+
 2. Données de Mérimée\
 	(API complète [https://api.pop.culture.gouv.fr/merimee/](https://api.pop.culture.gouv.fr/merimee/PA00109550)) :
 
-	- PA : protection au titre des MH
+	- PA : Palissy / Mérimée
 	- IA : Inventaire
 
 Le tout est rassemblé dans un tableau : [étape 1](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/inventaire-pays-loire-complet-etape-1.ods)
@@ -87,7 +89,7 @@ Est-ce normal ?
 
 ### <5>
 
-`#N/D` signifie *no data* ou "valeur non disponible".
+`#N/D` signifie *no data* ou « valeur non disponible ».
 Ce n'est pas une erreur, cela signifie : l'identifiant que vous cherchez n'est pas dans la matrice de recherche --- il n'est pas dans la feuille Mérimée.
 
 - Appliquer la formule à toute la colonne
@@ -136,7 +138,7 @@ Il serait donc intéressant pour notre corpus de chercher à fusionner ces donn�
 
 ### <8>
 
-- Créer une nouvelle feuille que l'on peut appeler "Ponts", où l'on va fusionner les deux listes
+- Créer une nouvelle feuille que l'on peut appeler « Ponts », où l'on va fusionner les deux listes
 
 - Y coller tout le contenu de la feuille Gertrude (en s'assurant qu'il n'y ait pas de filtre actif qui masque une partie des lignes !)
 
