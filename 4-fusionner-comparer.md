@@ -10,7 +10,8 @@ Fusionner et comparer des données tabulaires
 
 Plan :
 
-1. [Comparer deux tableaux de données](#t1)
+	1. [Prise en main de Libre Office Calc ](#t0-1)
+1. [Comparer deux feuilles de données](#t1)
 	1. [Fonction de recherche ](#t1-1)
 	2. [Comparer des jeux de données ](#t1-2)
 	3. [Evaluer la qualité respective des données ](#t1-3)
@@ -21,33 +22,39 @@ Plan :
 <!--FINET-->
 
 
+<a id='t0-1'/>
 
-<a id='t1'/>
-
-# Comparer deux tableaux de données
-[comment1]: <1> (TITRE1)
-
-
-<a id='t1-1'/>
-
-## Fonction de recherche 
+## Prise en main de Libre Office Calc 
 
 ### <2>
 
+
 On a obtenu via les jeux de données ouvertes (*open-data*) plusieurs fichiers de données tabulaires :
 
-1. Données de l'Inventaire extraites de Gertrude
+1. Données de l'Inventaire extraites de Gertrude (en jaune)
 
-2. Données de Mérimée\
-	(API complète [https://api.pop.culture.gouv.fr/merimee/](https://api.pop.culture.gouv.fr/merimee/PA00109550)) :
+2. Données de Mérimée (en bleu) :
 
 	- PA : Palissy / Mérimée
 	- IA : Inventaire
 
-Le tout est rassemblé dans un tableau : [étape 1](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/inventaire-pays-loire-complet-etape-1.ods)
+Le tout est rassemblé dans un tableau : [étape 1](https://github.com/sbiay/td-num-vnp/raw/main/tableurs/inventaire-pays-loire-complet-etape-1.ods) :
 
-On va évaluer la complémentarité des deux tableaux.
+- Télécharger le fichier
+- L'ouvrir dans LO Calc
+- Prendre ses repères dans Libre Office Calc grâce au [tutoriel](https://github.com/sbiay/td-num-vnp/blob/main/tuto-lo-calc.md)
+- Dans chaque feuille, sélectionner toutes les données (pas avec Ctrl + A, mais avec **Ctrl + Début** puis **Ctrl + Maj + Fin**)
+- Poser les filtres : **Ctrl + Maj + L**
 
+
+<a id='t1'/>
+
+# Comparer deux feuilles de données
+[comment2]: <2> (TITRE1)
+
+<a id='t1-1'/>
+
+## Fonction de recherche 
 
 ### <3>
 
@@ -71,15 +78,15 @@ C'est une information qu'il faut *calculer*.
 ### <4>
 
 
-Dans X2, écrire : `=RECHERCHEV(A2;$Mérimée.A:C;1;0)`
+Dans X2, écrire : `=RECHERCHEV(A2;$Mérimée.A:A;1;0)`
 
 La formule se décompose ainsi :
 
 - Un type de fonction : **RECHERCHEV** qui recherche ***V***erticalement dans un groupe de colonnes
 - Plusieurs clauses (entre parenthèses et séparées par des ;) :
 	- Le critère de recherche : `A2` *car on cherche si l'identifiant de la colonne A sera dans la feuille Mérimée*
-	- La matrice (ou groupe de colonnes où chercher) : `$Mérimée.A:C` *qui signifie chercher dans la feuille nommée Mérimée, dans les colonnes de A à C*
-	- L'indice : `1` *car c'est dans la 1^re^ colonne de la matrice que se trouve l'identifiant*
+	- La matrice (ou groupe de colonnes où chercher) : `$Mérimée.A:A` *qui signifie chercher dans la feuille nommée Mérimée, dans la colonne A*
+	- L'indice : `1` *car c'est dans la 1^re^ (et unique) colonne de la matrice que se trouve l'identifiant*
 	- Recherche dans une plage triée : `0` *pour FAUX (faites-moi confiance !)*
 
 
@@ -90,23 +97,31 @@ Est-ce normal ?
 ### <5>
 
 `#N/D` signifie *no data* ou « valeur non disponible ».
-Ce n'est pas une erreur, cela signifie : l'identifiant que vous cherchez n'est pas dans la matrice de recherche --- il n'est pas dans la feuille Mérimée.
+Ce n'est pas une erreur, cela signifie : l'identifiant que vous cherchez n'est pas dans la matrice de recherche --- il n'est pas dans la 1^re^ colonne de la feuille Mérimée.
 
-- Appliquer la formule à toute la colonne
+Appliquer la formule à toute la colonne :
 
-Certains identifiants sont trouvés ! Combien ?\
-En créant un auto-filtre sur la colonne, vous pourrez manipuler les résultats et les compter facilement.
+- Se placer en X2 > **Ctrl + C**
+- Se placer en X3 > Maintenir sur **Maj**
+- Utiliser les flèches haut/bas pour sélectionner toutes les cases jusqu'en bas des données
+- **Ctrl + V**
+
+Certains identifiants sont trouvés ! Combien ?En créant un auto-filtre sur la colonne (Ctrl + Maj + L), vous pourrez manipuler les résultats et les compter facilement.
 
 
 ### <6>
 
 La réponse est 20.
 
-On constate donc que, sur les 112 résultats de Mérimée, seuls 20 sont dans l'Inventaire du patrimoine tel qu'exposé sur le site Gertrude et tel qu'on a pu le récupérer grâce à l'API.
+On constate donc que, sur les 108 items de Mérimée, seuls 20 sont dans l'Inventaire du patrimoine tel qu'exposé sur le site Gertrude et tel qu'on a pu le récupérer grâce à l'API.
 
-**NB** : Remplacer les résultats de recherche par des valeurs booléennes (si l'identifiant est trouvé, alors 1, sinon 0) est assez compliqué et ce n'est pas utile de l'apprendre
+<span info="coupure">
+
+**NB** : remplacer les résultats de recherche par des valeurs booléennes (si l'identifiant est trouvé, alors 1, sinon 0) est assez compliqué et ce n'est pas utile de l'apprendre
 
 Mais c'est possible : `=SI(SINA(RECHERCHEV(A2;$Mérimée.A:A;1;0);0)=0;0;1)`
+
+</span>
 
 
 <a id='t1-3'/>
@@ -119,9 +134,7 @@ Lorsque les deux bases contiennent une notice sous le même identifiant, laquell
 
 Les données de **Mérimée** sont plus complètes pour les *matériaux*, pour la *chronologie*, pour l'*état de la construction*.
 
-On sait que les données de **Gertrude** contiennent un *plus grand nombre de notices*.\
-Elles sont *signées* par un chercheur de l'inventaire\
-(textes identiques non signés dans Mérimée).
+On sait que les données de **Gertrude** contiennent un *plus grand nombre de notices*.Elles sont *signées* par un chercheur de l'inventaire(textes identiques non signés dans Mérimée).
 
 Il serait donc intéressant pour notre corpus de chercher à fusionner ces données.
 
@@ -129,7 +142,7 @@ Il serait donc intéressant pour notre corpus de chercher à fusionner ces donn�
 <a id='t2'/>
 
 # Fusionner deux tableaux
-[comment5]: <7> (TITRE1)
+[comment6]: <7> (TITRE1)
 
 
 <a id='t2-1'/>
